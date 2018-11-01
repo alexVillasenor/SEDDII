@@ -16,6 +16,9 @@ class MenuDisponibilidad : public QWidget
 public:
     explicit MenuDisponibilidad(QWidget *parent = 0);
     ~MenuDisponibilidad();
+    void setProfesores();
+    void setCarreras();
+    void setMaterias();
 
 private slots:
     void on_pushButton_clicked();

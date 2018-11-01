@@ -13,6 +13,21 @@ MenuDisponibilidad::~MenuDisponibilidad()
     delete ui;
 }
 
+void MenuDisponibilidad::setProfesores()
+{
+
+}
+
+void MenuDisponibilidad::setCarreras()
+{
+
+}
+
+void MenuDisponibilidad::setMaterias()
+{
+
+}
+
 /*Regresar*/
 void MenuDisponibilidad::on_pushButton_clicked()
 {
