@@ -124,7 +124,6 @@ void LogIn::on_pushButton_clicked()
                     hide();
                     menuProf->show();
                     this->close();
-                    //QMessageBox::information(this, tr("::Profesor::"), tr("::Sistema en desarrollo"));
                 }
 
             }

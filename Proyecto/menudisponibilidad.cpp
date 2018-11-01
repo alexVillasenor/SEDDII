@@ -22,3 +22,14 @@ void MenuDisponibilidad::on_pushButton_clicked()
     this->close();
     delete this;
 }
+
+/*Agregar*/
+void MenuDisponibilidad::on_pushButton_2_clicked()
+{
+
+}
+
+void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
+{
+    ui->comboBox_Materias->addItem(arg1);
+}
