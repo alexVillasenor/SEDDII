@@ -124,18 +124,17 @@ void MenuProfesor::on_pushButton_clicked()
 /*Regresar de menu de profesores*/
 void MenuProfesor::on_pushButton_2_clicked()
 {
+    this->hide();
     if(perfil=="2"){
         MenuCA *CA = new MenuCA();
-        this->hide();
         CA->show();
-        this->close();
     }
     else if(perfil=="1"){
         MenuSU *SU = new MenuSU();
-        this->hide();
         SU->show();
-        this->close();
     }
+    this->close();
+    delete this;
 }
 
 /*Mostrar Profesores*/

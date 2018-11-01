@@ -153,6 +153,7 @@ void NuevoEnlace::on_pushButton_2_clicked()
     this->hide();
     menuMapa->show();
     this->close();
+    delete this;
 }
 
 bool NuevoEnlace::getFlag() const

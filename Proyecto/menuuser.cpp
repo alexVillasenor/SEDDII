@@ -950,4 +950,5 @@ void MenuUser::on_pushButton_clicked()
     this->hide();
     SU->show();
     this->close();
+    delete this;
 }

@@ -132,6 +132,7 @@ void MenuMapa::on_pushButton_clicked()
     this->hide();
     SU->show();
     this->close();
+    delete this;
 }
 
 /*Crear*/
@@ -145,6 +146,7 @@ void MenuMapa::on_pushButton_2_clicked()
             this->hide();
             nuevoEdificio->show();
             this->close();
+            delete this;
         }
 
     }
@@ -246,6 +248,7 @@ void MenuMapa::on_pushButton_6_clicked()
     this->hide();
     nE->show();
     this->close();
+    delete this;
 }
 
 /*Agregar enlace*/
@@ -255,6 +258,7 @@ void MenuMapa::on_pushButton_10_clicked()
     this->hide();
     nuevoEnlace->show();
     this->close();
+    delete this;
 }
 
 /*Eliminar camino*/

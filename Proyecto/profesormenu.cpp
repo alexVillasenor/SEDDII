@@ -21,6 +21,10 @@ void ProfesorMenu::on_pushButton_clicked()
 
 /*Salir*/
 void ProfesorMenu::on_pushButton_2_clicked()
-{
-
+{    
+    LogIn *logIn = new LogIn();
+    this->hide();
+    logIn->show();
+    this->close();
+    delete this;
 }
