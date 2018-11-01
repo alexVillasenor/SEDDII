@@ -120,7 +120,11 @@ void LogIn::on_pushButton_clicked()
                     QMessageBox::information(this, tr("::Asistente Academico::"), tr("::Sistema en desarrollo::"));
                 }
                 else if(u.getCodePerfil()=="4"){
-                    QMessageBox::information(this, tr("::Profesor::"), tr("::Sistema en desarrollo"));
+                    ProfesorMenu *menuProf = new ProfesorMenu();
+                    hide();
+                    menuProf->show();
+                    this->close();
+                    //QMessageBox::information(this, tr("::Profesor::"), tr("::Sistema en desarrollo"));
                 }
 
             }

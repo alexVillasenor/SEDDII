@@ -28,7 +28,7 @@ public:
     {
         if (ProfesorMenu->objectName().isEmpty())
             ProfesorMenu->setObjectName(QStringLiteral("ProfesorMenu"));
-        ProfesorMenu->resize(98, 163);
+        ProfesorMenu->resize(143, 120);
         gridLayout = new QGridLayout(ProfesorMenu);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         pushButton = new QPushButton(ProfesorMenu);
@@ -51,7 +51,7 @@ public:
 
     void retranslateUi(QWidget *ProfesorMenu)
     {
-        ProfesorMenu->setWindowTitle(QApplication::translate("ProfesorMenu", "Form", nullptr));
+        ProfesorMenu->setWindowTitle(QApplication::translate("ProfesorMenu", "Profesor", nullptr));
         pushButton->setText(QApplication::translate("ProfesorMenu", "Disponibilidad", nullptr));
         pushButton_2->setText(QApplication::translate("ProfesorMenu", "Salir", nullptr));
     } // retranslateUi
