@@ -18,6 +18,7 @@
 #include <QList>
 #include <QLineEdit>
 #include "list.h"
+#include "listainvertida.h"
 #include "stack.h"
 #include "nuevoedificio.h"
 #include "nuevoenlace.h"

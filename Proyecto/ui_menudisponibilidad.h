@@ -81,10 +81,6 @@ public:
         gridLayout_2->addWidget(label_3, 2, 0, 1, 1);
 
         comboBox_Carrera = new QComboBox(tab);
-        comboBox_Carrera->addItem(QString());
-        comboBox_Carrera->addItem(QString());
-        comboBox_Carrera->addItem(QString());
-        comboBox_Carrera->addItem(QString());
         comboBox_Carrera->setObjectName(QStringLiteral("comboBox_Carrera"));
 
         gridLayout_2->addWidget(comboBox_Carrera, 1, 1, 1, 1);
@@ -135,11 +131,6 @@ public:
         MenuDisponibilidad->setWindowTitle(QApplication::translate("MenuDisponibilidad", "Menu Disponibilidad", nullptr));
         pushButton->setText(QApplication::translate("MenuDisponibilidad", "Regresar", nullptr));
         label_3->setText(QApplication::translate("MenuDisponibilidad", "Materia", nullptr));
-        comboBox_Carrera->setItemText(0, QApplication::translate("MenuDisponibilidad", "1", nullptr));
-        comboBox_Carrera->setItemText(1, QApplication::translate("MenuDisponibilidad", "2", nullptr));
-        comboBox_Carrera->setItemText(2, QApplication::translate("MenuDisponibilidad", "3", nullptr));
-        comboBox_Carrera->setItemText(3, QApplication::translate("MenuDisponibilidad", "4", nullptr));
-
         label_2->setText(QApplication::translate("MenuDisponibilidad", "Carrera", nullptr));
         pushButton_2->setText(QApplication::translate("MenuDisponibilidad", "Agregar", nullptr));
         label->setText(QApplication::translate("MenuDisponibilidad", "Profesor", nullptr));

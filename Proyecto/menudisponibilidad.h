@@ -4,6 +4,10 @@
 #include <QWidget>
 #include "disponibilidad.h"
 #include "login.h"
+#include "list.h"
+#include "listainvertida.h"
+#include "indice.h"
+#include "programa.h"
 
 namespace Ui {
 class MenuDisponibilidad;
@@ -19,6 +23,7 @@ public:
     void setProfesores();
     void setCarreras();
     void setMaterias();
+    void loadIndex();
 
 private slots:
     void on_pushButton_clicked();
@@ -28,6 +33,8 @@ private slots:
     void on_comboBox_Carrera_activated(const QString &arg1);
 
 private:
+    List<Indice> listaIndices;
+    ListaInvertida listainvertida;
     Ui::MenuDisponibilidad *ui;
 };
 

@@ -6,6 +6,11 @@ MenuDisponibilidad::MenuDisponibilidad(QWidget *parent) :
     ui(new Ui::MenuDisponibilidad)
 {
     ui->setupUi(this);
+    ui->comboBox_Carrera->clear();
+    ui->comboBox_Materias->clear();
+    ui->comboBox_Profesor->clear();
+    loadIndex();
+    setMaterias();
 }
 
 MenuDisponibilidad::~MenuDisponibilidad()
@@ -25,7 +30,104 @@ void MenuDisponibilidad::setCarreras()
 
 void MenuDisponibilidad::setMaterias()
 {
+    Programa* aux=listainvertida.getInicioProgramas();
+    while(aux!=nullptr){
+        ui->comboBox_Carrera->addItem(aux->getNombre());
+        aux=aux->getNext();
+    }
+}
 
+void MenuDisponibilidad::loadIndex()
+{
+    listaIndices.deleteAll();
+    listainvertida.deleteAll();
+
+    ifstream indices("Indices.txt");
+    if(!indices.is_open()){
+
+    }
+    else{
+        Indice i;
+        while(!indices.eof()){
+            indices.read((char*)&i,sizeof(i));
+            if(indices.eof()){
+                break;
+            }
+            listaIndices.insertData(listaIndices.getLastPos(),i);
+        }
+        indices.close();
+    }
+
+
+    IndiceSecundario iSec;
+    string auxStr;
+    int myInt;
+    stringstream ss;
+
+    ifstream indSec("TDA_Indice_secundario.txt");
+    if(!indSec.is_open()){
+
+    }
+    else{
+        while(!indSec.eof()){
+            getline(indSec,auxStr,'|');
+            if(indSec.eof()){
+                break;
+            }
+            ss.clear();
+            ss<<auxStr;
+            ss>>myInt;
+            iSec.setCodigo(myInt);
+            listainvertida.addIndiceSecundario(iSec);
+            getline(indSec,auxStr);
+        }
+        indSec.close();
+    }
+
+    ifstream programas("TDA_Programa.txt");
+    if(!programas.is_open()){
+
+    }
+    else{
+        programas.seekg(0);
+        while(!programas.eof()){
+            getline(programas,auxStr,'|');
+            if(programas.eof()){
+                break;
+            }
+            listainvertida.addPrograma(QString::fromStdString(auxStr));
+            Programa* Pro=listainvertida.findPrograma(QString::fromStdString(auxStr));
+            getline(programas,auxStr);
+            ss.clear();
+            ss<<auxStr;
+            ss>>myInt;
+            Pro->setFirst(listainvertida.getIndiceSecundario(myInt));
+        }
+        programas.close();
+    }
+
+    indSec.open("TDA_Indice_secundario.txt");
+    if(!indSec.is_open()){
+
+    }
+    else{
+        string auxStr;
+        int myInt;
+        stringstream ss;
+        while(!indSec.eof()){
+            getline(indSec,auxStr,'|');
+            if(indSec.eof()){
+                break;
+            }
+            IndiceSecundario* iS = listainvertida.findIndiceSecundario(QString::fromStdString(auxStr));
+            getline(indSec,auxStr);
+            ss.clear();
+            ss<<auxStr;
+            ss>>myInt;
+            iS->setNextPrograma(listainvertida.getIndiceSecundario(myInt));
+        }
+        indSec.close();
+    }
 }
 
 /*Regresar*/
