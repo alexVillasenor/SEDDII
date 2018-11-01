@@ -21,7 +21,7 @@ MenuDisponibilidad::~MenuDisponibilidad()
 
 void MenuDisponibilidad::setProfesores()
 {
-
+    
 }
 
 void MenuDisponibilidad::setMaterias()
