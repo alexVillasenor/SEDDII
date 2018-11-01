@@ -49,7 +49,7 @@ void MenuDisponibilidad::setProfesores()
             getline(file,auxStr,'\n');
             qString = QString::fromStdString(auxStr);
             p.setTelefono(qString);
-            ui->comboBox_Profesor->addItem(p.getNombre());
+            ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
             flag=false;
         }
         file.close();
@@ -206,7 +206,19 @@ void MenuDisponibilidad::on_pushButton_clicked()
 /*Agregar*/
 void MenuDisponibilidad::on_pushButton_2_clicked()
 {
+    QString clave;
+    clave=ui->comboBox_Profesor->currentText();
+    clave+=ui->comboBox_Materias->currentText();
+    QDate today=QDate::currentDate();
+    QTime now=QTime::currentTime();
 
+    Disponibilidad d;
+    d.setClave(clave);
+    d.setFecha(today);
+    d.setHora(now);
+    qDebug()<<clave;
+    qDebug()<<today;
+    qDebug()<<now;
 }
 
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
