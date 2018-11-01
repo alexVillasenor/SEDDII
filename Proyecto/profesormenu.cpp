@@ -16,7 +16,11 @@ ProfesorMenu::~ProfesorMenu()
 /*Disponibilidad*/
 void ProfesorMenu::on_pushButton_clicked()
 {
-
+    MenuDisponibilidad *menuDis = new MenuDisponibilidad();
+    this->hide();
+    menuDis->show();
+    this->close();
+    delete this;
 }
 
 /*Salir*/
