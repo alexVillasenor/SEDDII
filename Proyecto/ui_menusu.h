@@ -32,6 +32,7 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton;
     QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
 
     void setupUi(QWidget *MenuSU)
     {
@@ -70,7 +71,7 @@ public:
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setAutoDefault(true);
 
-        gridLayout->addWidget(pushButton_4, 8, 0, 1, 1);
+        gridLayout->addWidget(pushButton_4, 9, 0, 1, 1);
 
         pushButton_6 = new QPushButton(MenuSU);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
@@ -96,13 +97,20 @@ public:
 
         gridLayout->addWidget(pushButton_8, 7, 0, 1, 1);
 
+        pushButton_9 = new QPushButton(MenuSU);
+        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
+        pushButton_9->setAutoDefault(true);
+
+        gridLayout->addWidget(pushButton_9, 8, 0, 1, 1);
+
         QWidget::setTabOrder(pushButton, pushButton_2);
         QWidget::setTabOrder(pushButton_2, pushButton_3);
         QWidget::setTabOrder(pushButton_3, pushButton_5);
         QWidget::setTabOrder(pushButton_5, pushButton_6);
         QWidget::setTabOrder(pushButton_6, pushButton_7);
         QWidget::setTabOrder(pushButton_7, pushButton_8);
-        QWidget::setTabOrder(pushButton_8, pushButton_4);
+        QWidget::setTabOrder(pushButton_8, pushButton_9);
+        QWidget::setTabOrder(pushButton_9, pushButton_4);
 
         retranslateUi(MenuSU);
 
@@ -121,6 +129,7 @@ public:
         pushButton_3->setText(QApplication::translate("MenuSU", "Profesor", nullptr));
         pushButton->setText(QApplication::translate("MenuSU", "Usuario", nullptr));
         pushButton_8->setText(QApplication::translate("MenuSU", "Mapa", nullptr));
+        pushButton_9->setText(QApplication::translate("MenuSU", "Disponibilidad", nullptr));
     } // retranslateUi
 
 };

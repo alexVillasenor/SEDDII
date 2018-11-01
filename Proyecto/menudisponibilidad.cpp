@@ -16,5 +16,9 @@ MenuDisponibilidad::~MenuDisponibilidad()
 /*Regresar*/
 void MenuDisponibilidad::on_pushButton_clicked()
 {
-
+    MenuSU *SU = new MenuSU();
+    this->hide();
+    SU->show();
+    this->close();
+    delete this;
 }

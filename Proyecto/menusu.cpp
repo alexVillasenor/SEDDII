@@ -96,3 +96,11 @@ void MenuSU::on_pushButton_8_clicked()
     menuMapa->show();
     this->close();
 }
+
+void MenuSU::on_pushButton_9_clicked()
+{
+    MenuDisponibilidad *menuDis = new MenuDisponibilidad();
+    this->hide();
+    menuDis->show();
+    this->close();
+}
