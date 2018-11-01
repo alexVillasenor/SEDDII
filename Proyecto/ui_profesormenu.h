@@ -28,7 +28,7 @@ public:
     {
         if (ProfesorMenu->objectName().isEmpty())
             ProfesorMenu->setObjectName(QStringLiteral("ProfesorMenu"));
-        ProfesorMenu->resize(143, 120);
+        ProfesorMenu->resize(209, 120);
         gridLayout = new QGridLayout(ProfesorMenu);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         pushButton = new QPushButton(ProfesorMenu);

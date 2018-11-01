@@ -12,6 +12,7 @@ MenuDisponibilidad::MenuDisponibilidad(QWidget *parent) :
     loadIndex();
     setCarreras();
     setMaterias();
+    setProfesores();
 }
 
 MenuDisponibilidad::~MenuDisponibilidad()
@@ -21,7 +22,41 @@ MenuDisponibilidad::~MenuDisponibilidad()
 
 void MenuDisponibilidad::setProfesores()
 {
+    bool flag(true);
+    ifstream file("Profesores.txt");
+    if(!file.is_open()){
+        QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo profesores::"));
+    }
 
+    else{
+        while (!file.eof()) {
+            string auxStr;
+            QString qString;
+            Profesor p;
+            getline(file,auxStr,',');
+
+            if(file.eof()){
+                break;
+            }
+            qString = QString::fromStdString(auxStr);
+            p.setCode(qString);
+            getline(file,auxStr,',');
+            qString = QString::fromStdString(auxStr);
+            p.setNombre(qString);
+            getline(file,auxStr,',');
+            qString = QString::fromStdString(auxStr);
+            p.setCorreo(qString);
+            getline(file,auxStr,'\n');
+            qString = QString::fromStdString(auxStr);
+            p.setTelefono(qString);
+            ui->comboBox_Profesor->addItem(p.getNombre());
+            flag=false;
+        }
+        file.close();
+        if(flag){
+            QMessageBox::information(this, tr("::Error::"), tr("::No hay profesores registrados::"));
+        }
+    }
 }
 
 void MenuDisponibilidad::setMaterias()
