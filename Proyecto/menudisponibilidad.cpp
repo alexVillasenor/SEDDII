@@ -10,6 +10,7 @@ MenuDisponibilidad::MenuDisponibilidad(QWidget *parent) :
     ui->comboBox_Materias->clear();
     ui->comboBox_Profesor->clear();
     loadIndex();
+    setCarreras();
     setMaterias();
 }
 
@@ -23,12 +24,39 @@ void MenuDisponibilidad::setProfesores()
 
 }
 
-void MenuDisponibilidad::setCarreras()
+void MenuDisponibilidad::setMaterias()
 {
+    if(!ui->comboBox_Carrera->currentText().isEmpty()){
+        Programa* auxPrograma = listainvertida.findPrograma(ui->comboBox_Carrera->currentText());
 
+        if(auxPrograma!=nullptr){
+            IndiceSecundario* auxIndSec = auxPrograma->getFirst();
+
+            while(auxIndSec!=nullptr){
+                Indice i;
+                Asignatura a;
+                i.setCodigo(auxIndSec->getCodigo());
+                long int dir =listaIndices.retriveData(listaIndices.findData(i)).getDireccion();
+                ifstream f("Asignaturas.txt");
+                f.seekg(dir);
+                f.read((char*)&a,sizeof(a));
+                f.close();
+                if(a.getStatus()=='1'){
+                    ui->comboBox_Materias->addItem(a.getNombre());
+                }
+                auxIndSec=auxIndSec->getNextPrograma();
+            }
+        }
+        else
+            QMessageBox::information(this, tr("::Error::"), tr("::Llena todos los campos correctamente::"));
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Llena todos los campos correctamente::"));
+
+    }
 }
 
-void MenuDisponibilidad::setMaterias()
+void MenuDisponibilidad::setCarreras()
 {
     Programa* aux=listainvertida.getInicioProgramas();
     while(aux!=nullptr){
@@ -148,5 +176,6 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
 
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
 {
-    ui->comboBox_Materias->addItem(arg1);
+    ui->comboBox_Materias->clear();
+    setMaterias();
 }
