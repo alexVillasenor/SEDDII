@@ -46,6 +46,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_tabWidget_currentChanged(int index);
+
+    void on_pushButton_4_clicked();
+
 private:
     List<Indice> listaIndices;
     ListaInvertida listainvertida;

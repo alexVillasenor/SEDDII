@@ -328,7 +328,63 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
                 pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
             }
         }
+        file.close();
     }
+}
+
+/*Buscar*/
+void MenuDisponibilidad::on_pushButton_4_clicked()
+{
+    ui->textBrowser_2->clear();
+    if(!ui->lineEdit->text().isEmpty()){
+        QString clave=ui->lineEdit->text();
+        long int dBase=dispersion(clave.toStdString());
+
+        ifstream file("Dispersa.txt");
+        if(!file.is_open()){
+            ui->textBrowser_2->setText("::Error al abrir el archivo::");
+        }
+        else{
+            Disponibilidad d;
+            int cont;
+            long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
+            file.seekg(pos,ios::beg);
+            file.read((char*)&cont,sizeof(cont));
+            if(cont==0){
+                ui->textBrowser_2->setText("::Clave Erronea::");
+            }
+            else{
+                for(int i(0);i<cont;i++){
+                    file.read((char*)&d,sizeof(d));
+                    QString llave=d.getClaveProf();
+                    llave+=d.getClaveAsig();
+                    //qDebug()<<llave;
+                    if(type==1 && llave==clave)
+                        ui->textBrowser_2->append(d.toQstring());
+                    else if(type==4 && d.getClaveProf()==code && llave==clave)
+                        ui->textBrowser_2->append(d.toQstring());
+                    else
+                        ui->textBrowser_2->setText("::Clave Erronea::");
+                }
+            }
+            file.close();
+        }
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
+    }
+
+}
+
+void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
+{
+    ui->comboBox_Materias->clear();
+    setMaterias();
+}
+
+void MenuDisponibilidad::on_tabWidget_currentChanged(int index)
+{
+
 }
 
 QString MenuDisponibilidad::getCode() const
@@ -351,8 +407,3 @@ void MenuDisponibilidad::setType(int value)
     type = value;
 }
 
-void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
-{
-    ui->comboBox_Materias->clear();
-    setMaterias();
-}
