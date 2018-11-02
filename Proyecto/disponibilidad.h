@@ -6,17 +6,21 @@
 #include <iostream>
 #include <sstream>
 #include <QDate>
+#include "login.h"
 
 class Disponibilidad
 {
 private:
-    char clave[10];
+    char claveProf[10];
+    char claveAsig[10];
     QDate fecha;
     QTime hora;
 public:
     Disponibilidad();
-    QString getClave() const;
-    void setClave(const QString &value);
+    QString getClaveProf() const;
+    void setClaveProf(const QString &value);
+    QString getClaveAsig() const;
+    void setClaveAsig(const QString &value);
     QDate getFecha() const;
     void setFecha(const QDate &value);
     QTime getHora() const;

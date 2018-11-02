@@ -110,7 +110,20 @@ void MenuSU::on_pushButton_9_clicked()
 {
     MenuDisponibilidad *menuDis = new MenuDisponibilidad();
     this->hide();
+    menuDis->setType(1);
+    menuDis->setCode(code);
+    menuDis->setProfesores();
     menuDis->show();
     this->close();
     delete this;
+}
+
+QString MenuSU::getCode() const
+{
+    return code;
+}
+
+void MenuSU::setCode(const QString &value)
+{
+    code = value;
 }

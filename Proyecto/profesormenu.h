@@ -16,12 +16,16 @@ public:
     explicit ProfesorMenu(QWidget *parent = 0);
     ~ProfesorMenu();
 
+    QString getCode() const;
+    void setCode(const QString &value);
+
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
 private:
+    QString code;
     Ui::ProfesorMenu *ui;
 };
 

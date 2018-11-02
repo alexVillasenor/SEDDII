@@ -56,7 +56,11 @@ void MenuDisponibilidad::setProfesores()
             getline(file,auxStr,'\n');
             qString = QString::fromStdString(auxStr);
             p.setTelefono(qString);
-            ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
+            if(type==1)
+                ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
+            else if(type==4 && p.getCode()==code){
+                ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
+            }
             flag=false;
         }
         file.close();
@@ -229,40 +233,55 @@ long MenuDisponibilidad::dispersion(string clave)
 /*Regresar*/
 void MenuDisponibilidad::on_pushButton_clicked()
 {
-    MenuSU *SU = new MenuSU();
-    this->hide();
-    SU->show();
-    this->close();
-    delete this;
+    if(type==1){
+        MenuSU *SU = new MenuSU();
+        this->hide();
+        SU->setCode(code);
+        SU->show();
+        this->close();
+        delete this;
+    }
+    else if(type==4){
+        ProfesorMenu *menuProf = new ProfesorMenu();
+        this->hide();
+        menuProf->setCode(code);
+        menuProf->show();
+        this->close();
+        delete this;
+    }
 }
 
 /*Agregar*/
 void MenuDisponibilidad::on_pushButton_2_clicked()
 {
-    string clave;
-    clave=ui->comboBox_Profesor->currentText().toStdString().substr(0,3);
-    clave+=ui->comboBox_Materias->currentText().toStdString().substr(0,3);
+    string clave,auxStr;
+    QString llave;
     QDate today=QDate::currentDate();
     QTime now=QTime::currentTime();
+    Disponibilidad d;
+    int cont;
+
+    auxStr=ui->comboBox_Profesor->currentText().toStdString().substr(0,3);
+    llave=auxStr.c_str();
+    clave=auxStr;
+    d.setClaveProf(llave);
+    auxStr=ui->comboBox_Materias->currentText().toStdString().substr(0,3);
+    llave=auxStr.c_str();
+    clave+=auxStr;
+    d.setClaveAsig(llave);
+
+    d.setFecha(today);
+    d.setHora(now);
     long int dBase=dispersion(clave);
     long int aux=dBase,aux2;
-    Disponibilidad d;
-    QString llave;
-    int cont;
 
     qDebug()<<llave;
     qDebug()<<today;
     qDebug()<<now;
     qDebug()<<dBase;
 
-    llave=clave.c_str();
-
-    d.setClave(llave);
-    d.setFecha(today);
-    d.setHora(now);
-
     fstream file("Dispersa.txt");
-    dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(int));
+    dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
     file.seekg(dBase,ios::beg);
     file.read((char*)&cont,sizeof(cont));
     if(cont == COLUMNAS){
@@ -279,7 +298,6 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
         file.write((char*)&cont,sizeof(cont));
         QMessageBox::information(this, tr("::Exito::"), tr("::Disponibilidad agregada::"));
     }
-
 }
 
 /*Mostrar*/
@@ -302,12 +320,35 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
             else{
                 for(int i(0);i<cont;i++){
                     file.read((char*)&d,sizeof(d));
-                    ui->textBrowser->append(d.toQstring());
+                    if(type==1)
+                        ui->textBrowser->append(d.toQstring());
+                    else if(type==4 && d.getClaveProf()==code)
+                        ui->textBrowser->append(d.toQstring());
                 }
                 pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
             }
         }
     }
+}
+
+QString MenuDisponibilidad::getCode() const
+{
+    return code;
+}
+
+void MenuDisponibilidad::setCode(const QString &value)
+{
+    code = value;
+}
+
+int MenuDisponibilidad::getType() const
+{
+    return type;
+}
+
+void MenuDisponibilidad::setType(int value)
+{
+    type = value;
 }
 
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)

@@ -31,6 +31,12 @@ public:
     void genera();
     long int dispersion(std::string clave);
 
+    int getType() const;
+    void setType(int value);
+
+    QString getCode() const;
+    void setCode(const QString &value);
+
 private slots:
     void on_pushButton_clicked();
 
@@ -43,6 +49,8 @@ private slots:
 private:
     List<Indice> listaIndices;
     ListaInvertida listainvertida;
+    int type;
+    QString code;
     Ui::MenuDisponibilidad *ui;
 };
 

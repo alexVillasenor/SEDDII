@@ -29,6 +29,7 @@ void LogIn::on_pushButton_clicked()
     if(Qcode=="1" && Qpw=="1"){
         MenuSU *menuAdmin = new MenuSU();
         hide();
+        menuAdmin->setCode(Qcode);
         menuAdmin->show();
         this->close();
     }
@@ -107,6 +108,7 @@ void LogIn::on_pushButton_clicked()
                 if(u.getCodePerfil()=="1"){
                     MenuSU *menuAdmin = new MenuSU();
                     hide();
+                    menuAdmin->setCode(Qcode);
                     menuAdmin->show();
                     this->close();
                 }
@@ -122,6 +124,7 @@ void LogIn::on_pushButton_clicked()
                 else if(u.getCodePerfil()=="4"){
                     ProfesorMenu *menuProf = new ProfesorMenu();
                     hide();
+                    menuProf->setCode(Qcode);
                     menuProf->show();
                     this->close();
                 }

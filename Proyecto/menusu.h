@@ -29,6 +29,9 @@ public:
     QString getPerfil() const;
     void setPerfil(const QString &value);
 
+    QString getCode() const;
+    void setCode(const QString &value);
+
 private slots:
     void on_pushButton_clicked();
 
@@ -50,6 +53,7 @@ private slots:
 
 private:
     Ui::MenuSU *ui;
+    QString code;
 };
 
 #endif // MENUSU_H

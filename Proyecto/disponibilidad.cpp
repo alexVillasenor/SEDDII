@@ -1,14 +1,25 @@
 #include "disponibilidad.h"
 
-QString Disponibilidad::getClave() const
+QString Disponibilidad::getClaveProf() const
 {
-    QString aux=clave;
+    QString aux=claveProf;
     return aux;
 }
 
-void Disponibilidad::setClave(const QString &value)
+void Disponibilidad::setClaveProf(const QString &value)
 {
-    strcpy(clave,value.toStdString().c_str());
+    strcpy(claveProf,value.toStdString().c_str());
+}
+
+QString Disponibilidad::getClaveAsig() const
+{
+    QString aux=claveAsig;
+    return aux;
+}
+
+void Disponibilidad::setClaveAsig(const QString &value)
+{
+    strcpy(claveAsig,value.toStdString().c_str());
 }
 
 QDate Disponibilidad::getFecha() const
@@ -35,7 +46,11 @@ QString Disponibilidad::toQstring()
 {
     QString aux;
     aux+="Clave: ";
-    aux+=getClave();
+    aux+=getClaveProf()+getClaveAsig();
+    aux+="\nCodigo Profesor: ";
+    aux+=getClaveProf();
+    aux+="\nCodigo Asignatura: ";
+    aux+=getClaveAsig();
     aux+="\nFecha: ";
     aux+=getFecha().toString();
     aux+="\nHora: ";
