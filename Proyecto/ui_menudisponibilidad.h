@@ -51,6 +51,10 @@ public:
     QPushButton *pushButton_4;
     QWidget *tab_4;
     QWidget *tab_5;
+    QGridLayout *gridLayout_5;
+    QTextBrowser *textBrowser_3;
+    QLineEdit *lineEdit_2;
+    QPushButton *pushButton_5;
 
     void setupUi(QWidget *MenuDisponibilidad)
     {
@@ -158,6 +162,24 @@ public:
         tabWidget->addTab(tab_4, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QStringLiteral("tab_5"));
+        gridLayout_5 = new QGridLayout(tab_5);
+        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        textBrowser_3 = new QTextBrowser(tab_5);
+        textBrowser_3->setObjectName(QStringLiteral("textBrowser_3"));
+
+        gridLayout_5->addWidget(textBrowser_3, 0, 0, 1, 2);
+
+        lineEdit_2 = new QLineEdit(tab_5);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+
+        gridLayout_5->addWidget(lineEdit_2, 1, 0, 1, 1);
+
+        pushButton_5 = new QPushButton(tab_5);
+        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
+        pushButton_5->setAutoDefault(true);
+
+        gridLayout_5->addWidget(pushButton_5, 1, 1, 1, 1);
+
         tabWidget->addTab(tab_5, QString());
 
         gridLayout->addWidget(tabWidget, 0, 0, 1, 2);
@@ -165,7 +187,7 @@ public:
 
         retranslateUi(MenuDisponibilidad);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MenuDisponibilidad);
@@ -186,6 +208,8 @@ public:
         pushButton_4->setText(QApplication::translate("MenuDisponibilidad", "Buscar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MenuDisponibilidad", "Buscar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MenuDisponibilidad", "Modificar", nullptr));
+        lineEdit_2->setPlaceholderText(QApplication::translate("MenuDisponibilidad", "Clave Disponibilidad", nullptr));
+        pushButton_5->setText(QApplication::translate("MenuDisponibilidad", "Eliminar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MenuDisponibilidad", "Eliminar", nullptr));
     } // retranslateUi
 

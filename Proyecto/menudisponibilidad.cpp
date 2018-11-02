@@ -358,7 +358,6 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
                     file.read((char*)&d,sizeof(d));
                     QString llave=d.getClaveProf();
                     llave+=d.getClaveAsig();
-                    //qDebug()<<llave;
                     if(type==1 && llave==clave)
                         ui->textBrowser_2->append(d.toQstring());
                     else if(type==4 && d.getClaveProf()==code && llave==clave)
@@ -374,6 +373,60 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
         QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
     }
 
+}
+
+/*Eliminar*/
+void MenuDisponibilidad::on_pushButton_5_clicked()
+{
+    ui->textBrowser_3->clear();
+    if(!ui->lineEdit_2->text().isEmpty()){
+        QString clave=ui->lineEdit_2->text();
+        long int dBase=dispersion(clave.toStdString());
+
+        fstream file("Dispersa.txt");
+        if(!file.is_open()){
+            ui->textBrowser_3->setText("::Error al abrir el archivo::");
+        }
+        else{
+            Disponibilidad d;
+            int cont;
+            long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
+            file.seekg(pos,ios::beg);
+            file.read((char*)&cont,sizeof(cont));
+            if(cont==0){
+                ui->textBrowser_3->setText("::Clave Erronea::");
+            }
+            else{
+                for(int i(0);i<cont;i++){
+                    file.read((char*)&d,sizeof(d));
+                    QString llave=d.getClaveProf();
+                    llave+=d.getClaveAsig();
+                    if(type==1 && llave==clave){
+                        cont--;
+                        file.seekp(pos,ios::beg);
+                        file.write((char*)&cont,sizeof(cont));
+                        ui->textBrowser_3->append(d.toQstring());
+                        ui->textBrowser_3->append("::Eliminado::");
+                        break;
+                    }
+                    else if(type==4 && d.getClaveProf()==code && llave==clave){
+                        cont--;
+                        file.seekp(pos,ios::beg);
+                        file.write((char*)&cont,sizeof(cont));
+                        ui->textBrowser_3->append(d.toQstring());
+                        ui->textBrowser_3->append("::Eliminado::");
+                        break;
+                    }
+                    else
+                        ui->textBrowser_3->setText("::Clave Erronea::");
+                }
+            }
+            file.close();
+        }
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
+    }
 }
 
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)

@@ -50,6 +50,8 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     List<Indice> listaIndices;
     ListaInvertida listainvertida;
