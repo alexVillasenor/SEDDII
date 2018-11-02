@@ -6,12 +6,20 @@ MenuDisponibilidad::MenuDisponibilidad(QWidget *parent) :
     ui(new Ui::MenuDisponibilidad)
 {
     ui->setupUi(this);
+    ui->lineEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{6}")));
+    ui->lineEdit_2->setValidator(new QRegExpValidator(QRegExp("[0-9]{6}")));
+    ui->lineEdit_3->setValidator(new QRegExpValidator(QRegExp("[0-9]{6}")));
     ui->comboBox_Carrera->clear();
     ui->comboBox_Materias->clear();
     ui->comboBox_Profesor->clear();
+    ui->comboBox->clear();
+    ui->comboBox_2->clear();
+    ui->dateTimeEdit->setCalendarPopup(true);
+    ui->dateTimeEdit->setDate(QDate::currentDate());
+    ui->dateTimeEdit->setTime(QTime::currentTime());
     loadIndex();
     setCarreras();
-    setMaterias();
+    setMaterias(1);
     setProfesores();
     ifstream f("Dispersa.txt");
     if(!f.is_open()){
@@ -70,10 +78,16 @@ void MenuDisponibilidad::setProfesores()
     }
 }
 
-void MenuDisponibilidad::setMaterias()
+void MenuDisponibilidad::setMaterias(int j)
 {
     if(!ui->comboBox_Carrera->currentText().isEmpty()){
-        Programa* auxPrograma = listainvertida.findPrograma(ui->comboBox_Carrera->currentText());
+        Programa* auxPrograma;
+        if(j==1){
+            auxPrograma = listainvertida.findPrograma(ui->comboBox_Carrera->currentText());
+        }
+        else if(j==2){
+            auxPrograma = listainvertida.findPrograma(ui->comboBox->currentText());
+        }
 
         if(auxPrograma!=nullptr){
             IndiceSecundario* auxIndSec = auxPrograma->getFirst();
@@ -88,7 +102,10 @@ void MenuDisponibilidad::setMaterias()
                 f.read((char*)&a,sizeof(a));
                 f.close();
                 if(a.getStatus()=='1'){
-                    ui->comboBox_Materias->addItem(QString::number(a.getCodigo())+" - "+a.getNombre());
+                    if(j==1)
+                        ui->comboBox_Materias->addItem(QString::number(a.getCodigo())+" - "+a.getNombre());
+                    else if(j==2)
+                        ui->comboBox_2->addItem(QString::number(a.getCodigo())+" - "+a.getNombre());
                 }
                 auxIndSec=auxIndSec->getNextPrograma();
             }
@@ -107,6 +124,7 @@ void MenuDisponibilidad::setCarreras()
     Programa* aux=listainvertida.getInicioProgramas();
     while(aux!=nullptr){
         ui->comboBox_Carrera->addItem(aux->getNombre());
+        ui->comboBox->addItem(aux->getNombre());
         aux=aux->getNext();
     }
 }
@@ -432,13 +450,124 @@ void MenuDisponibilidad::on_pushButton_5_clicked()
 /*Modificar*/
 void MenuDisponibilidad::on_pushButton_6_clicked()
 {
+    ui->textBrowser_4->clear();
+        if(!ui->lineEdit_3->text().isEmpty()){
+            QString clave=ui->lineEdit_3->text();
+            QDate newDate=ui->dateTimeEdit->date();
+            QTime newTime=ui->dateTimeEdit->time();
+            string newAsig = ui->comboBox_2->currentText().toStdString().substr(0,3);
+            QString auxQstr = newAsig.c_str();
+            string newClave;
 
+
+            long int dBase=dispersion(clave.toStdString());
+
+            fstream file("Dispersa.txt");
+            if(!file.is_open()){
+                ui->textBrowser_4->setText("::Error al abrir el archivo::");
+            }
+            else{
+                Disponibilidad d;
+                int cont;
+                long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
+                file.seekg(pos,ios::beg);
+                file.read((char*)&cont,sizeof(cont));
+                if(cont==0){
+                    ui->textBrowser_4->setText("::Clave Erronea::");
+                }
+                else{
+                    for(int i(0);i<cont;i++){
+                        file.read((char*)&d,sizeof(d));
+                        QString llave=d.getClaveProf();
+                        llave+=d.getClaveAsig();
+                        if(type==1 && llave==clave){
+                            cont--;
+                            file.seekp(pos,ios::beg);
+                            file.write((char*)&cont,sizeof(cont));
+                            ui->textBrowser_4->append(d.toQstring());
+                            ui->textBrowser_4->append("::Modificado::");
+                            d.setFecha(newDate);
+                            d.setHora(newTime);
+                            d.setClaveAsig(auxQstr);
+                            newClave=d.getClaveProf().toStdString();
+                            newClave+=newAsig;
+
+                            long int newDBase = dispersion(newClave);
+                            long int aux=newDBase,aux2;
+
+                            newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
+                            file.seekg(newDBase,ios::beg);
+                            file.read((char*)&cont,sizeof(cont));
+                            if(cont == COLUMNAS){
+                                QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+                            }
+                            else{
+                                long int pos = newDBase+(cont*sizeof(d))+sizeof(cont);
+                                aux2=pos;
+                                file.seekp(pos,ios::beg);
+                                file.write((char*)&d,sizeof(d));
+                                cont++;
+                                pos=newDBase;
+                                file.seekp(pos,ios::beg);
+                                file.write((char*)&cont,sizeof(cont));
+                            }
+                            break;
+                        }
+                        else if(type==4 && d.getClaveProf()==code && llave==clave){
+                            cont--;
+                            file.seekp(pos,ios::beg);
+                            file.write((char*)&cont,sizeof(cont));
+                            ui->textBrowser_4->append(d.toQstring());
+                            ui->textBrowser_4->append("::Modificado::");
+                            d.setFecha(newDate);
+                            d.setHora(newTime);
+                            d.setClaveAsig(auxQstr);
+                            newClave=d.getClaveProf().toStdString();
+                            newClave+=newAsig;
+
+                            long int newDBase = dispersion(newClave);
+                            long int aux=newDBase,aux2;
+
+                            newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
+                            file.seekg(newDBase,ios::beg);
+                            file.read((char*)&cont,sizeof(cont));
+                            if(cont == COLUMNAS){
+                                QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+                            }
+                            else{
+                                long int pos = newDBase+(cont*sizeof(d))+sizeof(cont);
+                                aux2=pos;
+                                file.seekp(pos,ios::beg);
+                                file.write((char*)&d,sizeof(d));
+                                cont++;
+                                pos=newDBase;
+                                file.seekp(pos,ios::beg);
+                                file.write((char*)&cont,sizeof(cont));
+                            }
+                            break;
+                        }
+                        else
+                            ui->textBrowser_4->setText("::Clave Erronea::");
+                    }
+                }
+                file.close();
+            }
+        }
+        else{
+            QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
+        }
+}
+
+void MenuDisponibilidad::on_comboBox_activated(const QString &arg1)
+{
+    ui->comboBox_2->clear();
+    setMaterias(2);
 }
 
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
 {
     ui->comboBox_Materias->clear();
-    setMaterias();
+    setMaterias(1);
 }
 
 void MenuDisponibilidad::on_tabWidget_currentChanged(int index)
@@ -465,3 +594,4 @@ void MenuDisponibilidad::setType(int value)
 {
     type = value;
 }
+

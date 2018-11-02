@@ -26,7 +26,7 @@ public:
     ~MenuDisponibilidad();
     void setProfesores();
     void setCarreras();
-    void setMaterias();
+    void setMaterias(int j);
     void loadIndex();
     void genera();
     long int dispersion(std::string clave);
@@ -53,6 +53,8 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_6_clicked();
+
+    void on_comboBox_activated(const QString &arg1);
 
 private:
     List<Indice> listaIndices;
