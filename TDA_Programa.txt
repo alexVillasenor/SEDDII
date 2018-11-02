@@ -1,3 +1,3 @@
 compu|0
 info|1
-tic|4
+tic|3
