@@ -27,12 +27,12 @@ bool isEmpty(string name){
 QString getLastCode(string name){
     QString code;
     if(isEmpty(name)){
-        return code="10";
+        return code="300";
     }
     else{
         ifstream file(name+".txt");
         if(!file.is_open()){
-            return code="10";
+            return code="300";
         }
         else{
             User u;

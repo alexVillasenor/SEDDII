@@ -47,12 +47,12 @@ bool isEmptyAsignaturas(string name){
 
 int getLastCodeAsignatura(string name){
     if(isEmptyAsignaturas(name)){
-        return 1;
+        return 200;
     }
     else{
         ifstream file(name);
         if(!file.is_open()){
-            return 1;
+            return 200;
         }
         else{
             Asignatura a;
