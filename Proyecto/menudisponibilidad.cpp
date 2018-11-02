@@ -429,6 +429,12 @@ void MenuDisponibilidad::on_pushButton_5_clicked()
     }
 }
 
+/*Modificar*/
+void MenuDisponibilidad::on_pushButton_6_clicked()
+{
+
+}
+
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
 {
     ui->comboBox_Materias->clear();
@@ -459,4 +465,3 @@ void MenuDisponibilidad::setType(int value)
 {
     type = value;
 }
-
