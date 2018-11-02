@@ -13,6 +13,13 @@ MenuDisponibilidad::MenuDisponibilidad(QWidget *parent) :
     setCarreras();
     setMaterias();
     setProfesores();
+    ifstream f("Dispersa.txt");
+    if(!f.is_open()){
+        genera();
+    }
+    else{
+        f.close();
+    }
 }
 
 MenuDisponibilidad::~MenuDisponibilidad()
@@ -193,6 +200,32 @@ void MenuDisponibilidad::loadIndex()
     }
 }
 
+void MenuDisponibilidad::genera()
+{
+    Disponibilidad d;
+    int cont(0);
+    ofstream file("Dispersa.txt",ios::app);
+    for(int i(0);i<FILAS;i++){
+        file.write((char*)&cont,sizeof(cont));
+        for(int j(0);j<COLUMNAS;j++){
+            file.write((char*)&d,sizeof(d));
+        }
+    }
+    file.close();
+}
+
+long MenuDisponibilidad::dispersion(string clave)
+{
+    int i(0);
+    int direccionBase(0);
+    while(i<clave.length()){
+        direccionBase+=((FILAS*clave[i])+(clave[i+1]%84645));
+        i+=2;
+    }
+    direccionBase=direccionBase%FILAS;
+    return direccionBase;
+}
+
 /*Regresar*/
 void MenuDisponibilidad::on_pushButton_clicked()
 {
@@ -206,19 +239,75 @@ void MenuDisponibilidad::on_pushButton_clicked()
 /*Agregar*/
 void MenuDisponibilidad::on_pushButton_2_clicked()
 {
-    QString clave;
-    clave=ui->comboBox_Profesor->currentText();
-    clave+=ui->comboBox_Materias->currentText();
+    string clave;
+    clave=ui->comboBox_Profesor->currentText().toStdString().substr(0,3);
+    clave+=ui->comboBox_Materias->currentText().toStdString().substr(0,3);
     QDate today=QDate::currentDate();
     QTime now=QTime::currentTime();
-
+    long int dBase=dispersion(clave);
+    long int aux=dBase,aux2;
     Disponibilidad d;
-    d.setClave(clave);
-    d.setFecha(today);
-    d.setHora(now);
-    qDebug()<<clave;
+    QString llave;
+    int cont;
+
+    qDebug()<<llave;
     qDebug()<<today;
     qDebug()<<now;
+    qDebug()<<dBase;
+
+    llave=clave.c_str();
+
+    d.setClave(llave);
+    d.setFecha(today);
+    d.setHora(now);
+
+    fstream file("Dispersa.txt");
+    dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(int));
+    file.seekg(dBase,ios::beg);
+    file.read((char*)&cont,sizeof(cont));
+    if(cont == COLUMNAS){
+        QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+    }
+    else{
+        long int pos = dBase+(cont*sizeof(d))+sizeof(cont);
+        aux2=pos;
+        file.seekp(pos,ios::beg);
+        file.write((char*)&d,sizeof(d));
+        cont++;
+        pos=dBase;
+        file.seekp(pos,ios::beg);
+        file.write((char*)&cont,sizeof(cont));
+        QMessageBox::information(this, tr("::Exito::"), tr("::Disponibilidad agregada::"));
+    }
+
+}
+
+/*Mostrar*/
+void MenuDisponibilidad::on_pushButton_3_clicked()
+{
+    ui->textBrowser->clear();
+    ifstream file("Dispersa.txt");
+    int pos(0),cont;
+    Disponibilidad d;
+    if(!file.is_open()){
+        ui->textBrowser->setText("::Error al abrir el archivo::");
+    }
+    else{
+        while(!file.eof()){
+            file.seekg(pos,ios::beg);
+            file.read((char*)&cont,sizeof(cont));
+            if(cont==0){
+                pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
+            }
+            else{
+                for(int i(0);i<cont;i++){
+                    file.read((char*)&d,sizeof(d));
+                    ui->textBrowser->append(d.toQstring());
+                }
+                pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
+            }
+        }
+    }
 }
 
 void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)

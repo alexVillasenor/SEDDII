@@ -17,6 +17,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,6 +39,10 @@ public:
     QPushButton *pushButton_2;
     QLabel *label;
     QWidget *tab_2;
+    QGridLayout *gridLayout_3;
+    QTextBrowser *textBrowser;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *pushButton_3;
     QWidget *tab_3;
     QWidget *tab_4;
     QWidget *tab_5;
@@ -104,6 +109,23 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
+        gridLayout_3 = new QGridLayout(tab_2);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        textBrowser = new QTextBrowser(tab_2);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+
+        gridLayout_3->addWidget(textBrowser, 0, 0, 1, 2);
+
+        horizontalSpacer_2 = new QSpacerItem(247, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_2, 1, 0, 1, 1);
+
+        pushButton_3 = new QPushButton(tab_2);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setAutoDefault(true);
+
+        gridLayout_3->addWidget(pushButton_3, 1, 1, 1, 1);
+
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
@@ -120,7 +142,7 @@ public:
 
         retranslateUi(MenuDisponibilidad);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MenuDisponibilidad);
@@ -135,6 +157,7 @@ public:
         pushButton_2->setText(QApplication::translate("MenuDisponibilidad", "Agregar", nullptr));
         label->setText(QApplication::translate("MenuDisponibilidad", "Profesor", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuDisponibilidad", "Crear", nullptr));
+        pushButton_3->setText(QApplication::translate("MenuDisponibilidad", "Mostrar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MenuDisponibilidad", "Mostrar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MenuDisponibilidad", "Buscar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MenuDisponibilidad", "Modificar", nullptr));

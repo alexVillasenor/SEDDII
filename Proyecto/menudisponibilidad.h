@@ -8,6 +8,10 @@
 #include "listainvertida.h"
 #include "indice.h"
 #include "programa.h"
+#include <string>
+#define FILAS 100
+#define COLUMNAS 4
+
 
 namespace Ui {
 class MenuDisponibilidad;
@@ -24,6 +28,8 @@ public:
     void setCarreras();
     void setMaterias();
     void loadIndex();
+    void genera();
+    long int dispersion(std::string clave);
 
 private slots:
     void on_pushButton_clicked();
@@ -31,6 +37,8 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_comboBox_Carrera_activated(const QString &arg1);
+
+    void on_pushButton_3_clicked();
 
 private:
     List<Indice> listaIndices;

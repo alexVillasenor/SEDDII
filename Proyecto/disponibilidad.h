@@ -10,7 +10,7 @@
 class Disponibilidad
 {
 private:
-    QString clave;
+    char clave[10];
     QDate fecha;
     QTime hora;
 public:
@@ -21,6 +21,7 @@ public:
     void setFecha(const QDate &value);
     QTime getHora() const;
     void setHora(const QTime &value);
+    QString toQstring();
 };
 
 #endif // DISPONIBILIDAD_H
