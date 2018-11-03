@@ -254,7 +254,7 @@ long MenuDisponibilidad::dispersion(string clave)
     int i(0);
     int direccionBase(0);
     while(i<clave.length()){
-        direccionBase+=((FILAS*clave[i])+(clave[i+1]%84645));
+        direccionBase+=((100*clave[i])+(clave[i+1]%84645));
         i+=2;
     }
     direccionBase=direccionBase%FILAS;
@@ -361,11 +361,9 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
     d.setHora(now);
     long int dBase=dispersion(clave);
     long int aux=dBase,aux2;
-
-    qDebug()<<llave;
-    qDebug()<<today;
-    qDebug()<<now;
-    qDebug()<<dBase;
+    QString qStr=clave.c_str();
+    qDebug()<<"Clave: "<<qStr;
+    qDebug()<<"Direccion Base: "<<dBase;
 
     fstream file("Dispersa.txt");
     dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
@@ -438,7 +436,7 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
             file.seekg(pos,ios::beg);
             file.read((char*)&cont,sizeof(cont));
             if(cont==0){
-                ui->textBrowser_2->setText("::Clave Erronea::");
+                ui->textBrowser_2->setText("::Clave Erronea0::");
             }
             else{
                 for(int i(0);i<cont;i++){
@@ -446,11 +444,11 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
                     QString llave=d.getClaveProf();
                     llave+=d.getClaveAsig();
                     if(type==1 && llave==clave)
-                        ui->textBrowser_2->append(d.toQstring());
+                        ui->textBrowser_2->setText(d.toQstring());
                     else if(type==4 && d.getClaveProf()==code && llave==clave)
-                        ui->textBrowser_2->append(d.toQstring());
+                        ui->textBrowser_2->setText(d.toQstring());
                     else
-                        ui->textBrowser_2->setText("::Clave Erronea::");
+                        ui->textBrowser_2->setText("::Clave Erronea1::");
                 }
             }
             file.close();
@@ -520,6 +518,7 @@ void MenuDisponibilidad::on_pushButton_5_clicked()
 void MenuDisponibilidad::on_pushButton_6_clicked()
 {
     ui->textBrowser_4->clear();
+    qDebug()<<dispersion(ui->lineEdit_4->text().toStdString());
         if(!ui->lineEdit_3->text().isEmpty()){
             QString clave=ui->lineEdit_3->text();
             QDate newDate=ui->dateTimeEdit->date();
@@ -558,10 +557,23 @@ void MenuDisponibilidad::on_pushButton_6_clicked()
                             d.setFecha(newDate);
                             d.setHora(newTime);
                             d.setClaveAsig(auxQstr);
-                            newClave=d.getClaveProf().toStdString();
-                            newClave+=newAsig;
+//                            if(!ui->lineEdit_4->text().isEmpty()){
+//                                newClave=ui->lineEdit_4->text().toStdString();
+//                                QString qstr;
+//                                qstr=newClave.substr(0,3).c_str();
+//                                d.setClaveProf(qstr);
+//                                qstr=newClave.substr(2,3).c_str();
+//                                d.setClaveAsig(qstr);
+//                            }
+//                            else{
+                                newClave=d.getClaveProf().toStdString();
+                                newClave+=newAsig;
+//                            }
 
                             long int newDBase = dispersion(newClave);
+                            QString qStr=newClave.c_str();
+                            qDebug()<<"Clave: "<<qStr;
+                            qDebug()<<"Direccion Base: "<<newDBase;
                             long int aux=newDBase,aux2;
 
                             newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
@@ -631,6 +643,7 @@ void MenuDisponibilidad::on_pushButton_6_clicked()
 void MenuDisponibilidad::on_pushButton_7_clicked()
 {
     expand(COLUMNAS,FILAS,2);
+    QMessageBox::information(this, tr("::Exito::"), tr("::Filas duplicadas::"));
 
 }
 
@@ -638,6 +651,8 @@ void MenuDisponibilidad::on_pushButton_7_clicked()
 void MenuDisponibilidad::on_pushButton_8_clicked()
 {
     expand(COLUMNAS,FILAS,1);
+    QMessageBox::information(this, tr("::Exito::"), tr("::Columnas duplicadas::"));
+
 }
 
 void MenuDisponibilidad::on_comboBox_activated(const QString &arg1)
@@ -654,7 +669,10 @@ void MenuDisponibilidad::on_comboBox_Carrera_activated(const QString &arg1)
 
 void MenuDisponibilidad::on_tabWidget_currentChanged(int index)
 {
-
+    ui->comboBox_Materias->clear();
+    setMaterias(1);
+    ui->comboBox_2->clear();
+    setMaterias(2);
 }
 
 QString MenuDisponibilidad::getCode() const

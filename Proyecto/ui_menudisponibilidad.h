@@ -10,6 +10,7 @@
 #define UI_MENUDISPONIBILIDAD_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateTimeEdit>
@@ -62,6 +63,7 @@ public:
     QDateTimeEdit *dateTimeEdit;
     QTextBrowser *textBrowser_4;
     QPushButton *pushButton_6;
+    QLineEdit *lineEdit_4;
     QWidget *tab_5;
     QGridLayout *gridLayout_5;
     QTextBrowser *textBrowser_3;
@@ -77,6 +79,9 @@ public:
         if (MenuDisponibilidad->objectName().isEmpty())
             MenuDisponibilidad->setObjectName(QStringLiteral("MenuDisponibilidad"));
         MenuDisponibilidad->resize(497, 379);
+        QIcon icon;
+        icon.addFile(QStringLiteral("../icons/depositphotos_44764845-stock-illustration-icons-for-school-subjects.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        MenuDisponibilidad->setWindowIcon(icon);
         gridLayout = new QGridLayout(MenuDisponibilidad);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         pushButton = new QPushButton(MenuDisponibilidad);
@@ -228,6 +233,11 @@ public:
 
         gridLayout_6->addWidget(pushButton_6, 4, 1, 1, 1);
 
+        lineEdit_4 = new QLineEdit(tab_4);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+
+        gridLayout_6->addWidget(lineEdit_4, 4, 0, 1, 1);
+
         tabWidget->addTab(tab_4, QString());
         tab_5 = new QWidget();
         tab_5->setObjectName(QStringLiteral("tab_5"));
@@ -271,7 +281,7 @@ public:
 
         retranslateUi(MenuDisponibilidad);
 
-        tabWidget->setCurrentIndex(5);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MenuDisponibilidad);
@@ -296,6 +306,7 @@ public:
         label_6->setText(QApplication::translate("MenuDisponibilidad", "Materia", nullptr));
         label_7->setText(QApplication::translate("MenuDisponibilidad", "Fehca/Hora", nullptr));
         pushButton_6->setText(QApplication::translate("MenuDisponibilidad", "Modificar", nullptr));
+        lineEdit_4->setPlaceholderText(QApplication::translate("MenuDisponibilidad", "Prueba de clave", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MenuDisponibilidad", "Modificar", nullptr));
         lineEdit_2->setPlaceholderText(QApplication::translate("MenuDisponibilidad", "Clave Disponibilidad", nullptr));
         pushButton_5->setText(QApplication::translate("MenuDisponibilidad", "Eliminar", nullptr));

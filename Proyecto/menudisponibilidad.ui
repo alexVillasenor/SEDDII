@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Menu Disponibilidad</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/depositphotos_44764845-stock-illustration-icons-for-school-subjects.jpg</normaloff>../icons/depositphotos_44764845-stock-illustration-icons-for-school-subjects.jpg</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <widget class="QPushButton" name="pushButton">
@@ -40,7 +44,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>5</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -204,6 +208,13 @@
          </property>
          <property name="autoDefault">
           <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLineEdit" name="lineEdit_4">
+         <property name="placeholderText">
+          <string>Prueba de clave</string>
          </property>
         </widget>
        </item>

@@ -10,6 +10,7 @@
 #define UI_PROFESORMENU_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
@@ -29,6 +30,9 @@ public:
         if (ProfesorMenu->objectName().isEmpty())
             ProfesorMenu->setObjectName(QStringLiteral("ProfesorMenu"));
         ProfesorMenu->resize(209, 120);
+        QIcon icon;
+        icon.addFile(QStringLiteral("../icons/42912.png"), QSize(), QIcon::Normal, QIcon::Off);
+        ProfesorMenu->setWindowIcon(icon);
         gridLayout = new QGridLayout(ProfesorMenu);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         pushButton = new QPushButton(ProfesorMenu);
