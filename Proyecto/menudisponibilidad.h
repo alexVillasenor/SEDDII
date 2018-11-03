@@ -9,8 +9,8 @@
 #include "indice.h"
 #include "programa.h"
 #include <string>
-#define FILAS 100
-#define COLUMNAS 4
+#define fil 100
+#define col 4
 
 
 namespace Ui {
@@ -28,8 +28,9 @@ public:
     void setCarreras();
     void setMaterias(int j);
     void loadIndex();
-    void genera();
+    void genera(std::string s);
     long int dispersion(std::string clave);
+    void expand(int c, int f, int t);
 
     int getType() const;
     void setType(int value);
@@ -56,12 +57,17 @@ private slots:
 
     void on_comboBox_activated(const QString &arg1);
 
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
 private:
     List<Indice> listaIndices;
     ListaInvertida listainvertida;
     int type;
     QString code;
     Ui::MenuDisponibilidad *ui;
+    int FILAS=fil,COLUMNAS=col;
 };
 
 #endif // MENUDISPONIBILIDAD_H

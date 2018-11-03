@@ -67,6 +67,10 @@ public:
     QTextBrowser *textBrowser_3;
     QLineEdit *lineEdit_2;
     QPushButton *pushButton_5;
+    QWidget *tab_6;
+    QGridLayout *gridLayout_7;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
 
     void setupUi(QWidget *MenuDisponibilidad)
     {
@@ -246,13 +250,28 @@ public:
         gridLayout_5->addWidget(pushButton_5, 1, 1, 1, 1);
 
         tabWidget->addTab(tab_5, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QStringLiteral("tab_6"));
+        gridLayout_7 = new QGridLayout(tab_6);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
+        pushButton_7 = new QPushButton(tab_6);
+        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
+
+        gridLayout_7->addWidget(pushButton_7, 1, 0, 1, 1);
+
+        pushButton_8 = new QPushButton(tab_6);
+        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+
+        gridLayout_7->addWidget(pushButton_8, 2, 0, 1, 1);
+
+        tabWidget->addTab(tab_6, QString());
 
         gridLayout->addWidget(tabWidget, 0, 0, 1, 2);
 
 
         retranslateUi(MenuDisponibilidad);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(MenuDisponibilidad);
@@ -281,6 +300,9 @@ public:
         lineEdit_2->setPlaceholderText(QApplication::translate("MenuDisponibilidad", "Clave Disponibilidad", nullptr));
         pushButton_5->setText(QApplication::translate("MenuDisponibilidad", "Eliminar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("MenuDisponibilidad", "Eliminar", nullptr));
+        pushButton_7->setText(QApplication::translate("MenuDisponibilidad", "Filas", nullptr));
+        pushButton_8->setText(QApplication::translate("MenuDisponibilidad", "Columnas", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MenuDisponibilidad", "Colisiones", nullptr));
     } // retranslateUi
 
 };
