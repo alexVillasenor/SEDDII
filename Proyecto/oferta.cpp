@@ -44,6 +44,29 @@ void Oferta::setCodAsignatura(const QString &value)
     strcpy(codAsignatura,value.toStdString().c_str());
 }
 
+QString Oferta::toQstring()
+{
+    QString aux;
+
+    aux+="\nCodigo Oferta: " + getLlave();
+    aux+="\nCodigo Profesor: " + getCodProfesor();
+    aux+="\nCodigo Asignatura: " + getCodAsignatura();
+    aux+="\nCodigo Periodo: " + getCodPeriodo();
+    aux+="\nCodigo Grupo: " + getCodGrupo();
+
+    return aux;
+}
+
+QString Oferta::getLlave()
+{
+    QString aux= codProfesor;
+    QString aux1=codAsignatura;
+    QString aux2=codPeriodo;
+    QString aux3=codGrupo;
+    aux+=aux1+aux2+aux3;
+    return aux;
+}
+
 Oferta::Oferta()
 {
     this->codAsignatura,nullptr;

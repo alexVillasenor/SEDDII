@@ -67,13 +67,13 @@ bool isEmptyGrupo(string name){
 QString getLastCodeGrupo(string name){
     QString code;
     if(isEmptyGrupo(name)){
-        return code="1";
+        return code="500";
     }
     else{
         Grupo p;
         ifstream file(name+".txt");
         if(!file.is_open()){
-            return code="1";
+            return code="500";
         }
         else{
             file.seekg(0,file.end);

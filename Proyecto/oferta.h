@@ -17,6 +17,7 @@ private:
     char codAsignatura[20];
 public:
     Oferta();
+    QString getLlave();
     QString getCodProfesor() const;
     void setCodProfesor(const QString &value);
     QString getCodPeriodo() const;
@@ -25,6 +26,7 @@ public:
     void setCodGrupo(const QString &value);
     QString getCodAsignatura() const;
     void setCodAsignatura(const QString &value);
+    QString toQstring();
 };
 
 #endif // OFERTA_H

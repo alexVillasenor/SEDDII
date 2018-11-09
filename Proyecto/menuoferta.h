@@ -23,9 +23,10 @@ public:
     explicit MenuOferta(QWidget *parent = 0);
     ~MenuOferta();
     void cargarPeriodos();
-    void cargarGrupos(QString periodo);
+    void cargarGrupos();
     void setProfesores();
     void setAsignatura();
+    bool buscar(const QString &arg1);
 
     int getType() const;
     void setType(int value);
@@ -41,6 +42,16 @@ private slots:
     void on_comboBox_Profesor_activated(const QString &arg1);
 
     void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_tabWidget_currentChanged(int index);
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::MenuOferta *ui;
