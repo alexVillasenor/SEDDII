@@ -606,8 +606,6 @@ void MenuDisponibilidad::on_pushButton_5_clicked()
                         ui->textBrowser_3->append("::Eliminado::");
                         break;
                     }
-                    else
-                        ui->textBrowser_3->setText("::Clave Erronea::");
                 }
             }
             file.close();
@@ -645,7 +643,7 @@ void MenuDisponibilidad::on_pushButton_6_clicked()
             file.seekg(pos,ios::beg);
             file.read((char*)&cont,sizeof(cont));
             if(cont==0){
-                ui->textBrowser_4->setText("::Clave Erronea1::");
+                ui->textBrowser_4->setText("::Clave Erronea::");
             }
             else{
                 for(int i(0);i<cont;i++){
@@ -726,8 +724,7 @@ void MenuDisponibilidad::on_pushButton_6_clicked()
                         }
                         break;
                     }
-                    else
-                        ui->textBrowser_4->setText("::Clave Erronea2::");
+                    
                 }
             }
             file.close();
