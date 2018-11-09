@@ -28,10 +28,16 @@ public:
     QTabWidget *tabWidget;
     QWidget *tab;
     QGridLayout *gridLayout_2;
-    QLabel *label;
     QComboBox *comboBox_Periodo;
+    QLabel *label;
     QLabel *label_2;
     QComboBox *comboBox_Grupo;
+    QLabel *label_3;
+    QLabel *label_4;
+    QComboBox *comboBox_Profesor;
+    QComboBox *comboBox_Asignatura;
+    QPushButton *pushButton_2;
+    QSpacerItem *horizontalSpacer_2;
     QWidget *tab_2;
     QWidget *tab_3;
     QWidget *tab_4;
@@ -52,25 +58,55 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         gridLayout_2 = new QGridLayout(tab);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        label = new QLabel(tab);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
-
         comboBox_Periodo = new QComboBox(tab);
         comboBox_Periodo->setObjectName(QStringLiteral("comboBox_Periodo"));
 
-        gridLayout_2->addWidget(comboBox_Periodo, 0, 1, 1, 1);
+        gridLayout_2->addWidget(comboBox_Periodo, 2, 1, 1, 1);
+
+        label = new QLabel(tab);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_2->addWidget(label, 2, 0, 1, 1);
 
         label_2 = new QLabel(tab);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        gridLayout_2->addWidget(label_2, 1, 0, 1, 1);
+        gridLayout_2->addWidget(label_2, 3, 0, 1, 1);
 
         comboBox_Grupo = new QComboBox(tab);
         comboBox_Grupo->setObjectName(QStringLiteral("comboBox_Grupo"));
 
-        gridLayout_2->addWidget(comboBox_Grupo, 1, 1, 1, 1);
+        gridLayout_2->addWidget(comboBox_Grupo, 3, 1, 1, 1);
+
+        label_3 = new QLabel(tab);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_2->addWidget(label_3, 0, 0, 1, 1);
+
+        label_4 = new QLabel(tab);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout_2->addWidget(label_4, 1, 0, 1, 1);
+
+        comboBox_Profesor = new QComboBox(tab);
+        comboBox_Profesor->setObjectName(QStringLiteral("comboBox_Profesor"));
+
+        gridLayout_2->addWidget(comboBox_Profesor, 0, 1, 1, 1);
+
+        comboBox_Asignatura = new QComboBox(tab);
+        comboBox_Asignatura->setObjectName(QStringLiteral("comboBox_Asignatura"));
+
+        gridLayout_2->addWidget(comboBox_Asignatura, 1, 1, 1, 1);
+
+        pushButton_2 = new QPushButton(tab);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setAutoDefault(true);
+
+        gridLayout_2->addWidget(pushButton_2, 4, 0, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_2, 4, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -112,6 +148,9 @@ public:
         MenuOferta->setWindowTitle(QApplication::translate("MenuOferta", "Form", nullptr));
         label->setText(QApplication::translate("MenuOferta", "Periodo:", nullptr));
         label_2->setText(QApplication::translate("MenuOferta", "Grupo:", nullptr));
+        label_3->setText(QApplication::translate("MenuOferta", "Profesor:", nullptr));
+        label_4->setText(QApplication::translate("MenuOferta", "Asignatura:", nullptr));
+        pushButton_2->setText(QApplication::translate("MenuOferta", "Agregar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuOferta", "Crear", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MenuOferta", "Mostrar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MenuOferta", "Buscar", nullptr));

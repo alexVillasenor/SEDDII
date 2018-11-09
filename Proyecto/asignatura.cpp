@@ -62,10 +62,23 @@ QString Asignatura::toQString()
     regresar += "\nNombre:   " + aux;
     aux=programa;
     regresar += "\nPrograma: "+aux;
+    aux=grado;
+    regresar += "\nGrado: "+aux;
     aux=QString::number(creditos);
     regresar += "\nCreditos: "+aux;
 
     return regresar;
+}
+
+QString Asignatura::getGrado() const
+{
+    QString aux=grado;
+    return aux;
+}
+
+void Asignatura::setGrado(const QString &value)
+{
+    strcpy(grado,value.toStdString().c_str());
 }
 
 Asignatura::Asignatura()

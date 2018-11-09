@@ -29,18 +29,19 @@ class Ui_MenuDisponibilidad
 {
 public:
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
     QSpacerItem *horizontalSpacer;
+    QPushButton *pushButton;
     QTabWidget *tabWidget;
     QWidget *tab;
     QGridLayout *gridLayout_2;
-    QComboBox *comboBox_Materias;
     QComboBox *comboBox_Profesor;
-    QLabel *label_3;
-    QComboBox *comboBox_Carrera;
-    QLabel *label_2;
-    QPushButton *pushButton_2;
+    QComboBox *comboBox_Materias;
     QLabel *label;
+    QLabel *label_2;
+    QComboBox *comboBox_Carrera;
+    QLabel *label_3;
+    QPushButton *pushButton_2;
+    QSpacerItem *horizontalSpacer_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_3;
     QTextBrowser *textBrowser;
@@ -84,15 +85,15 @@ public:
         MenuDisponibilidad->setWindowIcon(icon);
         gridLayout = new QGridLayout(MenuDisponibilidad);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        horizontalSpacer = new QSpacerItem(438, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 1, 1, 1);
+
         pushButton = new QPushButton(MenuDisponibilidad);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setAutoDefault(true);
 
         gridLayout->addWidget(pushButton, 1, 0, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(438, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 1, 1, 1, 1);
 
         tabWidget = new QTabWidget(MenuDisponibilidad);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
@@ -100,41 +101,45 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         gridLayout_2 = new QGridLayout(tab);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        comboBox_Materias = new QComboBox(tab);
-        comboBox_Materias->setObjectName(QStringLiteral("comboBox_Materias"));
-
-        gridLayout_2->addWidget(comboBox_Materias, 2, 1, 1, 1);
-
         comboBox_Profesor = new QComboBox(tab);
         comboBox_Profesor->setObjectName(QStringLiteral("comboBox_Profesor"));
 
         gridLayout_2->addWidget(comboBox_Profesor, 0, 1, 1, 1);
 
-        label_3 = new QLabel(tab);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        comboBox_Materias = new QComboBox(tab);
+        comboBox_Materias->setObjectName(QStringLiteral("comboBox_Materias"));
 
-        gridLayout_2->addWidget(label_3, 2, 0, 1, 1);
+        gridLayout_2->addWidget(comboBox_Materias, 2, 1, 1, 1);
 
-        comboBox_Carrera = new QComboBox(tab);
-        comboBox_Carrera->setObjectName(QStringLiteral("comboBox_Carrera"));
+        label = new QLabel(tab);
+        label->setObjectName(QStringLiteral("label"));
 
-        gridLayout_2->addWidget(comboBox_Carrera, 1, 1, 1, 1);
+        gridLayout_2->addWidget(label, 0, 0, 1, 1);
 
         label_2 = new QLabel(tab);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         gridLayout_2->addWidget(label_2, 1, 0, 1, 1);
 
+        comboBox_Carrera = new QComboBox(tab);
+        comboBox_Carrera->setObjectName(QStringLiteral("comboBox_Carrera"));
+
+        gridLayout_2->addWidget(comboBox_Carrera, 1, 1, 1, 1);
+
+        label_3 = new QLabel(tab);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_2->addWidget(label_3, 2, 0, 1, 1);
+
         pushButton_2 = new QPushButton(tab);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setAutoDefault(true);
 
-        gridLayout_2->addWidget(pushButton_2, 3, 1, 1, 1);
+        gridLayout_2->addWidget(pushButton_2, 3, 0, 1, 1);
 
-        label = new QLabel(tab);
-        label->setObjectName(QStringLiteral("label"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_3, 3, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -291,10 +296,10 @@ public:
     {
         MenuDisponibilidad->setWindowTitle(QApplication::translate("MenuDisponibilidad", "Menu Disponibilidad", nullptr));
         pushButton->setText(QApplication::translate("MenuDisponibilidad", "Regresar", nullptr));
-        label_3->setText(QApplication::translate("MenuDisponibilidad", "Materia", nullptr));
-        label_2->setText(QApplication::translate("MenuDisponibilidad", "Carrera", nullptr));
-        pushButton_2->setText(QApplication::translate("MenuDisponibilidad", "Agregar", nullptr));
         label->setText(QApplication::translate("MenuDisponibilidad", "Profesor", nullptr));
+        label_2->setText(QApplication::translate("MenuDisponibilidad", "Carrera", nullptr));
+        label_3->setText(QApplication::translate("MenuDisponibilidad", "Materia", nullptr));
+        pushButton_2->setText(QApplication::translate("MenuDisponibilidad", "Agregar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuDisponibilidad", "Crear", nullptr));
         pushButton_3->setText(QApplication::translate("MenuDisponibilidad", "Mostrar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MenuDisponibilidad", "Mostrar", nullptr));

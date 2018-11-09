@@ -6,8 +6,13 @@ MenuOferta::MenuOferta(QWidget *parent) :
     ui(new Ui::MenuOferta)
 {
     ui->setupUi(this);
+    ui->comboBox_Grupo->clear();
+    ui->comboBox_Periodo->clear();
+    ui->comboBox_Profesor->clear();
+    ui->comboBox_Asignatura->clear();
+    setProfesores();
     cargarPeriodos();
-    cargarGrupos(ui->comboBox_Periodo->currentText());
+    setAsignatura();
 }
 
 MenuOferta::~MenuOferta()
@@ -75,6 +80,83 @@ void MenuOferta::cargarGrupos(QString periodo)
     }
 }
 
+void MenuOferta::setProfesores()
+{
+    bool flag(true);
+    ifstream file("Profesores.txt");
+    if(!file.is_open()){
+        QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo profesores::"));
+    }
+
+    else{
+        while (!file.eof()) {
+            string auxStr;
+            QString qString;
+            Profesor p;
+            getline(file,auxStr,',');
+
+            if(file.eof()){
+                break;
+            }
+            qString = QString::fromStdString(auxStr);
+            p.setCode(qString);
+            getline(file,auxStr,',');
+            qString = QString::fromStdString(auxStr);
+            p.setNombre(qString);
+            getline(file,auxStr,',');
+            qString = QString::fromStdString(auxStr);
+            p.setCorreo(qString);
+            getline(file,auxStr,'\n');
+            qString = QString::fromStdString(auxStr);
+            p.setTelefono(qString);
+            ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
+            flag=false;
+        }
+        file.close();
+        if(flag){
+            QMessageBox::information(this, tr("::Error::"), tr("::No hay profesores registrados::"));
+        }
+    }
+}
+
+void MenuOferta::setAsignatura(){
+    ifstream file("Dispersa.txt");
+    int pos(0),cont;
+    Disponibilidad d;
+    if(!file.is_open()){
+        QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo::"));
+    }
+    else{
+        ui->comboBox_Asignatura->clear();
+        int myInt,FILAS,COLUMNAS;
+        ifstream t(".tamano");
+        t.read((char*)&myInt,sizeof(myInt));
+        FILAS=myInt;
+        t.read((char*)&myInt,sizeof(myInt));
+        COLUMNAS=myInt;
+        t.close();
+
+        while(!file.eof()){
+            file.seekg(pos,ios::beg);
+            file.read((char*)&cont,sizeof(cont));
+            if(cont==0){
+                pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
+            }
+            else{
+                for(int i(0);i<cont;i++){
+                    file.read((char*)&d,sizeof(d));
+                    QString llave = ui->comboBox_Profesor->currentText().toStdString().substr(0,3).c_str();
+                    if(llave==d.getClaveProf())
+
+                        ui->comboBox_Asignatura->addItem(d.getClaveAsig());
+                }
+                pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
+            }
+        }
+        file.close();
+    }
+}
+
 /*Regresar*/
 void MenuOferta::on_pushButton_clicked()
 {
@@ -109,4 +191,15 @@ int MenuOferta::getType() const
 void MenuOferta::setType(int value)
 {
     type = value;
+}
+
+void MenuOferta::on_comboBox_Profesor_activated(const QString &arg1)
+{
+    setAsignatura();
+}
+
+/*Agregar*/
+void MenuOferta::on_pushButton_2_clicked()
+{
+
 }

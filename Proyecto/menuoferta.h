@@ -24,6 +24,8 @@ public:
     ~MenuOferta();
     void cargarPeriodos();
     void cargarGrupos(QString periodo);
+    void setProfesores();
+    void setAsignatura();
 
     int getType() const;
     void setType(int value);
@@ -35,6 +37,10 @@ private slots:
     void on_pushButton_clicked();
 
     void on_comboBox_Periodo_activated(const QString &arg1);
+
+    void on_comboBox_Profesor_activated(const QString &arg1);
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MenuOferta *ui;

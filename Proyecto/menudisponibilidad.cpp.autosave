@@ -110,9 +110,9 @@ void MenuDisponibilidad::setMaterias(int j)
                 f.close();
                 if(a.getStatus()=='1'){
                     if(j==1)
-                        ui->comboBox_Materias->addItem(QString::number(a.getCodigo())+" - "+a.getNombre()+" - "+a.getPrograma());
+                        ui->comboBox_Materias->addItem(QString::number(a.getCodigo())+" - "+a.getNombre());
                     else if(j==2)
-                        ui->comboBox_2->addItem(QString::number(a.getCodigo())+" - "+a.getNombre()+" - "+a.getPrograma());
+                        ui->comboBox_2->addItem(QString::number(a.getCodigo())+" - "+a.getNombre());
                 }
                 auxIndSec=auxIndSec->getNextPrograma();
             }
