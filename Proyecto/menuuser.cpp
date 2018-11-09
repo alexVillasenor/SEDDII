@@ -791,6 +791,53 @@ void MenuUser::on_pushButton_8_clicked()
     }
 }
 
+bool deleteProfesor(QString code){
+    bool flag;
+
+    ifstream read("Profesores.txt");
+    ofstream write("t.txt",ios::app);
+    if(!read.is_open()){
+
+    }
+
+    else{
+        flag=false;
+        while (!read.eof()) {
+            string auxStr;
+            QString qString;
+            Profesor p;
+            getline(read,auxStr,',');
+            if(read.eof()){
+                break;
+            }
+            qString = QString::fromStdString(auxStr);
+            p.setCode(qString);
+            getline(read,auxStr,',');
+            qString = QString::fromStdString(auxStr);
+            p.setNombre(qString);
+            getline(read,auxStr,',');
+            qString = QString::fromStdString(auxStr);
+            p.setCorreo(qString);
+            getline(read,auxStr,'\n');
+            qString = QString::fromStdString(auxStr);
+            p.setTelefono(qString);
+
+            if(p.getCode()==code){
+
+            }
+            else{
+                write<<p;
+            }
+        }
+        read.close();
+        write.close();
+
+        remove("Profesores.txt");
+        rename("t.txt","Profesores.txt");
+    }
+
+}
+
 /*Editar*/
 void MenuUser::on_pushButton_9_clicked()
 {
@@ -896,15 +943,30 @@ void MenuUser::on_pushButton_9_clicked()
                 QString tipo = ui->comboBox_2->currentText();
                 if(tipo.toStdString()=="Administrador"){
                     myUser.setCodePerfil("1");
+                    if(u.getCodePerfil()=="4")
+                        deleteProfesor(u.getCodeUser());
                 }
                 else if(tipo.toStdString()=="Coordinador Academico"){
                     myUser.setCodePerfil("2");
+                    if(u.getCodePerfil()=="4")
+                        deleteProfesor(u.getCodeUser());
                 }
                 else if(tipo.toStdString()=="Asistente Academico"){
                     myUser.setCodePerfil("3");
+                    if(u.getCodePerfil()=="4")
+                        deleteProfesor(u.getCodeUser());
                 }
                 else if(tipo.toStdString()=="Profesor"){
                     myUser.setCodePerfil("4");
+                    MenuProfesor *menuProfesor = new MenuProfesor();
+                    hide();
+                    menuProfesor->setPerfil("4");
+                    menuProfesor->setPermisos();
+                    menuProfesor->setCode(u.getCodeUser());
+                    menuProfesor->setNombre(u.getNombre());
+                    menuProfesor->show();
+                    this->close();
+
                 }
                 d=strlen(myUser.getCodePerfil().toStdString().c_str());
                 strcpy(codep,myUser.getCodePerfil().toStdString().c_str());
