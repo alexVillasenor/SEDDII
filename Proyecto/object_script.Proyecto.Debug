@@ -29,6 +29,7 @@ INPUT(
 ./debug\disponibilidad.o
 ./debug\menudisponibilidad.o
 ./debug\profesormenu.o
+./debug\oferta.o
 ./debug\moc_login.o
 ./debug\moc_menuprofesor.o
 ./debug\moc_menuuser.o

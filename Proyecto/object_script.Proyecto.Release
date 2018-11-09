@@ -29,6 +29,7 @@ INPUT(
 ./release\disponibilidad.o
 ./release\menudisponibilidad.o
 ./release\profesormenu.o
+./release\oferta.o
 ./release\moc_login.o
 ./release\moc_menuprofesor.o
 ./release\moc_menuuser.o

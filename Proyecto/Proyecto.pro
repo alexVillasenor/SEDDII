@@ -53,7 +53,8 @@ SOURCES += \
     listainvertida.cpp \
     disponibilidad.cpp \
     menudisponibilidad.cpp \
-    profesormenu.cpp
+    profesormenu.cpp \
+    oferta.cpp
 
 HEADERS += \
         login.h \
@@ -88,7 +89,8 @@ HEADERS += \
     listainvertida.h \
     disponibilidad.h \
     menudisponibilidad.h \
-    profesormenu.h
+    profesormenu.h \
+    oferta.h
 
 FORMS += \
         login.ui \
