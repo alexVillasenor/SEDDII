@@ -31,6 +31,8 @@ public:
     void genera(std::string s);
     long int dispersion(std::string clave);
     void expand(int c, int f, int t);
+    bool buscar(QString clave);
+    bool eliminar(QString clave);
 
     int getType() const;
     void setType(int value);

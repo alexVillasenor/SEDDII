@@ -253,9 +253,17 @@ long MenuDisponibilidad::dispersion(string clave)
 {
     int i(0);
     int direccionBase(0);
-    while(i<clave.length()){
-        direccionBase+=((100*clave[i])+(clave[i+1]%84645));
-        i+=2;
+    if(FILAS==100){
+        while(i<clave.length()){
+            direccionBase+=((100*clave[i])+(clave[i+1]%84645));
+            i+=2;
+        }
+    }
+    else{///modificar
+        while(i<clave.length()){
+            direccionBase+=(direccionBase*32)+(clave[i]%2937413);
+            i++;
+        }
     }
     direccionBase=direccionBase%FILAS;
     return direccionBase;
@@ -364,24 +372,28 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
     QString qStr=clave.c_str();
     qDebug()<<"Clave: "<<qStr;
     qDebug()<<"Direccion Base: "<<dBase;
-
-    fstream file("Dispersa.txt");
-    dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
-    file.seekg(dBase,ios::beg);
-    file.read((char*)&cont,sizeof(cont));
-    if(cont == COLUMNAS){
-        QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+    if(!buscar(qStr)){
+        fstream file("Dispersa.txt");
+        dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
+        file.seekg(dBase,ios::beg);
+        file.read((char*)&cont,sizeof(cont));
+        if(cont == COLUMNAS){
+            QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+        }
+        else{
+            long int pos = dBase+(cont*sizeof(d))+sizeof(cont);
+            aux2=pos;
+            file.seekp(pos,ios::beg);
+            file.write((char*)&d,sizeof(d));
+            cont++;
+            pos=dBase;
+            file.seekp(pos,ios::beg);
+            file.write((char*)&cont,sizeof(cont));
+            QMessageBox::information(this, tr("::Exito::"), tr("::Disponibilidad agregada::"));
+        }
     }
     else{
-        long int pos = dBase+(cont*sizeof(d))+sizeof(cont);
-        aux2=pos;
-        file.seekp(pos,ios::beg);
-        file.write((char*)&d,sizeof(d));
-        cont++;
-        pos=dBase;
-        file.seekp(pos,ios::beg);
-        file.write((char*)&cont,sizeof(cont));
-        QMessageBox::information(this, tr("::Exito::"), tr("::Disponibilidad agregada::"));
+        QMessageBox::information(this, tr("::Error::"), tr("::Llave Existente::"));
     }
 }
 
@@ -417,6 +429,48 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
     }
 }
 
+bool MenuDisponibilidad::buscar(QString clave){
+    long int dBase=dispersion(clave.toStdString());
+
+    ifstream file("Dispersa.txt");
+    if(!file.is_open()){
+        return false;
+    }
+    else{
+        Disponibilidad d;
+        int cont;
+        long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
+        file.seekg(pos,ios::beg);
+        file.read((char*)&cont,sizeof(cont));
+        if(cont==0){
+            file.close();
+            return false;
+        }
+        else{
+            for(int i(0);i<cont;i++){
+                file.read((char*)&d,sizeof(d));
+                QString llave=d.getClaveProf();
+                llave+=d.getClaveAsig();
+                if(type==1 && llave==clave){
+                    file.close();
+                    return true;
+                }
+                else if(type==4 && d.getClaveProf()==code && llave==clave){
+                    file.close();
+                    return true;
+                }
+                else{
+                    file.close();
+                    return false;
+                }
+            }
+        }
+        file.close();
+    }
+    file.close();
+    return false;
+}
+
 /*Buscar*/
 void MenuDisponibilidad::on_pushButton_4_clicked()
 {
@@ -436,7 +490,7 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
             file.seekg(pos,ios::beg);
             file.read((char*)&cont,sizeof(cont));
             if(cont==0){
-                ui->textBrowser_2->setText("::Clave Erronea0::");
+                ui->textBrowser_2->setText("::Clave Erronea::");
             }
             else{
                 for(int i(0);i<cont;i++){
@@ -458,6 +512,58 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
         QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
     }
 
+}
+
+bool MenuDisponibilidad::eliminar(QString clave){
+
+    long int dBase=dispersion(clave.toStdString());
+    bool flag(false);
+    fstream file("Dispersa.txt");
+    if(!file.is_open()){
+        flag=false;
+    }
+    else{
+        Disponibilidad d;
+        int cont;
+        long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
+        file.seekg(pos,ios::beg);
+        file.read((char*)&cont,sizeof(cont));
+        if(cont==0){
+            flag=false;
+        }
+        else{
+            for(int i(1);i<=cont;i++){
+                long int pos2 = file.tellg();
+                file.read((char*)&d,sizeof(d));
+                QString llave=d.getClaveProf();
+                llave+=d.getClaveAsig();
+                if(type==1 && llave==clave){
+                    flag=true;
+                }
+                else if(type==4 && d.getClaveProf()==code && llave==clave){
+                    flag=true;
+                }
+                else{
+                }
+
+                if(flag && i<cont){
+                    Disponibilidad d2;
+                    long int p3 =file.tellg();
+                    file.read((char*)&d2,sizeof(d2));
+                    file.seekp(pos2,ios::beg);
+                    file.write((char*)&d2,sizeof(d2));
+                    file.seekg(p3,ios::beg);
+                }
+            }
+            if(flag){
+                cont--;
+                file.seekp(pos,ios::beg);
+                file.write((char*)&cont,sizeof(cont));
+            }
+        }
+        file.close();
+    }
+    return flag;
 }
 
 /*Eliminar*/
@@ -487,17 +593,15 @@ void MenuDisponibilidad::on_pushButton_5_clicked()
                     QString llave=d.getClaveProf();
                     llave+=d.getClaveAsig();
                     if(type==1 && llave==clave){
-                        cont--;
-                        file.seekp(pos,ios::beg);
-                        file.write((char*)&cont,sizeof(cont));
+                        file.close();
+                        eliminar(llave);
                         ui->textBrowser_3->append(d.toQstring());
                         ui->textBrowser_3->append("::Eliminado::");
                         break;
                     }
                     else if(type==4 && d.getClaveProf()==code && llave==clave){
-                        cont--;
-                        file.seekp(pos,ios::beg);
-                        file.write((char*)&cont,sizeof(cont));
+                        file.close();
+                        eliminar(llave);
                         ui->textBrowser_3->append(d.toQstring());
                         ui->textBrowser_3->append("::Eliminado::");
                         break;
@@ -519,131 +623,127 @@ void MenuDisponibilidad::on_pushButton_6_clicked()
 {
     ui->textBrowser_4->clear();
     qDebug()<<dispersion(ui->lineEdit_4->text().toStdString());
-        if(!ui->lineEdit_3->text().isEmpty()){
-            QString clave=ui->lineEdit_3->text();
-            QDate newDate=ui->dateTimeEdit->date();
-            QTime newTime=ui->dateTimeEdit->time();
-            string newAsig = ui->comboBox_2->currentText().toStdString().substr(0,3);
-            QString auxQstr = newAsig.c_str();
-            string newClave;
+    if(!ui->lineEdit_3->text().isEmpty()){
+        QString clave=ui->lineEdit_3->text();
+        QDate newDate=ui->dateTimeEdit->date();
+        QTime newTime=ui->dateTimeEdit->time();
+        string newAsig = ui->comboBox_2->currentText().toStdString().substr(0,3);
+        QString auxQstr = newAsig.c_str();
+        string newClave;
 
 
-            long int dBase=dispersion(clave.toStdString());
+        long int dBase=dispersion(clave.toStdString());
 
-            fstream file("Dispersa.txt");
-            if(!file.is_open()){
-                ui->textBrowser_4->setText("::Error al abrir el archivo::");
-            }
-            else{
-                Disponibilidad d;
-                int cont;
-                long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
-                file.seekg(pos,ios::beg);
-                file.read((char*)&cont,sizeof(cont));
-                if(cont==0){
-                    ui->textBrowser_4->setText("::Clave Erronea::");
-                }
-                else{
-                    for(int i(0);i<cont;i++){
-                        file.read((char*)&d,sizeof(d));
-                        QString llave=d.getClaveProf();
-                        llave+=d.getClaveAsig();
-                        if(type==1 && llave==clave){
-                            cont--;
-                            file.seekp(pos,ios::beg);
-                            file.write((char*)&cont,sizeof(cont));
-                            ui->textBrowser_4->append(d.toQstring());
-                            ui->textBrowser_4->append("::Modificado::");
-                            d.setFecha(newDate);
-                            d.setHora(newTime);
-                            d.setClaveAsig(auxQstr);
-//                            if(!ui->lineEdit_4->text().isEmpty()){
-//                                newClave=ui->lineEdit_4->text().toStdString();
-//                                QString qstr;
-//                                qstr=newClave.substr(0,3).c_str();
-//                                d.setClaveProf(qstr);
-//                                qstr=newClave.substr(2,3).c_str();
-//                                d.setClaveAsig(qstr);
-//                            }
-//                            else{
-                                newClave=d.getClaveProf().toStdString();
-                                newClave+=newAsig;
-//                            }
-
-                            long int newDBase = dispersion(newClave);
-                            QString qStr=newClave.c_str();
-                            qDebug()<<"Clave: "<<qStr;
-                            qDebug()<<"Direccion Base: "<<newDBase;
-                            long int aux=newDBase,aux2;
-
-                            newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
-                            file.seekg(newDBase,ios::beg);
-                            file.read((char*)&cont,sizeof(cont));
-                            if(cont == COLUMNAS){
-                                QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
-                            }
-                            else{
-                                long int pos = newDBase+(cont*sizeof(d))+sizeof(cont);
-                                aux2=pos;
-                                file.seekp(pos,ios::beg);
-                                file.write((char*)&d,sizeof(d));
-                                cont++;
-                                pos=newDBase;
-                                file.seekp(pos,ios::beg);
-                                file.write((char*)&cont,sizeof(cont));
-                            }
-                            break;
-                        }
-                        else if(type==4 && d.getClaveProf()==code && llave==clave){
-                            cont--;
-                            file.seekp(pos,ios::beg);
-                            file.write((char*)&cont,sizeof(cont));
-                            ui->textBrowser_4->append(d.toQstring());
-                            ui->textBrowser_4->append("::Modificado::");
-                            d.setFecha(newDate);
-                            d.setHora(newTime);
-                            d.setClaveAsig(auxQstr);
-                            newClave=d.getClaveProf().toStdString();
-                            newClave+=newAsig;
-
-                            long int newDBase = dispersion(newClave);
-                            long int aux=newDBase,aux2;
-
-                            newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
-                            file.seekg(newDBase,ios::beg);
-                            file.read((char*)&cont,sizeof(cont));
-                            if(cont == COLUMNAS){
-                                QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
-                            }
-                            else{
-                                long int pos = newDBase+(cont*sizeof(d))+sizeof(cont);
-                                aux2=pos;
-                                file.seekp(pos,ios::beg);
-                                file.write((char*)&d,sizeof(d));
-                                cont++;
-                                pos=newDBase;
-                                file.seekp(pos,ios::beg);
-                                file.write((char*)&cont,sizeof(cont));
-                            }
-                            break;
-                        }
-                        else
-                            ui->textBrowser_4->setText("::Clave Erronea::");
-                    }
-                }
-                file.close();
-            }
+        fstream file("Dispersa.txt");
+        if(!file.is_open()){
+            ui->textBrowser_4->setText("::Error al abrir el archivo::");
         }
         else{
-            QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
+            Disponibilidad d;
+            int cont;
+            long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
+            file.seekg(pos,ios::beg);
+            file.read((char*)&cont,sizeof(cont));
+            if(cont==0){
+                ui->textBrowser_4->setText("::Clave Erronea::");
+            }
+            else{
+                for(int i(0);i<cont;i++){
+                    file.read((char*)&d,sizeof(d));
+                    QString llave=d.getClaveProf();
+                    llave+=d.getClaveAsig();
+                    if(type==1 && llave==clave){
+                        cont--;
+                        file.seekp(pos,ios::beg);
+                        file.write((char*)&cont,sizeof(cont));
+                        ui->textBrowser_4->append(d.toQstring());
+                        ui->textBrowser_4->append("::Modificado::");
+                        d.setFecha(newDate);
+                        d.setHora(newTime);
+                        d.setClaveAsig(auxQstr);
+                        newClave=d.getClaveProf().toStdString();
+                        newClave+=newAsig;
+
+                        long int newDBase = dispersion(newClave);
+                        QString qStr=newClave.c_str();
+                        qDebug()<<"Clave: "<<qStr;
+                        qDebug()<<"Direccion Base: "<<newDBase;
+                        long int aux=newDBase,aux2;
+
+                        newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
+                        file.seekg(newDBase,ios::beg);
+                        file.read((char*)&cont,sizeof(cont));
+                        if(cont == COLUMNAS){
+                            QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+                        }
+                        else{
+                            long int pos = newDBase+(cont*sizeof(d))+sizeof(cont);
+                            aux2=pos;
+                            file.seekp(pos,ios::beg);
+                            file.write((char*)&d,sizeof(d));
+                            cont++;
+                            pos=newDBase;
+                            file.seekp(pos,ios::beg);
+                            file.write((char*)&cont,sizeof(cont));
+                        }
+                        break;
+                    }
+                    else if(type==4 && d.getClaveProf()==code && llave==clave){
+                        cont--;
+                        file.seekp(pos,ios::beg);
+                        file.write((char*)&cont,sizeof(cont));
+                        ui->textBrowser_4->append(d.toQstring());
+                        ui->textBrowser_4->append("::Modificado::");
+                        d.setFecha(newDate);
+                        d.setHora(newTime);
+                        d.setClaveAsig(auxQstr);
+                        newClave=d.getClaveProf().toStdString();
+                        newClave+=newAsig;
+
+                        long int newDBase = dispersion(newClave);
+                        long int aux=newDBase,aux2;
+
+                        newDBase=newDBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
+                        file.seekg(newDBase,ios::beg);
+                        file.read((char*)&cont,sizeof(cont));
+                        if(cont == COLUMNAS){
+                            QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
+                        }
+                        else{
+                            long int pos = newDBase+(cont*sizeof(d))+sizeof(cont);
+                            aux2=pos;
+                            file.seekp(pos,ios::beg);
+                            file.write((char*)&d,sizeof(d));
+                            cont++;
+                            pos=newDBase;
+                            file.seekp(pos,ios::beg);
+                            file.write((char*)&cont,sizeof(cont));
+                        }
+                        break;
+                    }
+                    else
+                        ui->textBrowser_4->setText("::Clave Erronea::");
+                }
+            }
+            file.close();
         }
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
+    }
 }
 
 /*Expancion filas*/
 void MenuDisponibilidad::on_pushButton_7_clicked()
 {
-    expand(COLUMNAS,FILAS,2);
-    QMessageBox::information(this, tr("::Exito::"), tr("::Filas duplicadas::"));
+    if(FILAS==100)
+    {
+        expand(COLUMNAS,FILAS,2);
+        QMessageBox::information(this, tr("::Exito::"), tr("::Filas duplicadas::"));
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Filas ya han sido duplicadas::"));
+    }
 
 }
 

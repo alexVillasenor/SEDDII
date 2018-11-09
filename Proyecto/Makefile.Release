@@ -2959,35 +2959,7 @@ release/login.o: login.cpp login.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_login.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMenuBar \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmenubar.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmenu.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QStatusBar \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstatusbar.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QToolBar \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtoolbar.h
+		ui_login.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\login.o login.cpp
 
 release/menuprofesor.o: menuprofesor.cpp menuprofesor.h \
@@ -3150,33 +3122,7 @@ release/menuprofesor.o: menuprofesor.cpp menuprofesor.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_menuprofesor.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h
+		ui_menuprofesor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menuprofesor.o menuprofesor.cpp
 
 release/profesor.o: profesor.cpp profesor.h \
@@ -3552,44 +3498,7 @@ release/menuuser.o: menuuser.cpp menuuser.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_menuuser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qcombobox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h
+		ui_menuuser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menuuser.o menuuser.cpp
 
 release/menuperfil.o: menuperfil.cpp menuperfil.h \
@@ -3752,33 +3661,7 @@ release/menuperfil.o: menuperfil.cpp menuperfil.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_menuperfil.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h
+		ui_menuperfil.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menuperfil.o menuperfil.cpp
 
 release/menusu.o: menusu.cpp menusu.h \
@@ -3941,26 +3824,7 @@ release/menusu.o: menusu.cpp menusu.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_menusu.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h
+		ui_menusu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menusu.o menusu.cpp
 
 release/menuca.o: menuca.cpp menuca.h \
@@ -4123,26 +3987,7 @@ release/menuca.o: menuca.cpp menuca.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_menuca.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h
+		ui_menuca.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menuca.o menuca.cpp
 
 release/periodo.o: periodo.cpp periodo.h \
@@ -4449,36 +4294,7 @@ release/menuperiodo.o: menuperiodo.cpp menuperiodo.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		ui_menuperiodo.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QDateEdit \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdatetimeedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h
+		ui_menuperiodo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menuperiodo.o menuperiodo.cpp
 
 release/menugrupo.o: menugrupo.cpp menugrupo.h \
@@ -4641,44 +4457,7 @@ release/menugrupo.o: menugrupo.cpp menugrupo.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
 		grupo.h \
-		ui_menugrupo.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qcombobox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h
+		ui_menugrupo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menugrupo.o menugrupo.cpp
 
 release/asignatura.o: asignatura.cpp asignatura.h \
@@ -4900,50 +4679,24 @@ release/menuasignatura.o: menuasignatura.cpp menuasignatura.h \
 		grupo.h \
 		menudisponibilidad.h \
 		disponibilidad.h \
+		list.h \
+		node.h \
+		listainvertida.h \
+		indicesecundario.h \
+		programa.h \
+		asignatura.h \
+		indice.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
 		edificio.h \
 		camino.h \
 		paredificios.h \
-		list.h \
-		node.h \
 		stack.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
-		asignatura.h \
-		indice.h \
-		listainvertida.h \
-		indicesecundario.h \
-		programa.h \
 		ui_menuasignatura.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QTimer \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtimer.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbasictimer.h
@@ -5217,46 +4970,7 @@ release/menumapa.o: menumapa.cpp menumapa.h \
 		paredificios.h \
 		nuevoenlace.h \
 		Queue.h \
-		ui_menumapa.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qcombobox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QStackedWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstackedwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTabWidget \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QTextBrowser \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextbrowser.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextdocument.h
+		ui_menumapa.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menumapa.o menumapa.cpp
 
 release/nuevoedificio.o: nuevoedificio.cpp nuevoedificio.h \
@@ -5419,26 +5133,7 @@ release/nuevoedificio.o: nuevoedificio.cpp nuevoedificio.h \
 		paredificios.h \
 		Queue.h \
 		nuevoenlace.h \
-		ui_nuevoedificio.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h
+		ui_nuevoedificio.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\nuevoedificio.o nuevoedificio.cpp
 
 release/nuevoenlace.o: nuevoenlace.cpp nuevoenlace.h \
@@ -5601,38 +5296,7 @@ release/nuevoenlace.o: nuevoenlace.cpp nuevoenlace.h \
 		paredificios.h \
 		Queue.h \
 		nuevoedificio.h \
-		ui_nuevoenlace.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIcon \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QComboBox \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qcombobox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qstyle.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QGridLayout \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qgridlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qboxlayout.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QSpacerItem
+		ui_nuevoenlace.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\nuevoenlace.o nuevoenlace.cpp
 
 release/paredificios.o: paredificios.cpp paredificios.h \
@@ -5856,7 +5520,96 @@ release/disponibilidad.o: disponibilidad.cpp disponibilidad.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsharedpointer.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDate \
-		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdatetime.h
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdatetime.h \
+		login.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qline.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qfont.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
+		menuprofesor.h \
+		profesor.h \
+		menuuser.h \
+		user.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIntValidator \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QRegExpValidator \
+		menuperfil.h \
+		perfil.h \
+		menusu.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QList \
+		menuca.h \
+		menuperiodo.h \
+		periodo.h \
+		menugrupo.h \
+		grupo.h \
+		menuasignatura.h \
+		list.h \
+		node.h \
+		asignatura.h \
+		indice.h \
+		stack.h \
+		listainvertida.h \
+		indicesecundario.h \
+		programa.h \
+		menudisponibilidad.h \
+		profesormenu.h \
+		menumapa.h \
+		mapa.h \
+		edificio.h \
+		camino.h \
+		paredificios.h \
+		Queue.h \
+		nuevoedificio.h \
+		nuevoenlace.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\disponibilidad.o disponibilidad.cpp
 
 release/menudisponibilidad.o: menudisponibilidad.cpp menudisponibilidad.h \
