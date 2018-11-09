@@ -30,6 +30,7 @@ INPUT(
 ./debug\menudisponibilidad.o
 ./debug\profesormenu.o
 ./debug\oferta.o
+./debug\menuoferta.o
 ./debug\moc_login.o
 ./debug\moc_menuprofesor.o
 ./debug\moc_menuuser.o
@@ -44,4 +45,5 @@ INPUT(
 ./debug\moc_nuevoenlace.o
 ./debug\moc_menudisponibilidad.o
 ./debug\moc_profesormenu.o
+./debug\moc_menuoferta.o
 );

@@ -30,6 +30,7 @@ INPUT(
 ./release\menudisponibilidad.o
 ./release\profesormenu.o
 ./release\oferta.o
+./release\menuoferta.o
 ./release\moc_login.o
 ./release\moc_menuprofesor.o
 ./release\moc_menuuser.o
@@ -44,4 +45,5 @@ INPUT(
 ./release\moc_nuevoenlace.o
 ./release\moc_menudisponibilidad.o
 ./release\moc_profesormenu.o
+./release\moc_menuoferta.o
 );

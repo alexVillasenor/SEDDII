@@ -118,6 +118,18 @@ void MenuSU::on_pushButton_9_clicked()
     delete this;
 }
 
+/*Oferta*/
+void MenuSU::on_pushButton_10_clicked()
+{
+    MenuOferta *menuOferta = new MenuOferta();
+    this->hide();
+    menuOferta->setType(1);
+    menuOferta->setCode(code);
+    menuOferta->show();
+    this->close();
+    delete this;
+}
+
 QString MenuSU::getCode() const
 {
     return code;
@@ -127,3 +139,4 @@ void MenuSU::setCode(const QString &value)
 {
     code = value;
 }
+

@@ -2,6 +2,14 @@
 #define MENUOFERTA_H
 
 #include <QWidget>
+#include <QString>
+#include <QFile>
+#include <QDebug>
+#include <iostream>
+#include <sstream>
+#include <QDate>
+#include "login.h"
+#include "oferta.h"
 
 namespace Ui {
 class MenuOferta;
@@ -14,9 +22,24 @@ class MenuOferta : public QWidget
 public:
     explicit MenuOferta(QWidget *parent = 0);
     ~MenuOferta();
+    void cargarPeriodos();
+    void cargarGrupos(QString periodo);
+
+    int getType() const;
+    void setType(int value);
+
+    QString getCode() const;
+    void setCode(const QString &value);
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_comboBox_Periodo_activated(const QString &arg1);
 
 private:
     Ui::MenuOferta *ui;
+    int type;
+    QString code;
 };
 
 #endif // MENUOFERTA_H

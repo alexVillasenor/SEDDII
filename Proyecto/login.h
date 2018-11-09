@@ -13,6 +13,7 @@
 #include "menugrupo.h"
 #include "menuasignatura.h"
 #include "menudisponibilidad.h"
+#include "menuoferta.h"
 #include "profesormenu.h"
 #include "menumapa.h"
 #include <QList>
