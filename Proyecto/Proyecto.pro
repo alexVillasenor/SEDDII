@@ -54,7 +54,8 @@ SOURCES += \
     disponibilidad.cpp \
     menudisponibilidad.cpp \
     profesormenu.cpp \
-    oferta.cpp
+    oferta.cpp \
+    menuoferta.cpp
 
 HEADERS += \
         login.h \
@@ -90,7 +91,8 @@ HEADERS += \
     disponibilidad.h \
     menudisponibilidad.h \
     profesormenu.h \
-    oferta.h
+    oferta.h \
+    menuoferta.h
 
 FORMS += \
         login.ui \
@@ -106,4 +108,5 @@ FORMS += \
     nuevoedificio.ui \
     nuevoenlace.ui \
     menudisponibilidad.ui \
-    profesormenu.ui
+    profesormenu.ui \
+    menuoferta.ui
