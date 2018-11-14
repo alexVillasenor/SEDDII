@@ -1,91 +1,109 @@
 #include "nodohuffman.h"
 
-NodoHuffman *NodoHuffman::getPrev() const
+Data NodoHuffman::getData() const
 {
-    return prev;
+    return data;
 }
 
-void NodoHuffman::setPrev(NodoHuffman *value)
+void NodoHuffman::setData(const Data &value)
 {
-    prev = value;
+    data = value;
 }
 
-NodoHuffman *NodoHuffman::getNext() const
-{
+NodoHuffman::NodoHuffman() : prev(nullptr), next(nullptr),left(nullptr), right(nullptr) {}
+
+
+NodoHuffman::NodoHuffman(const NodoHuffman &e) {
+    data=e.data;
+    prev=e.prev;
+    next=e.next;
+    left=e.left;
+    right=e.right;
+}
+
+NodoHuffman* NodoHuffman::getNext() {
     return next;
+    }
+
+
+NodoHuffman* NodoHuffman::getPrev() {
+    return prev;
+    }
+
+
+void NodoHuffman::setNext(NodoHuffman* p) {
+    next=p;
 }
 
-void NodoHuffman::setNext(NodoHuffman *value)
+
+NodoHuffman &NodoHuffman::operator =(const NodoHuffman &n)
 {
-    next = value;
+    data=n.data;
+    prev=n.prev;
+    next=n.next;
+    left=n.left;
+    right=n.right;
+    return *this;
 }
 
-NodoHuffman *NodoHuffman::getLeft() const
-{
-    return left;
-}
 
-void NodoHuffman::setLeft(NodoHuffman *value)
-{
-    left = value;
-}
+void NodoHuffman::setPrev(NodoHuffman* p) {
+    prev=p;
+    }
 
-NodoHuffman *NodoHuffman::getRight() const
-{
-    return right;
-}
-
-void NodoHuffman::setRight(NodoHuffman *value)
-{
-    right = value;
-}
-
-char NodoHuffman::getCaracter() const
-{
-    return caracter;
-}
-
-void NodoHuffman::setCaracter(char value)
-{
-    caracter = value;
-}
-
-int NodoHuffman::getFrec() const
+int Data::getFrec() const
 {
     return frec;
 }
 
-void NodoHuffman::setFrec(int value)
+void Data::setFrec(int value)
 {
     frec = value;
 }
 
-NodoHuffman &NodoHuffman::operator =(const NodoHuffman &nodo)
+std::string Data::toString()
 {
-    prev=nodo.getPrev();
-    next=nodo.getNext();
-    left=nodo.getLeft();
-    right=nodo.getRight();
-    caracter=nodo.getCaracter();
-    frec=nodo.getFrec();
-    return *this;
+
 }
 
-NodoHuffman::NodoHuffman()
+bool Data::operator ==(const Data &)
 {
-    prev=nullptr;
-    next=nullptr;
-    left=nullptr;
-    right=nullptr;
-    frec=0;
+
 }
 
-NodoHuffman::NodoHuffman(NodoHuffman *nodo)
+bool Data::operator !=(const Data &)
 {
-    prev=nodo->getPrev();
-    next=nodo->getNext();
-    left=nodo->getLeft();
-    right=nodo->getRight();
-    caracter=nodo->getCaracter();
-    frec=nodo->getFrec();
+
+}
+
+bool Data::operator <=(const Data &)
+{
+
+}
+
+bool Data::operator <(const Data &)
+{
+
+}
+
+bool Data::operator >=(const Data &)
+{
+
+}
+
+bool Data::operator >(const Data &)
+{
+
+}
+
+Data::Data(): frec(0) {}
+
+char Data::getCaracter() const
+{
+    return caracter;
+}
+
+void Data::setCaracter(char value)
+{
+    caracter = value;
 }
