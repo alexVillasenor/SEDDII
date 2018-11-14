@@ -55,7 +55,10 @@ SOURCES += \
     menudisponibilidad.cpp \
     profesormenu.cpp \
     oferta.cpp \
-    menuoferta.cpp
+    menuoferta.cpp \
+    menuhuffman.cpp \
+    tda_huffman.cpp \
+    nodohuffman.cpp
 
 HEADERS += \
         login.h \
@@ -92,7 +95,10 @@ HEADERS += \
     menudisponibilidad.h \
     profesormenu.h \
     oferta.h \
-    menuoferta.h
+    menuoferta.h \
+    menuhuffman.h \
+    tda_huffman.h \
+    nodohuffman.h
 
 FORMS += \
         login.ui \
@@ -109,4 +115,5 @@ FORMS += \
     nuevoenlace.ui \
     menudisponibilidad.ui \
     profesormenu.ui \
-    menuoferta.ui
+    menuoferta.ui \
+    menuhuffman.ui

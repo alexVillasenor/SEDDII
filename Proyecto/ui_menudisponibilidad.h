@@ -286,7 +286,7 @@ public:
 
         retranslateUi(MenuDisponibilidad);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MenuDisponibilidad);

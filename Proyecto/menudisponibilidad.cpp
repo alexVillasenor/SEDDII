@@ -265,7 +265,7 @@ long MenuDisponibilidad::dispersion(string clave)
             i++;
         }
     }
-    direccionBase=direccionBase%FILAS;
+    direccionBase=abs(direccionBase%FILAS);
     return direccionBase;
 }
 
@@ -334,7 +334,7 @@ void MenuDisponibilidad::on_pushButton_clicked()
         SU->setCode(code);
         SU->show();
         this->close();
-        delete this;
+
     }
     else if(type==4){
         ProfesorMenu *menuProf = new ProfesorMenu();
@@ -342,7 +342,7 @@ void MenuDisponibilidad::on_pushButton_clicked()
         menuProf->setCode(code);
         menuProf->show();
         this->close();
-        delete this;
+
     }
 }
 
@@ -391,6 +391,7 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
             file.write((char*)&cont,sizeof(cont));
             QMessageBox::information(this, tr("::Exito::"), tr("::Disponibilidad agregada::"));
         }
+        file.close();
     }
     else{
         QMessageBox::information(this, tr("::Error::"), tr("::Llave Existente::"));

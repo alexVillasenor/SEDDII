@@ -167,7 +167,7 @@ void MenuOferta::on_pushButton_clicked()
     SU->setCode(code);
     SU->show();
     this->close();
-    delete this;
+
 }
 
 void MenuOferta::on_comboBox_Periodo_activated(const QString &arg1)

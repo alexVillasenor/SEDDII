@@ -31,6 +31,9 @@ INPUT(
 ./release\profesormenu.o
 ./release\oferta.o
 ./release\menuoferta.o
+./release\menuhuffman.o
+./release\tda_huffman.o
+./release\nodohuffman.o
 ./release\moc_login.o
 ./release\moc_menuprofesor.o
 ./release\moc_menuuser.o
@@ -46,4 +49,5 @@ INPUT(
 ./release\moc_menudisponibilidad.o
 ./release\moc_profesormenu.o
 ./release\moc_menuoferta.o
+./release\moc_menuhuffman.o
 );

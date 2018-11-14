@@ -34,6 +34,7 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_10;
+    QPushButton *pushButton_11;
 
     void setupUi(QWidget *MenuSU)
     {
@@ -110,6 +111,12 @@ public:
 
         gridLayout->addWidget(pushButton_10, 5, 0, 1, 1);
 
+        pushButton_11 = new QPushButton(MenuSU);
+        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
+        pushButton_11->setAutoDefault(true);
+
+        gridLayout->addWidget(pushButton_11, 5, 1, 1, 1);
+
         QWidget::setTabOrder(pushButton, pushButton_2);
         QWidget::setTabOrder(pushButton_2, pushButton_3);
         QWidget::setTabOrder(pushButton_3, pushButton_5);
@@ -118,7 +125,8 @@ public:
         QWidget::setTabOrder(pushButton_7, pushButton_8);
         QWidget::setTabOrder(pushButton_8, pushButton_9);
         QWidget::setTabOrder(pushButton_9, pushButton_10);
-        QWidget::setTabOrder(pushButton_10, pushButton_4);
+        QWidget::setTabOrder(pushButton_10, pushButton_11);
+        QWidget::setTabOrder(pushButton_11, pushButton_4);
 
         retranslateUi(MenuSU);
 
@@ -139,6 +147,7 @@ public:
         pushButton_2->setText(QApplication::translate("MenuSU", "Perfil", nullptr));
         pushButton_3->setText(QApplication::translate("MenuSU", "Profesor", nullptr));
         pushButton_10->setText(QApplication::translate("MenuSU", "Oferta", nullptr));
+        pushButton_11->setText(QApplication::translate("MenuSU", "Huffman", nullptr));
     } // retranslateUi
 
 };

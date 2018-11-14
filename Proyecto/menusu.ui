@@ -125,6 +125,16 @@
      </property>
     </widget>
    </item>
+   <item row="5" column="1">
+    <widget class="QPushButton" name="pushButton_11">
+     <property name="text">
+      <string>Huffman</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <tabstops>
@@ -137,6 +147,7 @@
   <tabstop>pushButton_8</tabstop>
   <tabstop>pushButton_9</tabstop>
   <tabstop>pushButton_10</tabstop>
+  <tabstop>pushButton_11</tabstop>
   <tabstop>pushButton_4</tabstop>
  </tabstops>
  <resources/>
