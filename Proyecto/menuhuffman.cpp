@@ -82,7 +82,7 @@ void MenuHuffman::on_pushButton_clicked()
         qAux=dicDatos.toString().c_str();
         ui->textBrowser->append(qAux);
 
-        QString newCadena;
+        QString newCadena, cadenaFragmentada;
         for(int i(0);i<cadena.length();i++){
             DicDatosHuffman auxDic;
             string str;
@@ -94,6 +94,18 @@ void MenuHuffman::on_pushButton_clicked()
         ui->textBrowser->append("6.-");
         ui->textBrowser->append(newCadena);
 
+        for(int i(0);i<newCadena.length();i=i+8){
+            string auxStr=newCadena.toStdString().substr(i,8);
+            if((auxStr.length()%8)!=0){
+                do{
+                    auxStr+="0";
+                }while((auxStr.length()%8)!=0);
+            }
+            cadenaFragmentada+=auxStr.c_str();
+            cadenaFragmentada+=" ";
+        }
+        ui->textBrowser->append("7.-");
+        ui->textBrowser->append(cadenaFragmentada);
 
 
 
