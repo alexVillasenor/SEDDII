@@ -34,6 +34,7 @@ INPUT(
 ./debug\menuhuffman.o
 ./debug\tda_huffman.o
 ./debug\nodohuffman.o
+./debug\dicdatoshuffman.o
 ./debug\moc_login.o
 ./debug\moc_menuprofesor.o
 ./debug\moc_menuuser.o

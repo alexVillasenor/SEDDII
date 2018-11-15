@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <iostream>
 #include <fstream>
+#include "dicdatoshuffman.h"
 #include "menuprofesor.h"
 #include "menuperfil.h"
 #include "menuuser.h"

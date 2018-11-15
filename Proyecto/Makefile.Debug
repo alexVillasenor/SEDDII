@@ -79,7 +79,8 @@ SOURCES       = main.cpp \
 		menuoferta.cpp \
 		menuhuffman.cpp \
 		tda_huffman.cpp \
-		nodohuffman.cpp debug\moc_login.cpp \
+		nodohuffman.cpp \
+		dicdatoshuffman.cpp debug\moc_login.cpp \
 		debug\moc_menuprofesor.cpp \
 		debug\moc_menuuser.cpp \
 		debug\moc_menuperfil.cpp \
@@ -130,6 +131,7 @@ OBJECTS       = debug/main.o \
 		debug/menuhuffman.o \
 		debug/tda_huffman.o \
 		debug/nodohuffman.o \
+		debug/dicdatoshuffman.o \
 		debug/moc_login.o \
 		debug/moc_menuprofesor.o \
 		debug/moc_menuuser.o \
@@ -184,7 +186,8 @@ DIST          =  login.h \
 		menuoferta.h \
 		menuhuffman.h \
 		tda_huffman.h \
-		nodohuffman.h main.cpp \
+		nodohuffman.h \
+		dicdatoshuffman.h main.cpp \
 		login.cpp \
 		menuprofesor.cpp \
 		profesor.cpp \
@@ -218,7 +221,8 @@ DIST          =  login.h \
 		menuoferta.cpp \
 		menuhuffman.cpp \
 		tda_huffman.cpp \
-		nodohuffman.cpp
+		nodohuffman.cpp \
+		dicdatoshuffman.cpp
 QMAKE_TARGET  = Proyecto
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = Proyecto.exe
@@ -238,10 +242,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Proyecto.zip $(SOURCES) $(DIST) Proyecto.pro C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\qdevice.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\device_config.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\sanitize.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\gcc-base.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\g++-base.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\angle.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\windows-vulkan.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\g++-win32.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\qconfig.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\default_post.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qml_debug.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qt.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\resources.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\moc.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\uic.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\win32\windows.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\yacc.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\lex.prf Proyecto.pro C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\qtmaind.prl C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\Qt5Widgetsd.prl C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\Qt5Guid.prl C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\Qt5Cored.prl    C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\data\dummy.cpp login.h menuprofesor.h profesor.h user.h perfil.h menuuser.h menuperfil.h menusu.h menuca.h periodo.h grupo.h menuperiodo.h menugrupo.h asignatura.h indice.h menuasignatura.h list.h node.h stack.h edificio.h mapa.h camino.h menumapa.h nuevoedificio.h nuevoenlace.h Queue.h paredificios.h programa.h indicesecundario.h listainvertida.h disponibilidad.h menudisponibilidad.h profesormenu.h oferta.h menuoferta.h menuhuffman.h tda_huffman.h nodohuffman.h  main.cpp login.cpp menuprofesor.cpp profesor.cpp user.cpp perfil.cpp menuuser.cpp menuperfil.cpp menusu.cpp menuca.cpp periodo.cpp grupo.cpp menuperiodo.cpp menugrupo.cpp asignatura.cpp indice.cpp menuasignatura.cpp edificio.cpp mapa.cpp camino.cpp menumapa.cpp nuevoedificio.cpp nuevoenlace.cpp paredificios.cpp programa.cpp indicesecundario.cpp listainvertida.cpp disponibilidad.cpp menudisponibilidad.cpp profesormenu.cpp oferta.cpp menuoferta.cpp menuhuffman.cpp tda_huffman.cpp nodohuffman.cpp login.ui menuprofesor.ui menuuser.ui menuperfil.ui menusu.ui menuca.ui menuperiodo.ui menugrupo.ui menuasignatura.ui menumapa.ui nuevoedificio.ui nuevoenlace.ui menudisponibilidad.ui profesormenu.ui menuoferta.ui menuhuffman.ui    
+	$(ZIP) Proyecto.zip $(SOURCES) $(DIST) Proyecto.pro C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\spec_pre.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\qdevice.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\device_config.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\sanitize.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\gcc-base.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\g++-base.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\angle.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\windows-vulkan.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\common\g++-win32.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\qconfig.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qt_functions.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qt_config.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\win32-g++\qmake.conf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\toolchain.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\default_pre.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\resolve_config.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\default_post.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\build_pass.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qml_debug.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\precompile_header.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\warn_on.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qt.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\resources.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\moc.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\uic.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\qmake_use.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\file_copies.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\win32\windows.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\exceptions.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\yacc.prf C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\lex.prf Proyecto.pro C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\qtmaind.prl C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\Qt5Widgetsd.prl C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\Qt5Guid.prl C:\Qt\Qt5.11.1\5.11.1\mingw53_32\lib\Qt5Cored.prl    C:\Qt\Qt5.11.1\5.11.1\mingw53_32\mkspecs\features\data\dummy.cpp login.h menuprofesor.h profesor.h user.h perfil.h menuuser.h menuperfil.h menusu.h menuca.h periodo.h grupo.h menuperiodo.h menugrupo.h asignatura.h indice.h menuasignatura.h list.h node.h stack.h edificio.h mapa.h camino.h menumapa.h nuevoedificio.h nuevoenlace.h Queue.h paredificios.h programa.h indicesecundario.h listainvertida.h disponibilidad.h menudisponibilidad.h profesormenu.h oferta.h menuoferta.h menuhuffman.h tda_huffman.h nodohuffman.h dicdatoshuffman.h  main.cpp login.cpp menuprofesor.cpp profesor.cpp user.cpp perfil.cpp menuuser.cpp menuperfil.cpp menusu.cpp menuca.cpp periodo.cpp grupo.cpp menuperiodo.cpp menugrupo.cpp asignatura.cpp indice.cpp menuasignatura.cpp edificio.cpp mapa.cpp camino.cpp menumapa.cpp nuevoedificio.cpp nuevoenlace.cpp paredificios.cpp programa.cpp indicesecundario.cpp listainvertida.cpp disponibilidad.cpp menudisponibilidad.cpp profesormenu.cpp oferta.cpp menuoferta.cpp menuhuffman.cpp tda_huffman.cpp nodohuffman.cpp dicdatoshuffman.cpp login.ui menuprofesor.ui menuuser.ui menuperfil.ui menusu.ui menuca.ui menuperiodo.ui menugrupo.ui menuasignatura.ui menumapa.ui nuevoedificio.ui nuevoenlace.ui menudisponibilidad.ui profesormenu.ui menuoferta.ui menuhuffman.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\login.o debug\menuprofesor.o debug\profesor.o debug\user.o debug\perfil.o debug\menuuser.o debug\menuperfil.o debug\menusu.o debug\menuca.o debug\periodo.o debug\grupo.o debug\menuperiodo.o debug\menugrupo.o debug\asignatura.o debug\indice.o debug\menuasignatura.o debug\edificio.o debug\mapa.o debug\camino.o debug\menumapa.o debug\nuevoedificio.o debug\nuevoenlace.o debug\paredificios.o debug\programa.o debug\indicesecundario.o debug\listainvertida.o debug\disponibilidad.o debug\menudisponibilidad.o debug\profesormenu.o debug\oferta.o debug\menuoferta.o debug\menuhuffman.o debug\tda_huffman.o debug\nodohuffman.o debug\moc_login.o debug\moc_menuprofesor.o debug\moc_menuuser.o debug\moc_menuperfil.o debug\moc_menusu.o debug\moc_menuca.o debug\moc_menuperiodo.o debug\moc_menugrupo.o debug\moc_menuasignatura.o debug\moc_menumapa.o debug\moc_nuevoedificio.o debug\moc_nuevoenlace.o debug\moc_menudisponibilidad.o debug\moc_profesormenu.o debug\moc_menuoferta.o debug\moc_menuhuffman.o
+	-$(DEL_FILE) debug\main.o debug\login.o debug\menuprofesor.o debug\profesor.o debug\user.o debug\perfil.o debug\menuuser.o debug\menuperfil.o debug\menusu.o debug\menuca.o debug\periodo.o debug\grupo.o debug\menuperiodo.o debug\menugrupo.o debug\asignatura.o debug\indice.o debug\menuasignatura.o debug\edificio.o debug\mapa.o debug\camino.o debug\menumapa.o debug\nuevoedificio.o debug\nuevoenlace.o debug\paredificios.o debug\programa.o debug\indicesecundario.o debug\listainvertida.o debug\disponibilidad.o debug\menudisponibilidad.o debug\profesormenu.o debug\oferta.o debug\menuoferta.o debug\menuhuffman.o debug\tda_huffman.o debug\nodohuffman.o debug\dicdatoshuffman.o debug\moc_login.o debug\moc_menuprofesor.o debug\moc_menuuser.o debug\moc_menuperfil.o debug\moc_menusu.o debug\moc_menuca.o debug\moc_menuperiodo.o debug\moc_menugrupo.o debug\moc_menuasignatura.o debug\moc_menumapa.o debug\moc_nuevoedificio.o debug\moc_nuevoenlace.o debug\moc_menudisponibilidad.o debug\moc_profesormenu.o debug\moc_menuoferta.o debug\moc_menuhuffman.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -377,6 +381,7 @@ debug/moc_login.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMainWin
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -423,6 +428,8 @@ debug/moc_login.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMainWin
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -549,6 +556,7 @@ debug/moc_menuprofesor.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/Q
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		user.h \
@@ -591,6 +599,8 @@ debug/moc_menuprofesor.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/Q
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -718,6 +728,7 @@ debug/moc_menuuser.cpp: profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
@@ -759,6 +770,8 @@ debug/moc_menuuser.cpp: profesor.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -887,6 +900,7 @@ debug/moc_menuperfil.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWi
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
@@ -927,6 +941,8 @@ debug/moc_menuperfil.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWi
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -1054,6 +1070,7 @@ debug/moc_menusu.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QFile \
 		login.h \
+		dicdatoshuffman.h \
 		menuperfil.h \
 		perfil.h \
 		user.h \
@@ -1095,6 +1112,8 @@ debug/moc_menusu.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -1222,6 +1241,7 @@ debug/moc_menuca.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QFile \
 		login.h \
+		dicdatoshuffman.h \
 		menuperfil.h \
 		perfil.h \
 		user.h \
@@ -1263,6 +1283,8 @@ debug/moc_menuca.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -1389,6 +1411,7 @@ debug/moc_menuperiodo.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QW
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		user.h \
@@ -1431,6 +1454,8 @@ debug/moc_menuperiodo.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QW
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -1557,6 +1582,7 @@ debug/moc_menugrupo.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWid
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		user.h \
@@ -1599,6 +1625,8 @@ debug/moc_menugrupo.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWid
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -1722,6 +1750,7 @@ debug/moc_menuasignatura.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -1767,6 +1796,8 @@ debug/moc_menuasignatura.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -1890,6 +1921,7 @@ debug/moc_menumapa.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidg
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -1935,6 +1967,8 @@ debug/moc_menumapa.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidg
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -2058,6 +2092,7 @@ debug/moc_nuevoedificio.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -2103,6 +2138,8 @@ debug/moc_nuevoedificio.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -2226,6 +2263,7 @@ debug/moc_nuevoenlace.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QW
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -2271,6 +2309,8 @@ debug/moc_nuevoenlace.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QW
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -2399,6 +2439,7 @@ debug/moc_menudisponibilidad.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWid
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		menuuser.h \
@@ -2439,6 +2480,8 @@ debug/moc_menudisponibilidad.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWid
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -2562,6 +2605,7 @@ debug/moc_profesormenu.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/Q
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -2607,6 +2651,8 @@ debug/moc_profesormenu.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/Q
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -2734,6 +2780,7 @@ debug/moc_menuoferta.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWi
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		menuuser.h \
@@ -2775,6 +2822,8 @@ debug/moc_menuoferta.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWi
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -2898,6 +2947,7 @@ debug/moc_menuhuffman.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QW
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -2943,6 +2993,8 @@ debug/moc_menuhuffman.cpp: C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QW
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -3149,6 +3201,7 @@ debug/main.o: main.cpp login.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -3194,6 +3247,8 @@ debug/main.o: main.cpp login.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -3321,6 +3376,7 @@ debug/login.o: login.cpp login.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -3366,6 +3422,8 @@ debug/login.o: login.cpp login.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -3519,6 +3577,7 @@ debug/menuprofesor.o: menuprofesor.cpp menuprofesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuperfil.h \
 		perfil.h \
 		user.h \
@@ -3560,6 +3619,8 @@ debug/menuprofesor.o: menuprofesor.cpp menuprofesor.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -3925,6 +3986,7 @@ debug/menuuser.o: menuuser.cpp menuuser.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmessagebox.h \
@@ -3965,6 +4027,8 @@ debug/menuuser.o: menuuser.cpp menuuser.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -4129,6 +4193,7 @@ debug/menuperfil.o: menuperfil.cpp menuperfil.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
@@ -4168,6 +4233,8 @@ debug/menuperfil.o: menuperfil.cpp menuperfil.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -4320,6 +4387,7 @@ debug/menusu.o: menusu.cpp menusu.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QFile \
 		login.h \
+		dicdatoshuffman.h \
 		menuperfil.h \
 		perfil.h \
 		user.h \
@@ -4360,6 +4428,8 @@ debug/menusu.o: menusu.cpp menusu.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -4505,6 +4575,7 @@ debug/menuca.o: menuca.cpp menuca.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QFile \
 		login.h \
+		dicdatoshuffman.h \
 		menuperfil.h \
 		perfil.h \
 		user.h \
@@ -4545,6 +4616,8 @@ debug/menuca.o: menuca.cpp menuca.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -4833,6 +4906,7 @@ debug/menuperiodo.o: menuperiodo.cpp menuperiodo.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		user.h \
@@ -4874,6 +4948,8 @@ debug/menuperiodo.o: menuperiodo.cpp menuperiodo.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -5028,6 +5104,7 @@ debug/menugrupo.o: menugrupo.cpp menugrupo.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		menuuser.h \
 		user.h \
@@ -5068,6 +5145,8 @@ debug/menugrupo.o: menugrupo.cpp menugrupo.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -5304,6 +5383,7 @@ debug/menuasignatura.o: menuasignatura.cpp menuasignatura.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -5347,6 +5427,8 @@ debug/menuasignatura.o: menuasignatura.cpp menuasignatura.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -5618,6 +5700,7 @@ debug/menumapa.o: menumapa.cpp menumapa.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -5663,6 +5746,8 @@ debug/menumapa.o: menumapa.cpp menumapa.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		nuevoedificio.h \
 		mapa.h \
@@ -5823,6 +5908,7 @@ debug/nuevoedificio.o: nuevoedificio.cpp nuevoedificio.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -5868,6 +5954,8 @@ debug/nuevoedificio.o: nuevoedificio.cpp nuevoedificio.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -6008,6 +6096,7 @@ debug/nuevoenlace.o: nuevoenlace.cpp nuevoenlace.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -6053,6 +6142,8 @@ debug/nuevoenlace.o: nuevoenlace.cpp nuevoenlace.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -6360,6 +6451,7 @@ debug/disponibilidad.o: disponibilidad.cpp disponibilidad.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		menuuser.h \
@@ -6400,6 +6492,8 @@ debug/disponibilidad.o: disponibilidad.cpp disponibilidad.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -6526,6 +6620,7 @@ debug/menudisponibilidad.o: menudisponibilidad.cpp menudisponibilidad.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		menuuser.h \
@@ -6565,6 +6660,8 @@ debug/menudisponibilidad.o: menudisponibilidad.cpp menudisponibilidad.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -6726,6 +6823,7 @@ debug/profesormenu.o: profesormenu.cpp profesormenu.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -6771,6 +6869,8 @@ debug/profesormenu.o: profesormenu.cpp profesormenu.h \
 		menuoferta.h \
 		oferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		menumapa.h \
 		mapa.h \
 		edificio.h \
@@ -6913,6 +7013,7 @@ debug/oferta.o: oferta.cpp oferta.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		menuuser.h \
@@ -6953,6 +7054,8 @@ debug/oferta.o: oferta.cpp oferta.h \
 		disponibilidad.h \
 		menuoferta.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -7078,6 +7181,7 @@ debug/menuoferta.o: menuoferta.cpp menuoferta.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		menuuser.h \
@@ -7117,6 +7221,8 @@ debug/menuoferta.o: menuoferta.cpp menuoferta.h \
 		menudisponibilidad.h \
 		disponibilidad.h \
 		menuhuffman.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		profesormenu.h \
 		menumapa.h \
 		mapa.h \
@@ -7276,6 +7382,7 @@ debug/menuhuffman.o: menuhuffman.cpp menuhuffman.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		dicdatoshuffman.h \
 		menuprofesor.h \
 		profesor.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
@@ -7329,6 +7436,8 @@ debug/menuhuffman.o: menuhuffman.cpp menuhuffman.h \
 		Queue.h \
 		nuevoedificio.h \
 		nuevoenlace.h \
+		tda_huffman.h \
+		nodohuffman.h \
 		ui_menuhuffman.h \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QApplication \
@@ -7354,11 +7463,210 @@ debug/menuhuffman.o: menuhuffman.cpp menuhuffman.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menuhuffman.o menuhuffman.cpp
 
 debug/tda_huffman.o: tda_huffman.cpp tda_huffman.h \
-		nodohuffman.h
+		nodohuffman.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtcore-config.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringview.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h \
+		dicdatoshuffman.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QWidget \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qwidget.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtguiglobal.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtgui-config.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qobject.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qlist.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qalgorithms.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qiterator.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qhashfunctions.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qpair.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringlist.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qregexp.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcoreevent.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qmetatype.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qobject_impl.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qmargins.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qrect.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsize.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qpoint.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpalette.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qcolor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qrgb.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qrgba64.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qbrush.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qvector.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qmatrix.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpolygon.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qregion.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdatastream.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qiodevice.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qline.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtransform.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpainterpath.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qimage.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpixelformat.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpixmap.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qshareddata.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qhash.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qfont.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qfontinfo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qcursor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qkeysequence.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qevent.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qvariant.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qmap.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdebug.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtextstream.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qlocale.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qset.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qurl.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qurlquery.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qfile.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qfiledevice.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qvector2d.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtouchdevice.h \
+		login.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMainWindow \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmainwindow.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qicon.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDebug \
+		menuprofesor.h \
+		profesor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QFile \
+		menuuser.h \
+		user.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qtextoption.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QIntValidator \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/qvalidator.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qregularexpression.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QRegExpValidator \
+		menuperfil.h \
+		perfil.h \
+		menusu.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtGui/QList \
+		menuca.h \
+		menuperiodo.h \
+		periodo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QDate \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qdatetime.h \
+		menugrupo.h \
+		grupo.h \
+		menuasignatura.h \
+		list.h \
+		node.h \
+		asignatura.h \
+		indice.h \
+		stack.h \
+		listainvertida.h \
+		indicesecundario.h \
+		programa.h \
+		menudisponibilidad.h \
+		disponibilidad.h \
+		menuoferta.h \
+		oferta.h \
+		menuhuffman.h \
+		profesormenu.h \
+		menumapa.h \
+		mapa.h \
+		edificio.h \
+		camino.h \
+		paredificios.h \
+		Queue.h \
+		nuevoedificio.h \
+		nuevoenlace.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tda_huffman.o tda_huffman.cpp
 
-debug/nodohuffman.o: nodohuffman.cpp nodohuffman.h
+debug/nodohuffman.o: nodohuffman.cpp nodohuffman.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/QString \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstring.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qchar.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qglobal.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qconfig.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtcore-config.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qsysinfo.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qlogging.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qflags.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qmutex.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qnumeric.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qversiontagging.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qbytearray.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qrefcount.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qnamespace.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qarraydata.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringliteral.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringalgorithms.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringview.h \
+		C:/Qt/Qt5.11.1/5.11.1/mingw53_32/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\nodohuffman.o nodohuffman.cpp
+
+debug/dicdatoshuffman.o: dicdatoshuffman.cpp dicdatoshuffman.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dicdatoshuffman.o dicdatoshuffman.cpp
 
 debug/moc_login.o: debug/moc_login.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_login.o debug\moc_login.cpp

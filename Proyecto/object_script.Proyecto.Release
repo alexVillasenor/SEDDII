@@ -34,6 +34,7 @@ INPUT(
 ./release\menuhuffman.o
 ./release\tda_huffman.o
 ./release\nodohuffman.o
+./release\dicdatoshuffman.o
 ./release\moc_login.o
 ./release\moc_menuprofesor.o
 ./release\moc_menuuser.o

@@ -58,7 +58,8 @@ SOURCES += \
     menuoferta.cpp \
     menuhuffman.cpp \
     tda_huffman.cpp \
-    nodohuffman.cpp
+    nodohuffman.cpp \
+    dicdatoshuffman.cpp
 
 HEADERS += \
         login.h \
@@ -98,7 +99,8 @@ HEADERS += \
     menuoferta.h \
     menuhuffman.h \
     tda_huffman.h \
-    nodohuffman.h
+    nodohuffman.h \
+    dicdatoshuffman.h
 
 FORMS += \
         login.ui \

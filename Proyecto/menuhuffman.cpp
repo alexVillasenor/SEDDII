@@ -26,26 +26,25 @@ void MenuHuffman::on_pushButton_clicked()
     else{
         ui->textBrowser->append("1.- ");
         while (!file.eof()) {
-            string auxStr;
-            getline(file,auxStr);
+            char aux;
+            file.read((char*)&aux,sizeof(aux));
             if(file.eof()){
                 break;
             }
-            auxStr+="\n";
-            cadena+=auxStr.c_str();
+            cadena+=aux;
         }
         file.close();
         ui->textBrowser->append(cadena);
 
         ui->textBrowser->append("2.- ");
 
-        TDA_Huffman arbol;
+        TDA_Huffman lista,arbol;
         for(int i(0);i<cadena.length();i++){
             Data d,d1;
             string str;
             str=cadena.toStdString()[i];
             d1.setCaracter(str);
-            NodoHuffman* nodo=arbol.findData(d1);
+            NodoHuffman* nodo=lista.findData(d1);
             if(nodo==nullptr){
                 d.setCaracter(str);
                 int frec(0);
@@ -57,23 +56,43 @@ void MenuHuffman::on_pushButton_clicked()
                     }
                 }
                 d.setFrec(frec);
-                arbol.insertData(arbol.getLastPos(),d);
+                lista.insertData(lista.getLastPos(),d);
             }
         }
-        QString qAux=arbol.toString().c_str();
+        QString qAux=lista.toString().c_str();
         ui->textBrowser->append(qAux);
 
         ui->textBrowser->append("3.- ");
-        arbol.shellSort();
+        lista.shellSort();
 
-        qAux=arbol.toString().c_str();
+        qAux=lista.toString().c_str();
         ui->textBrowser->append(qAux);
 
         ui->textBrowser->append("4.- ");
+        arbol=lista;
         arbol.makeTree();
 
         qAux=arbol.treeToString().c_str();
         ui->textBrowser->append(qAux);
+
+        ui->textBrowser->append("5.- ");
+        List<DicDatosHuffman> dicDatos;
+//        NodoHuffman* aux = lista.getFirstPos();
+//        while(aux!=nullptr){
+//            DicDatosHuffman d;
+//            arbol.setDir("");
+//            d.setCodigo(arbol.findNodo(arbol.getFirstPos(),aux->getData()));
+//            d.setCaracter(aux->getData().getCaracter());
+//            dicDatos.insertData(dicDatos.getLastPos(),d);
+//            aux=aux->getNext();
+//        }
+        arbol.makeDataDir();
+        dicDatos=arbol.getDicc();
+        qAux=dicDatos.toString().c_str();
+        ui->textBrowser->append(qAux);
+
+
+
 
 
 
