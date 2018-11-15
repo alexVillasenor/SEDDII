@@ -12,6 +12,26 @@ void NodoHuffman::setData(const Data &value)
     data = value;
 }
 
+NodoHuffman *NodoHuffman::getLeft() const
+{
+    return left;
+}
+
+void NodoHuffman::setLeft(NodoHuffman *value)
+{
+    left = value;
+}
+
+NodoHuffman *NodoHuffman::getRight() const
+{
+    return right;
+}
+
+void NodoHuffman::setRight(NodoHuffman *value)
+{
+    right = value;
+}
+
 NodoHuffman::NodoHuffman() : prev(nullptr), next(nullptr),left(nullptr), right(nullptr) {}
 
 
@@ -67,7 +87,7 @@ std::string Data::toString()
 {
     string result;
     result+="[";
-    if(caracter=='\n'){
+    if(caracter=="\n"){
         result+="endl";
     }
     else{
@@ -133,14 +153,17 @@ bool Data::operator >(const Data &d)
     return false;
 }
 
-Data::Data(): frec(0) {}
-
-char Data::getCaracter() const
+std::string Data::getCaracter() const
 {
     return caracter;
 }
 
-void Data::setCaracter(char value)
+void Data::setCaracter(const std::string &value)
 {
     caracter = value;
+}
+
+Data::Data(){
+    frec=0;
+    caracter.clear();
 }

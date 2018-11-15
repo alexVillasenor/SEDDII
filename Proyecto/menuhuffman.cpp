@@ -42,13 +42,17 @@ void MenuHuffman::on_pushButton_clicked()
         TDA_Huffman arbol;
         for(int i(0);i<cadena.length();i++){
             Data d,d1;
-            d1.setCaracter(cadena.toStdString()[i]);
+            string str;
+            str=cadena.toStdString()[i];
+            d1.setCaracter(str);
             NodoHuffman* nodo=arbol.findData(d1);
             if(nodo==nullptr){
-                d.setCaracter(cadena.toStdString()[i]);
+                d.setCaracter(str);
                 int frec(0);
                 for(int j(i);j<cadena.length();j++){
-                    if(d.getCaracter()==cadena[j]){
+                    string str2;
+                    str2=cadena.toStdString()[j];
+                    if(str==str2){
                         frec++;
                     }
                 }
@@ -63,6 +67,12 @@ void MenuHuffman::on_pushButton_clicked()
         arbol.shellSort();
 
         qAux=arbol.toString().c_str();
+        ui->textBrowser->append(qAux);
+
+        ui->textBrowser->append("4.- ");
+        arbol.makeTree();
+
+        qAux=arbol.treeToString().c_str();
         ui->textBrowser->append(qAux);
 
 

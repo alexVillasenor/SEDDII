@@ -36,6 +36,7 @@ class TDA_Huffman {
         void swapData(NodoHuffman*, NodoHuffman*);
         void quickSort(NodoHuffman *leftEdge, NodoHuffman* rightEdge);
 
+        void deleteAllTree(NodoHuffman *r);
     public:
         TDA_Huffman();
         TDA_Huffman(const TDA_Huffman&);
@@ -45,6 +46,8 @@ class TDA_Huffman {
         bool isEmpty();
 
         void insertData(NodoHuffman*, const Data &);
+        void insertData(NodoHuffman* p, NodoHuffman *e);
+
 
         void deleteData(NodoHuffman*);
 
@@ -56,13 +59,22 @@ class TDA_Huffman {
         NodoHuffman* findData(const Data &);
         Data retriveData(NodoHuffman* p);
 
+        bool makeTree();
 
         void shellSort();
         void quickSort();
 
         std::string toString();
 
-        void deleteAll();
+        std::string treeToString();
+
+        std::string parseInOrder(NodoHuffman *r);
+
+
+        void deleteAllTDA();
+        void deleteAllTree();
+
+
 
         TDA_Huffman& operator = (const TDA_Huffman&);
 

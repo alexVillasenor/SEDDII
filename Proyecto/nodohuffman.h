@@ -20,12 +20,10 @@ public:
 
 class Data{
 private:
-    char caracter;
+    std::string caracter;
     int frec;
 public:
     Data();
-    char getCaracter() const;
-    void setCaracter(char value);
     int getFrec() const;
     void setFrec(int value);
 
@@ -37,6 +35,8 @@ public:
     bool operator <(const Data&d);
     bool operator >=(const Data&d);
     bool operator >(const Data&d);
+    std::string getCaracter() const;
+    void setCaracter(const std::string &value);
 };
 
 class NodoHuffman {
@@ -60,12 +60,12 @@ public:
 
     NodoHuffman &operator = (const NodoHuffman& n);
 
+    Data getData() const;
+    void setData(const Data &value);
     NodoHuffman *getLeft() const;
     void setLeft(NodoHuffman *value);
     NodoHuffman *getRight() const;
     void setRight(NodoHuffman *value);
-    Data getData() const;
-    void setData(const Data &value);
 };
 
 #endif // NODOHUFFMAN_H
