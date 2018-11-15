@@ -77,19 +77,23 @@ void MenuHuffman::on_pushButton_clicked()
 
         ui->textBrowser->append("5.- ");
         List<DicDatosHuffman> dicDatos;
-//        NodoHuffman* aux = lista.getFirstPos();
-//        while(aux!=nullptr){
-//            DicDatosHuffman d;
-//            arbol.setDir("");
-//            d.setCodigo(arbol.findNodo(arbol.getFirstPos(),aux->getData()));
-//            d.setCaracter(aux->getData().getCaracter());
-//            dicDatos.insertData(dicDatos.getLastPos(),d);
-//            aux=aux->getNext();
-//        }
         arbol.makeDataDir();
         dicDatos=arbol.getDicc();
         qAux=dicDatos.toString().c_str();
         ui->textBrowser->append(qAux);
+
+        QString newCadena;
+        for(int i(0);i<cadena.length();i++){
+            DicDatosHuffman auxDic;
+            string str;
+            str+=cadena.toStdString().c_str()[i];
+            auxDic.setCaracter(str);
+            newCadena+=dicDatos.findData(auxDic)->getData().getCodigo().c_str();
+        }
+
+        ui->textBrowser->append("6.-");
+        ui->textBrowser->append(newCadena);
+
 
 
 

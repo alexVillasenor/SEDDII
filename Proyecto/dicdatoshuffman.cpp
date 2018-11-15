@@ -36,6 +36,11 @@ std::string DicDatosHuffman::toString()
     return result;
 }
 
+bool DicDatosHuffman::operator !=(const DicDatosHuffman &e)
+{
+    return caracter!=e.caracter;
+}
+
 DicDatosHuffman::DicDatosHuffman()
 {
 

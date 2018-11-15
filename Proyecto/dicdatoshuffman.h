@@ -14,6 +14,10 @@ public:
     std::string getCodigo() const;
     void setCodigo(const std::string &value);
     std::string toString();
+
+    bool operator != (const DicDatosHuffman &e);
+
+
 };
 
 #endif // DICDATOSHUFFMAN_H
