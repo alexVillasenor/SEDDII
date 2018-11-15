@@ -44,7 +44,7 @@ class TDA_Huffman {
         int getSize();
         bool isEmpty();
 
-        void insertData(NodoHuffman*, const NodoHuffman&);
+        void insertData(NodoHuffman*, const Data &);
 
         void deleteData(NodoHuffman*);
 

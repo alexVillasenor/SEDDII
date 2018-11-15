@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "login.h"
 #include <string>
+#include "tda_huffman.h"
 
 namespace Ui {
 class MenuHuffman;

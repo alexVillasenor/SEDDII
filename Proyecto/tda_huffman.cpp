@@ -75,11 +75,12 @@ bool TDA_Huffman::isEmpty() {
     }
 
 
-void TDA_Huffman::insertData(NodoHuffman* p, const NodoHuffman& e) {
+void TDA_Huffman::insertData(NodoHuffman* p, const Data& e) {
     if(p != nullptr and !isValidPos(p)) {
         throw HuffmanException("Posicion invalida, tratando de insertar");
         }
-    NodoHuffman* aux(new NodoHuffman(e));
+    NodoHuffman* aux=new NodoHuffman();
+    aux->setData(e);
 
     if(aux == nullptr) {
         throw HuffmanException("Memoria no disponible para crear nuevo nodo, tratando de insertar");
@@ -158,7 +159,7 @@ NodoHuffman* TDA_Huffman::getNextPos(NodoHuffman* p) {
 NodoHuffman* TDA_Huffman::findData(const Data &e) {
     NodoHuffman* aux=anchor;
 
-    while(aux!=nullptr and aux->getData()!= e){
+    while(aux!=nullptr and aux->getData().getCaracter()!= e.getCaracter()){
         aux=aux->getNext();
         }
     return aux;
@@ -196,7 +197,7 @@ void TDA_Huffman::shellSort() {
                 idif=idif->getNext();
                 cont++;
             }
-            if(i->getData()<idif->getData()) {
+            if(i->getData()>idif->getData()) {
                 swapData(i,idif);
             }
             i=aux;
@@ -253,7 +254,10 @@ std::string TDA_Huffman::toString() {
     NodoHuffman* aux=anchor;
 
     while(aux != nullptr){
-        result+= aux->getData().toString() + "\n";
+        result+= aux->getData().toString();
+        if(aux->getNext()!=nullptr){
+            result+="->";
+        }
         aux=aux->getNext();
         }
     return result;

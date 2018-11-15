@@ -1,5 +1,7 @@
 #include "nodohuffman.h"
 
+using namespace std;
+
 Data NodoHuffman::getData() const
 {
     return data;
@@ -63,37 +65,72 @@ void Data::setFrec(int value)
 
 std::string Data::toString()
 {
-
+    string result;
+    result+="[";
+    if(caracter=='\n'){
+        result+="endl";
+    }
+    else{
+        result+=caracter;
+    }
+    result+=" ";
+    result+=to_string(frec);
+    result+="]";
+    return result;
 }
 
-bool Data::operator ==(const Data &)
+bool Data::operator ==(const Data &d)
 {
-
+    return (frec==d.frec) and (caracter==d.caracter);
 }
 
-bool Data::operator !=(const Data &)
+bool Data::operator !=(const Data &d)
 {
-
+    return (frec!=d.frec) or (caracter!=d.caracter);
 }
 
-bool Data::operator <=(const Data &)
+bool Data::operator <=(const Data &d)
 {
-
+    if(frec<d.frec){
+        return true;
+    }
+    if(frec==d.frec){
+        return caracter<=d.caracter;
+    }
+    return false;
 }
 
-bool Data::operator <(const Data &)
+bool Data::operator <(const Data &d)
 {
-
+    if(frec<d.frec){
+        return true;
+    }
+    if(frec==d.frec){
+        return caracter<d.caracter;
+    }
+    return false;
 }
 
-bool Data::operator >=(const Data &)
+bool Data::operator >=(const Data &d)
 {
-
+    if(frec>d.frec){
+        return true;
+    }
+    if(frec==d.frec){
+        return caracter>=d.caracter;
+    }
+    return false;
 }
 
-bool Data::operator >(const Data &)
+bool Data::operator >(const Data &d)
 {
-
+    if(frec>d.frec){
+        return true;
+    }
+    if(frec==d.frec){
+        return caracter>d.caracter;
+    }
+    return false;
 }
 
 Data::Data(): frec(0) {}

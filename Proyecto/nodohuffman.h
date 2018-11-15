@@ -2,6 +2,7 @@
 #define NODOHUFFMAN_H
 #include <exception>
 #include <string>
+#include <QString>
 
 class NodoHuffmanException : public std::exception {
 private:
@@ -30,12 +31,12 @@ public:
 
     std::string toString();
 
-    bool operator ==(const Data&);
-    bool operator !=(const Data&);
-    bool operator <=(const Data&);
-    bool operator <(const Data&);
-    bool operator >=(const Data&);
-    bool operator >(const Data&);
+    bool operator ==(const Data& d);
+    bool operator !=(const Data& d);
+    bool operator <=(const Data& d);
+    bool operator <(const Data&d);
+    bool operator >=(const Data&d);
+    bool operator >(const Data&d);
 };
 
 class NodoHuffman {
