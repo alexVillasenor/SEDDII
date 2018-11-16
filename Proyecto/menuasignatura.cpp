@@ -256,8 +256,6 @@ void MenuAsignatura::timerSave()
 void MenuAsignatura::on_pushButton_clicked()
 {
     autoSave();
-    listaIndices.deleteAll();
-    listainvertida.deleteAll();
     MenuSU *SU = new MenuSU();
     this->hide();
     SU->show();

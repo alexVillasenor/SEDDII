@@ -49,20 +49,20 @@ QString Oferta::toQstring()
     QString aux;
 
     aux+="\nCodigo Oferta: " + getLlave();
-    aux+="\nCodigo Profesor: " + getCodProfesor();
-    aux+="\nCodigo Asignatura: " + getCodAsignatura();
-    aux+="\nCodigo Periodo: " + getCodPeriodo();
-    aux+="\nCodigo Grupo: " + getCodGrupo();
+    aux+="\nProfesor: " + getCodProfesor();
+    aux+="\nAsignatura: " + getCodAsignatura();
+    aux+="\nPeriodo: " + getCodPeriodo();
+    aux+="\nGrupo: " + getCodGrupo();
 
     return aux;
 }
 
 QString Oferta::getLlave()
 {
-    QString aux= codProfesor;
-    QString aux1=codAsignatura;
+    QString aux;
+    QString aux1= getCodAsignatura().toStdString().substr(0,3).c_str();
     QString aux2=codPeriodo;
-    QString aux3=codGrupo;
+    QString aux3=getCodGrupo().toStdString().substr(0,3).c_str();
     aux+=aux1+aux2+aux3;
     return aux;
 }

@@ -82,7 +82,7 @@ void MenuHuffman::on_pushButton_clicked()
         qAux=dicDatos.toString().c_str();
         ui->textBrowser->append(qAux);
 
-        QString newCadena, cadenaFragmentada;
+        QString newCadena, cadenaFragmentada, cadenaEncriptada;
         for(int i(0);i<cadena.length();i++){
             DicDatosHuffman auxDic;
             string str;
@@ -107,7 +107,24 @@ void MenuHuffman::on_pushButton_clicked()
         ui->textBrowser->append("7.-");
         ui->textBrowser->append(cadenaFragmentada);
 
+        ui->textBrowser->append("8.-");
+        for(int i(0);i<newCadena.length();i=i+8){
+            string auxStr=newCadena.toStdString().substr(i,8);
+            if((auxStr.length()%8)!=0){
+                do{
+                    auxStr+="0";
+                }while((auxStr.length()%8)!=0);
+            }
+            stringstream ss;
+            std::bitset<8> bits;
+            ss.clear();
+            ss<<auxStr;
+            ss >> bits;
+            char c = char(bits.to_ulong());
+            cadenaEncriptada+=c;
+        }
 
+        ui->textBrowser->append(cadenaEncriptada);
 
 
 

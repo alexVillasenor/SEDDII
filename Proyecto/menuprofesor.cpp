@@ -16,22 +16,22 @@ void MenuProfesor::setPerfil(const QString &value)
 void MenuProfesor::setPermisos()
 {
     if(perfil=="1"){
-        ui->tab->setDisabled(true);
+        ui->tab->hide();
     }
     else if(perfil=="2"){
-        ui->tab->setDisabled(true);
-        ui->tab_4->setDisabled(true);
-        ui->tab_5->setDisabled(true);
+        ui->tab->hide();
+        ui->tab_4->hide();
+        ui->tab_5->hide();
     }
     else if(perfil=="3"){
 
     }
     else if(perfil=="4"){
-        ui->tab_2->setDisabled(true);
-        ui->tab_3->setDisabled(true);
-        ui->tab_4->setDisabled(true);
-        ui->tab_5->setDisabled(true);
-        ui->pushButton_2->setDisabled(true);
+        ui->tab_2->hide();
+        ui->tab_3->hide();
+        ui->tab_4->hide();
+        ui->tab_5->hide();
+        ui->pushButton_2->hide();
     }
 }
 

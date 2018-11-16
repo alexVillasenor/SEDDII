@@ -24,9 +24,12 @@ public:
     ~MenuOferta();
     void cargarPeriodos();
     void cargarGrupos();
+    void cargarCarreras();
     void setProfesores();
     void setAsignatura();
     bool buscar(const QString &arg1);
+    void loadIndex();
+
 
     int getType() const;
     void setType(int value);
@@ -53,10 +56,16 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_pushButton_7_clicked();
+
+    void on_comboBox_Grupo_activated(const QString &arg1);
+
 private:
     Ui::MenuOferta *ui;
     int type;
     QString code;
+    List<Indice> listaIndices;
+    ListaInvertida listainvertida;
 };
 
 #endif // MENUOFERTA_H

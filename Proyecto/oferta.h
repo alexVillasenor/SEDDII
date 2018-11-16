@@ -11,10 +11,10 @@
 class Oferta
 {
 private:
-    char codProfesor[20];
-    char codPeriodo[20];
-    char codGrupo[20];
-    char codAsignatura[20];
+    char codProfesor[50];
+    char codPeriodo[50];
+    char codGrupo[50];
+    char codAsignatura[50];
 public:
     Oferta();
     QString getLlave();

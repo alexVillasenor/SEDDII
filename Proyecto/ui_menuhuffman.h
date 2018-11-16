@@ -65,7 +65,7 @@ public:
 
     void retranslateUi(QWidget *MenuHuffman)
     {
-        MenuHuffman->setWindowTitle(QApplication::translate("MenuHuffman", "Form", nullptr));
+        MenuHuffman->setWindowTitle(QApplication::translate("MenuHuffman", "Menu Huffman", nullptr));
         pushButton->setText(QApplication::translate("MenuHuffman", "Comprimir", nullptr));
         pushButton_2->setText(QApplication::translate("MenuHuffman", "Descomprimir", nullptr));
         pushButton_3->setText(QApplication::translate("MenuHuffman", "Regresar", nullptr));

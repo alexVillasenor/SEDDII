@@ -5,6 +5,7 @@
 #include "login.h"
 #include <string>
 #include "tda_huffman.h"
+#include <bitset>
 
 namespace Ui {
 class MenuHuffman;

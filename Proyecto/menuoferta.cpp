@@ -6,13 +6,9 @@ MenuOferta::MenuOferta(QWidget *parent) :
     ui(new Ui::MenuOferta)
 {
     ui->setupUi(this);
-    ui->comboBox_Grupo->clear();
-    ui->comboBox_Periodo->clear();
-    ui->comboBox_Profesor->clear();
-    ui->comboBox_Asignatura->clear();
-    setProfesores();
+    loadIndex();
     cargarPeriodos();
-    setAsignatura();
+    cargarCarreras();
     cargarGrupos();
 }
 
@@ -54,9 +50,10 @@ void MenuOferta::cargarPeriodos()
 void MenuOferta::cargarGrupos()
 {
     QString periodo=ui->comboBox_Periodo->currentText().toStdString().substr(6,5).c_str();
+    QString grado=ui->comboBox_Grupo->currentText();
     bool flag(true);
     Grupo p;
-    ui->comboBox_Grupo->clear();
+    ui->comboBox->clear();
     ifstream file("Grupos.txt");
     if(!file.is_open()){
         QMessageBox::information(this, tr("::Error::"), tr("::No se pudo abrir archivo grupos:"));
@@ -70,8 +67,8 @@ void MenuOferta::cargarGrupos()
                 break;
             }
 
-            if(p.getStatus()=='1' && periodo==p.getNombrePeriodo()){
-                ui->comboBox_Grupo->addItem(p.getCodigo()+" - "+p.getNombre());
+            if(p.getStatus()=='1' && periodo==p.getNombrePeriodo() && grado == p.getGrado()){
+                ui->comboBox->addItem(p.getCodigo()+" - "+p.getNombre());
                 flag=false;
             }
         }
@@ -82,47 +79,21 @@ void MenuOferta::cargarGrupos()
     }
 }
 
-void MenuOferta::setProfesores()
+void MenuOferta::cargarCarreras()
 {
-    bool flag(true);
-    ifstream file("Profesores.txt");
-    if(!file.is_open()){
-        QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo profesores::"));
-    }
-
-    else{
-        ui->comboBox_Profesor->clear();
-        while (!file.eof()) {
-            string auxStr;
-            QString qString;
-            Profesor p;
-            getline(file,auxStr,',');
-
-            if(file.eof()){
-                break;
-            }
-            qString = QString::fromStdString(auxStr);
-            p.setCode(qString);
-            getline(file,auxStr,',');
-            qString = QString::fromStdString(auxStr);
-            p.setNombre(qString);
-            getline(file,auxStr,',');
-            qString = QString::fromStdString(auxStr);
-            p.setCorreo(qString);
-            getline(file,auxStr,'\n');
-            qString = QString::fromStdString(auxStr);
-            p.setTelefono(qString);
-            ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
-            flag=false;
-        }
-        file.close();
-        if(flag){
-            QMessageBox::information(this, tr("::Error::"), tr("::No hay profesores registrados::"));
-        }
+    loadIndex();
+    ui->comboBox_Asignatura->clear();
+    Programa* aux=listainvertida.getInicioProgramas();
+    while(aux!=nullptr){
+        ui->comboBox_Asignatura->addItem(aux->getNombre());
+        aux=aux->getNext();
     }
 }
 
-void MenuOferta::setAsignatura(){
+void MenuOferta::setProfesores()
+{
+    QString cAsig=ui->lineEdit_3->text().toStdString().substr(0,3).c_str();
+    ui->comboBox_Profesor_2->clear();
     ifstream file("Dispersa.txt");
     int pos(0),cont;
     Disponibilidad d;
@@ -130,7 +101,6 @@ void MenuOferta::setAsignatura(){
         QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo::"));
     }
     else{
-        ui->comboBox_Asignatura->clear();
         int myInt,FILAS,COLUMNAS;
         ifstream t(".tamano");
         t.read((char*)&myInt,sizeof(myInt));
@@ -148,9 +118,82 @@ void MenuOferta::setAsignatura(){
             else{
                 for(int i(0);i<cont;i++){
                     file.read((char*)&d,sizeof(d));
-                    QString llave = ui->comboBox_Profesor->currentText().toStdString().substr(0,3).c_str();
-                    if(llave==d.getClaveProf())
-                        ui->comboBox_Asignatura->addItem(d.getClaveAsig()+" - ");
+                    if(cAsig==d.getClaveAsig()){
+                        bool flag(true);
+                        ifstream file("Profesores.txt");
+                        if(!file.is_open()){
+                            QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo profesores::"));
+                        }
+
+                        else{
+                            while (!file.eof()) {
+                                string auxStr;
+                                QString qString;
+                                Profesor p;
+                                getline(file,auxStr,',');
+
+                                if(file.eof()){
+                                    break;
+                                }
+                                qString = QString::fromStdString(auxStr);
+                                p.setCode(qString);
+                                getline(file,auxStr,',');
+                                qString = QString::fromStdString(auxStr);
+                                p.setNombre(qString);
+                                getline(file,auxStr,',');
+                                qString = QString::fromStdString(auxStr);
+                                p.setCorreo(qString);
+                                getline(file,auxStr,'\n');
+                                qString = QString::fromStdString(auxStr);
+                                p.setTelefono(qString);
+                                if(d.getClaveProf()==p.getCode()){
+                                    ui->comboBox_Profesor_2->addItem(p.getCode()+" "+p.getNombre());
+                                    flag=false;
+                                }
+                            }
+                            file.close();
+                            if(flag){
+                                QMessageBox::information(this, tr("::Error::"), tr("::Sin profesores disponibles::"));
+                            }
+                        }
+                    }
+                }
+                pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
+            }
+        }
+        file.close();
+    }
+}
+
+void MenuOferta::setAsignatura(){
+    ifstream file("Dispersa.txt");
+    int pos(0),cont;
+    Disponibilidad d;
+    if(!file.is_open()){
+        QMessageBox::information(this, tr("::Error::"), tr("::Error al abrir archivo::"));
+    }
+    else{
+        int myInt,FILAS,COLUMNAS;
+        ifstream t(".tamano");
+        t.read((char*)&myInt,sizeof(myInt));
+        FILAS=myInt;
+        t.read((char*)&myInt,sizeof(myInt));
+        COLUMNAS=myInt;
+        t.close();
+
+        while(!file.eof()){
+            file.seekg(pos,ios::beg);
+            file.read((char*)&cont,sizeof(cont));
+            if(cont==0){
+                pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
+            }
+            else{
+                for(int i(0);i<cont;i++){
+                    file.read((char*)&d,sizeof(d));
+                    QString llave;
+                    if(llave==d.getClaveProf()){
+
+                    }
                 }
                 pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
             }
@@ -197,8 +240,8 @@ void MenuOferta::setType(int value)
 
 void MenuOferta::on_comboBox_Profesor_activated(const QString &arg1)
 {
-    setAsignatura();
 }
+
 bool MenuOferta::buscar(const QString &arg1)
 {
     bool flag(true);
@@ -224,38 +267,169 @@ bool MenuOferta::buscar(const QString &arg1)
     return false;
 }
 
+void MenuOferta::loadIndex()
+{
+    listaIndices.deleteAll();
+    listainvertida.deleteAll();
+
+    ifstream indices("Indices.txt");
+    if(!indices.is_open()){
+
+    }
+    else{
+        Indice i;
+        while(!indices.eof()){
+            indices.read((char*)&i,sizeof(i));
+            if(indices.eof()){
+                break;
+            }
+            listaIndices.insertData(listaIndices.getLastPos(),i);
+        }
+        indices.close();
+    }
+
+
+    IndiceSecundario iSec;
+    string auxStr;
+    int myInt;
+    stringstream ss;
+
+    ifstream indSec("TDA_Indice_secundario.txt");
+    if(!indSec.is_open()){
+
+    }
+    else{
+        while(!indSec.eof()){
+            getline(indSec,auxStr,'|');
+            if(indSec.eof()){
+                break;
+            }
+            ss.clear();
+            ss<<auxStr;
+            ss>>myInt;
+            iSec.setCodigo(myInt);
+            listainvertida.addIndiceSecundario(iSec);
+            getline(indSec,auxStr);
+        }
+        indSec.close();
+    }
+
+    ifstream programas("TDA_Programa.txt");
+    if(!programas.is_open()){
+
+    }
+    else{
+        programas.seekg(0);
+        while(!programas.eof()){
+            getline(programas,auxStr,'|');
+            if(programas.eof()){
+                break;
+            }
+            listainvertida.addPrograma(QString::fromStdString(auxStr));
+            Programa* Pro=listainvertida.findPrograma(QString::fromStdString(auxStr));
+            getline(programas,auxStr);
+            ss.clear();
+            ss<<auxStr;
+            ss>>myInt;
+            Pro->setFirst(listainvertida.getIndiceSecundario(myInt));
+        }
+        programas.close();
+    }
+
+    indSec.open("TDA_Indice_secundario.txt");
+    if(!indSec.is_open()){
+
+    }
+    else{
+        string auxStr;
+        int myInt;
+        stringstream ss;
+        while(!indSec.eof()){
+            getline(indSec,auxStr,'|');
+            if(indSec.eof()){
+                break;
+            }
+            IndiceSecundario* iS = listainvertida.findIndiceSecundario(QString::fromStdString(auxStr));
+            getline(indSec,auxStr);
+            ss.clear();
+            ss<<auxStr;
+            ss>>myInt;
+            iS->setNextPrograma(listainvertida.getIndiceSecundario(myInt));
+        }
+        indSec.close();
+    }
+}
+
 
 /*Agregar*/
 void MenuOferta::on_pushButton_2_clicked()
 {
 
-        QString cProf = ui->comboBox_Profesor->currentText().toStdString().substr(0,3).c_str();
-        QString cAsig = ui->comboBox_Asignatura->currentText().toStdString().substr(0,3).c_str();
-        QString cPer = ui->comboBox_Periodo->currentText().toStdString().substr(0,3).c_str();
-        QString cGrp = ui->comboBox_Grupo->currentText().toStdString().substr(0,3).c_str();
-        Oferta o;
+    QString carrera=ui->comboBox_Asignatura->currentText();
+    QString grado=ui->comboBox_Grupo->currentText();
+    List<Asignatura> listAsigns;
+    bool flag(false);
+    QString periodo=ui->comboBox_Periodo->currentText().toStdString().substr(6,5).c_str();
+    bool fla(true);
+    Programa* auxPrograma = listainvertida.findPrograma(carrera);
 
-        if(!cProf.isEmpty() and !cAsig.isEmpty() and !cPer.isEmpty() and !cGrp.isEmpty()){
-        o.setCodAsignatura(cAsig);
-        o.setCodProfesor(cProf);
-        o.setCodPeriodo(cPer);
-        o.setCodGrupo(cGrp);
+    if(auxPrograma!=nullptr){
+        IndiceSecundario* auxIndSec = auxPrograma->getFirst();
 
+        auxPrograma = listainvertida.getInicioProgramas();
 
-        if(!buscar(o.getLlave())){
-            ofstream file ("Oferta.txt",ios::app);
-            file.write((char*)&o,sizeof(o));
-            file.close();
-            QMessageBox::information(this, tr("::Exito::"), tr("::Oferta Registrada::"));
+        while(auxIndSec!=nullptr){
+            Indice i;
+            Asignatura a;
+            i.setCodigo(auxIndSec->getCodigo());
+            long int dir =listaIndices.retriveData(listaIndices.findData(i)).getDireccion();
+            ifstream f("Asignaturas.txt");
+            f.seekg(dir);
+            f.read((char*)&a,sizeof(a));
+            f.close();
+            if(a.getStatus()=='1' && grado == a.getGrado()){
+                listAsigns.insertData(listAsigns.getLastPos(),a);
+                fla=false;
+            }
+            auxIndSec=auxIndSec->getNextPrograma();
         }
-
+        if(fla){
+            QMessageBox::information(this, tr("::Error::"), tr("::No hay asignaturas registradas:"));
+        }
         else{
-            QMessageBox::information(this, tr("::Error::"), tr("::Oferta existente::"));
+            Node<Asignatura>* auxAsig=listAsigns.getFirstPos();
+            Oferta o;
+            while(auxAsig!=nullptr){
+                o.setCodGrupo(ui->comboBox->currentText());
+                o.setCodProfesor("NULL");
+                o.setCodPeriodo(periodo);
+                o.setCodAsignatura(QString::number(auxAsig->getData().getCodigo())+" "+auxAsig->getData().getNombre());
+                if(buscar(o.getLlave())){
+                    QMessageBox::information(this, tr("::Error::"), tr("::Oferta Existente::"));
+                }
+                else{
+                    ofstream file ("Oferta.txt",ios::app);
+                    file.write((char*)&o,sizeof(o));
+                    file.close();
+                    QMessageBox::information(this, tr("::Exito::"), tr("::Oferta Creada::"));
+                    flag = true;
+                }
+                auxAsig=auxAsig->getNext();
+            }
+
+            if(flag){
+                AsignacionProf *asigProf = new AsignacionProf;
+                this->hide();
+                asigProf->show();
+                this->close();
+            }
         }
     }
-        else{
-            QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
-        }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::No Existe el programa::"));
+    }
+
+
 
 }
 
@@ -292,9 +466,8 @@ void MenuOferta::on_pushButton_3_clicked()
 
 void MenuOferta::on_tabWidget_currentChanged(int index)
 {
-    setProfesores();
     cargarPeriodos();
-    setAsignatura();
+    cargarCarreras();
     cargarGrupos();
 }
 
@@ -382,10 +555,7 @@ void MenuOferta::on_pushButton_6_clicked()
 {
     bool flag(true);
 
-    QString cProf = ui->comboBox_Profesor->currentText().toStdString().substr(0,3).c_str();
-    QString cAsig = ui->comboBox_Asignatura->currentText().toStdString().substr(0,3).c_str();
-    QString cPer = ui->comboBox_Periodo->currentText().toStdString().substr(0,3).c_str();
-    QString cGrp = ui->comboBox_Grupo->currentText().toStdString().substr(0,3).c_str();
+    QString cProf = ui->comboBox_Profesor_2->currentText() ;
     QString code(ui->lineEdit_3->text());
 
     Oferta p;
@@ -403,37 +573,66 @@ void MenuOferta::on_pushButton_6_clicked()
                 break;
             }
 
-            if(p.getLlave()==code){
-                ui->textBrowser_3->append(p.toQstring());
-                if(!ui->comboBox_Asignatura_2->currentText().isEmpty()){
-                    p.setCodAsignatura(cAsig);
-                    ui->textBrowser_4->append("::Asignatura Modificado::");
-                }
-                if(!ui->comboBox_Grupo_2->currentText().isEmpty()){
-                    p.setCodGrupo(cGrp);
-                    ui->textBrowser_4->append("::Grupo Modificado::");
-                }
-                if(!ui->comboBox_Periodo_2->currentText().isEmpty()){
-                    p.setCodPeriodo(cPer);
-                    ui->textBrowser_4->append("::Periodo Modificado::");
-                }
-                if(!ui->comboBox_Profesor_2->currentText().isEmpty()){
-                    p.setCodProfesor(cProf);
-                    ui->textBrowser_4->append("::Profesor Modificado::");
-                }
-
+            if(p.getLlave()==code and !ui->comboBox_Profesor_2->currentText().isEmpty()){
+                p.setCodProfesor(cProf);
+                ui->textBrowser_4->append("::Profesor Modificado::");
                 long int direccion(file.tellp());
                 direccion-=sizeof(p);
                 file.seekp(direccion,ios::beg);
                 file.write((char*)&p,sizeof(p));
                 flag=false;
                 ui->textBrowser_4->append(p.toQstring());
-
+                break;
             }
         }
         file.close();
         if(flag){
-            ui->textBrowser_4->setText("::Codigo Incorrecto::");
+            ui->textBrowser_4->setText("::No hay profesores disponibles::");
         }
     }
+}
+
+/*Buscar en modificar*/
+void MenuOferta::on_pushButton_7_clicked()
+{
+    if(!ui->lineEdit_3->text().isEmpty())
+    {
+        bool flag(true);
+        Oferta p;
+        ui->textBrowser_4->clear();
+        ifstream file("Oferta.txt");
+        if(!file.is_open()){
+            QMessageBox::information(this, tr("::Error::"), tr("::No se pudo abrir archivo grupos:"));
+        }
+
+        else{
+            while (!file.eof()) {
+                file.read((char*)&p,sizeof(p));
+
+                if(file.eof()){
+                    break;
+                }
+
+                if(ui->lineEdit_3->text()==p.getLlave()){
+                    ui->textBrowser_4->setText(p.toQstring());
+                    setProfesores();
+                    flag=false;
+                    break;
+                }
+
+            }
+            file.close();
+            if(flag){
+                ui->textBrowser_4->setText("::No hay oferta registrada::");
+            }
+        }
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Llene los campos correctamente::"));
+    }
+}
+
+void MenuOferta::on_comboBox_Grupo_activated(const QString &arg1)
+{
+    cargarGrupos();
 }
