@@ -6,6 +6,8 @@
 #include <string>
 #include "tda_huffman.h"
 #include <bitset>
+#include "node.h" /// Es un nodo doblemente ligado
+
 
 namespace Ui {
 class MenuHuffman;

@@ -126,16 +126,89 @@ void MenuHuffman::on_pushButton_clicked()
 
         ui->textBrowser->append(cadenaEncriptada);
 
+        ofstream f("Profesores2.txt");
+        f<<cadenaEncriptada.toStdString();
+        f.close();
 
-
-
-
+        f.open("Diccionario de datos.txt");
+        f<<arbol.getFirstPos()->getData().getFrec()<<endl;
+        Node<DicDatosHuffman>* aux=dicDatos.getFirstPos();
+        while(aux!=nullptr){
+            f<<aux->getData().getCaracter()<<"~"<<aux->getData().getCodigo()<<"~";
+            aux=aux->getNext();
+        }
+        f.close();
     }
+}
+
+char* chartobin ( unsigned char c )
+{
+    static char bin[CHAR_BIT + 1] = { 0 };
+    int i;
+
+    for ( i = CHAR_BIT - 1; i >= 0; i-- )
+    {
+        bin[i] = (c % 2) + '0';
+        c /= 2;
+    }
+
+    return bin;
 }
 
 /*Descomprimir*/
 void MenuHuffman::on_pushButton_2_clicked()
 {
+    ui->textBrowser->clear();
+    List<DicDatosHuffman> dicDatos;
+    int maxSize;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        cout<<"::Error al abrir archivo::"<<endl;
+    }
+    else{
+        string str;
+        getline(f,str);
+        stringstream ss;
+        ss<<str;
+        ss>>maxSize;
+        while(!f.eof()){
+            DicDatosHuffman d;
+            getline(f,str,'~');
+            if(f.eof()){break;}
+            d.setCaracter(str);
+            getline(f,str,'~');
+            d.setCodigo(str);
+
+            dicDatos.insertData(dicDatos.getLastPos(),d);
+        }
+        f.close();
+
+        f.open("Profesores2.txt");
+        cadena.clear();
+        while (!f.eof()) {
+            char aux;
+            f.read((char*)&aux,sizeof(aux));
+            if(f.eof()){
+                break;
+            }
+            cadena+=aux;
+        }
+        f.close();
+        ui->textBrowser->append("1.-");
+        ui->textBrowser->append(cadena);
+        str.clear();
+        for(int i(0);i<cadena.length();i++){
+            unsigned char a=cadena.toStdString().c_str()[i];
+            str+=chartobin(a);
+        }
+        QString cadenaBinaria=str.c_str();
+        ui->textBrowser->append("2.-");
+        ui->textBrowser->append(cadenaBinaria);
+
+
+
+    }
+
 
 }
 
