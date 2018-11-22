@@ -6,24 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>376</width>
-    <height>320</height>
+    <width>497</width>
+    <height>379</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Menu Disponibilidad</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/depositphotos_44764845-stock-illustration-icons-for-school-subjects.jpg</normaloff>../icons/depositphotos_44764845-stock-illustration-icons-for-school-subjects.jpg</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>Regresar</string>
-     </property>
-     <property name="autoDefault">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="1">
     <spacer name="horizontalSpacer">
      <property name="orientation">
@@ -37,31 +31,38 @@
      </property>
     </spacer>
    </item>
+   <item row="1" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Regresar</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
        <string>Crear</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="2" column="1">
-        <widget class="QComboBox" name="comboBox_Materias"/>
-       </item>
        <item row="0" column="1">
         <widget class="QComboBox" name="comboBox_Profesor"/>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
+       <item row="2" column="1">
+        <widget class="QComboBox" name="comboBox_Materias"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
          <property name="text">
-          <string>Materia</string>
+          <string>Profesor</string>
          </property>
         </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QComboBox" name="comboBox_Carrera"/>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
@@ -70,7 +71,17 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBox_Carrera"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Materia</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
           <string>Agregar</string>
@@ -80,12 +91,18 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Profesor</string>
+       <item row="3" column="1">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-        </widget>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -153,11 +170,116 @@
       <attribute name="title">
        <string>Modificar</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Clave Disponibilidad</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_3"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Carrera</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="comboBox"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Materia</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="comboBox_2"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Fehca/Hora</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QDateTimeEdit" name="dateTimeEdit"/>
+       </item>
+       <item row="0" column="2" rowspan="5">
+        <widget class="QTextBrowser" name="textBrowser_4"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>Modificar</string>
+         </property>
+         <property name="autoDefault">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLineEdit" name="lineEdit_4">
+         <property name="placeholderText">
+          <string>Prueba de clave</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="tab_5">
       <attribute name="title">
        <string>Eliminar</string>
       </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0" colspan="2">
+        <widget class="QTextBrowser" name="textBrowser_3"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="placeholderText">
+          <string>Clave Disponibilidad</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="text">
+          <string>Eliminar</string>
+         </property>
+         <property name="autoDefault">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="title">
+       <string>Colisiones</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="1" column="0">
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Filas</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>Columnas</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </item>

@@ -53,7 +53,14 @@ SOURCES += \
     listainvertida.cpp \
     disponibilidad.cpp \
     menudisponibilidad.cpp \
-    profesormenu.cpp
+    profesormenu.cpp \
+    oferta.cpp \
+    menuoferta.cpp \
+    menuhuffman.cpp \
+    tda_huffman.cpp \
+    nodohuffman.cpp \
+    dicdatoshuffman.cpp \
+    asignacionprof.cpp
 
 HEADERS += \
         login.h \
@@ -88,7 +95,16 @@ HEADERS += \
     listainvertida.h \
     disponibilidad.h \
     menudisponibilidad.h \
-    profesormenu.h
+    profesormenu.h \
+    oferta.h \
+    menuoferta.h \
+    menuhuffman.h \
+    tda_huffman.h \
+    nodohuffman.h \
+    dicdatoshuffman.h \
+    asignacionprof.h \
+    list.h \
+    node.h
 
 FORMS += \
         login.ui \
@@ -104,4 +120,7 @@ FORMS += \
     nuevoedificio.ui \
     nuevoenlace.ui \
     menudisponibilidad.ui \
-    profesormenu.ui
+    profesormenu.ui \
+    menuoferta.ui \
+    menuhuffman.ui \
+    asignacionprof.ui

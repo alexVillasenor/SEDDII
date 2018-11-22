@@ -16,6 +16,7 @@ private:
     char nombre[40];
     char programa[40];
     char status;
+    char grado[15];
 
 public:
     Asignatura();
@@ -31,8 +32,8 @@ public:
     void setStatus(char value);
 
     QString toQString();
-
-
+    QString getGrado() const;
+    void setGrado(const QString &value);
 };
 
 #endif // ASIGNATURA_H

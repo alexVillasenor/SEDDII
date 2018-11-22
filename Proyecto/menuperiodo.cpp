@@ -47,13 +47,13 @@ bool isEmptyPeriodo(string name){
 QString getLastCodePeriodo(string name){
     QString code;
     if(isEmptyPeriodo(name)){
-        return code="1";
+        return code="400";
     }
     else{
         Periodo p;
         ifstream file(name+".txt");
         if(!file.is_open()){
-            return code="1";
+            return code="400";
         }
         else{
             file.seekg(0,file.end);
@@ -319,7 +319,7 @@ void MenuPeriodo::on_pushButton_clicked()
     this->hide();
     SU->show();
     this->close();
-    delete this;
+
 }
 
 /*Modificar*/

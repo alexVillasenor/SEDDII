@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QDebug>
+#include <iostream>
+#include <fstream>
+#include "asignacionprof.h"
+#include "dicdatoshuffman.h"
 #include "menuprofesor.h"
 #include "menuperfil.h"
 #include "menuuser.h"
@@ -13,6 +17,8 @@
 #include "menugrupo.h"
 #include "menuasignatura.h"
 #include "menudisponibilidad.h"
+#include "menuoferta.h"
+#include "menuhuffman.h"
 #include "profesormenu.h"
 #include "menumapa.h"
 #include <QList>

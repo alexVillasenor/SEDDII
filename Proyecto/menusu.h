@@ -51,6 +51,10 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
 private:
     Ui::MenuSU *ui;
     QString code;

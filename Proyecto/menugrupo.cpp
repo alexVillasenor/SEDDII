@@ -67,13 +67,13 @@ bool isEmptyGrupo(string name){
 QString getLastCodeGrupo(string name){
     QString code;
     if(isEmptyGrupo(name)){
-        return code="1";
+        return code="500";
     }
     else{
         Grupo p;
         ifstream file(name+".txt");
         if(!file.is_open()){
-            return code="1";
+            return code="500";
         }
         else{
             file.seekg(0,file.end);
@@ -106,6 +106,7 @@ void MenuGrupo::on_pushButton_2_clicked()
         p.setNombre(auxStr);
         auxStr=ui->comboBox_2->currentText();
         p.setNombrePeriodo(auxStr);
+        p.setGrado(ui->comboBox_3->currentText());
         p.setStatus('1');
 
         ofstream w("Grupos.txt",ios::app);
@@ -316,7 +317,7 @@ void MenuGrupo::on_pushButton_clicked()
     this->hide();
     SU->show();
     this->close();
-    delete this;
+
 }
 
 /*Modificar*/

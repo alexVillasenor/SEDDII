@@ -78,7 +78,7 @@ void NuevoEdificio::on_pushButton_clicked()
         }
 
         this->close();
-        delete this;
+
     }
     else{
         QMessageBox::information(this, tr("::Error::"), tr("::Llena todos los campos correctamente::"));

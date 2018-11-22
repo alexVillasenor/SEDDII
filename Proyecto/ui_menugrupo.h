@@ -38,6 +38,8 @@ public:
     QLineEdit *lineEdit;
     QLabel *label_6;
     QComboBox *comboBox_2;
+    QLabel *label_10;
+    QComboBox *comboBox_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_3;
     QTextBrowser *textBrowser;
@@ -112,7 +114,7 @@ public:
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setAutoDefault(true);
 
-        gridLayout_2->addWidget(pushButton_2, 2, 0, 1, 1);
+        gridLayout_2->addWidget(pushButton_2, 3, 0, 1, 1);
 
         lineEdit = new QLineEdit(tab);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
@@ -128,6 +130,24 @@ public:
         comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
 
         gridLayout_2->addWidget(comboBox_2, 1, 1, 1, 1);
+
+        label_10 = new QLabel(tab);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        gridLayout_2->addWidget(label_10, 2, 0, 1, 1);
+
+        comboBox_3 = new QComboBox(tab);
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->addItem(QString());
+        comboBox_3->setObjectName(QStringLiteral("comboBox_3"));
+
+        gridLayout_2->addWidget(comboBox_3, 2, 1, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -312,9 +332,19 @@ public:
     {
         MenuGrupo->setWindowTitle(QApplication::translate("MenuGrupo", "Menu Grupo", nullptr));
         pushButton->setText(QApplication::translate("MenuGrupo", "Regresar", nullptr));
-        label->setText(QApplication::translate("MenuGrupo", "Nombre", nullptr));
+        label->setText(QApplication::translate("MenuGrupo", "Nombre:", nullptr));
         pushButton_2->setText(QApplication::translate("MenuGrupo", "Agregar", nullptr));
-        label_6->setText(QApplication::translate("MenuGrupo", "Periodo", nullptr));
+        label_6->setText(QApplication::translate("MenuGrupo", "Periodo:", nullptr));
+        label_10->setText(QApplication::translate("MenuGrupo", "Grado:", nullptr));
+        comboBox_3->setItemText(0, QApplication::translate("MenuGrupo", "Primero", nullptr));
+        comboBox_3->setItemText(1, QApplication::translate("MenuGrupo", "Segundo", nullptr));
+        comboBox_3->setItemText(2, QApplication::translate("MenuGrupo", "Tercero", nullptr));
+        comboBox_3->setItemText(3, QApplication::translate("MenuGrupo", "Cuarto", nullptr));
+        comboBox_3->setItemText(4, QApplication::translate("MenuGrupo", "Quinto", nullptr));
+        comboBox_3->setItemText(5, QApplication::translate("MenuGrupo", "Sexto", nullptr));
+        comboBox_3->setItemText(6, QApplication::translate("MenuGrupo", "Septimo", nullptr));
+        comboBox_3->setItemText(7, QApplication::translate("MenuGrupo", "Octavo", nullptr));
+
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuGrupo", "Crear", nullptr));
         pushButton_3->setText(QApplication::translate("MenuGrupo", "Mostrar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MenuGrupo", "Mostrar", nullptr));

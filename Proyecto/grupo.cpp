@@ -52,7 +52,20 @@ QString Grupo::toQString()
     regresar += "\nNombre:  " + aux;
     aux=nombrePeriodo;
     regresar += "\nPeriodo: "+aux;
+    aux=grado;
+    regresar += "\nGrupo: "+aux;
     return regresar;
+}
+
+QString Grupo::getGrado() const
+{
+    QString aux=grado;
+    return aux;
+}
+
+void Grupo::setGrado(const QString &value)
+{
+    strcpy(grado,value.toStdString().c_str());
 }
 
 Grupo::Grupo()

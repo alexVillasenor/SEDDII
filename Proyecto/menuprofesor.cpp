@@ -134,7 +134,7 @@ void MenuProfesor::on_pushButton_2_clicked()
         SU->show();
     }
     this->close();
-    delete this;
+
 }
 
 /*Mostrar Profesores*/

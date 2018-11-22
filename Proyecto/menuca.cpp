@@ -33,5 +33,5 @@ void MenuCA::on_pushButton_2_clicked()
     this->hide();
     logIn->show();
     this->close();
-    delete this;
+
 }

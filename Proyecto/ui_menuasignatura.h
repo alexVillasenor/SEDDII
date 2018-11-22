@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -33,13 +34,15 @@ public:
     QTabWidget *tabWidget;
     QWidget *tab;
     QGridLayout *gridLayout_2;
-    QLabel *label;
-    QLabel *label_2;
-    QLineEdit *lineEdit;
-    QLabel *label_3;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_2;
     QPushButton *pushButton_2;
+    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_3;
+    QLabel *label_3;
+    QLineEdit *lineEdit;
+    QLabel *label;
+    QLabel *label_13;
+    QLabel *label_2;
+    QComboBox *comboBox;
     QWidget *tab_2;
     QGridLayout *gridLayout_3;
     QTextBrowser *textBrowser;
@@ -58,16 +61,18 @@ public:
     QTextBrowser *textBrowser_2;
     QWidget *tab_4;
     QGridLayout *gridLayout_8;
-    QLabel *label_8;
-    QLineEdit *lineEdit_8;
-    QTextBrowser *textBrowser_6;
-    QLabel *label_9;
-    QLineEdit *lineEdit_9;
-    QLabel *label_10;
-    QLineEdit *lineEdit_10;
-    QLabel *label_11;
-    QLineEdit *lineEdit_11;
     QPushButton *pushButton_8;
+    QLineEdit *lineEdit_11;
+    QLineEdit *lineEdit_10;
+    QLabel *label_8;
+    QLabel *label_10;
+    QLabel *label_11;
+    QTextBrowser *textBrowser_6;
+    QLineEdit *lineEdit_8;
+    QLineEdit *lineEdit_9;
+    QLabel *label_9;
+    QComboBox *comboBox_2;
+    QLabel *label_14;
     QWidget *tab_5;
     QGridLayout *gridLayout_5;
     QTextBrowser *textBrowser_3;
@@ -123,41 +128,59 @@ public:
         tab->setObjectName(QStringLiteral("tab"));
         gridLayout_2 = new QGridLayout(tab);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        label = new QLabel(tab);
-        label->setObjectName(QStringLiteral("label"));
+        pushButton_2 = new QPushButton(tab);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setAutoDefault(true);
 
-        gridLayout_2->addWidget(label, 0, 1, 1, 1);
-
-        label_2 = new QLabel(tab);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout_2->addWidget(label_2, 1, 1, 1, 1);
-
-        lineEdit = new QLineEdit(tab);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        gridLayout_2->addWidget(lineEdit, 0, 2, 1, 1);
-
-        label_3 = new QLabel(tab);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        gridLayout_2->addWidget(label_3, 2, 1, 1, 1);
-
-        lineEdit_3 = new QLineEdit(tab);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-
-        gridLayout_2->addWidget(lineEdit_3, 2, 2, 1, 1);
+        gridLayout_2->addWidget(pushButton_2, 4, 1, 1, 1);
 
         lineEdit_2 = new QLineEdit(tab);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
 
         gridLayout_2->addWidget(lineEdit_2, 1, 2, 1, 1);
 
-        pushButton_2 = new QPushButton(tab);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setAutoDefault(true);
+        lineEdit_3 = new QLineEdit(tab);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
 
-        gridLayout_2->addWidget(pushButton_2, 3, 1, 1, 1);
+        gridLayout_2->addWidget(lineEdit_3, 2, 2, 1, 1);
+
+        label_3 = new QLabel(tab);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_2->addWidget(label_3, 2, 1, 1, 1);
+
+        lineEdit = new QLineEdit(tab);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        gridLayout_2->addWidget(lineEdit, 0, 2, 1, 1);
+
+        label = new QLabel(tab);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_2->addWidget(label, 0, 1, 1, 1);
+
+        label_13 = new QLabel(tab);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        gridLayout_2->addWidget(label_13, 3, 1, 1, 1);
+
+        label_2 = new QLabel(tab);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout_2->addWidget(label_2, 1, 1, 1, 1);
+
+        comboBox = new QComboBox(tab);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+
+        gridLayout_2->addWidget(comboBox, 3, 2, 1, 1);
 
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -232,56 +255,74 @@ public:
         tab_4->setObjectName(QStringLiteral("tab_4"));
         gridLayout_8 = new QGridLayout(tab_4);
         gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
-        label_8 = new QLabel(tab_4);
-        label_8->setObjectName(QStringLiteral("label_8"));
+        pushButton_8 = new QPushButton(tab_4);
+        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
+        pushButton_8->setAutoDefault(true);
 
-        gridLayout_8->addWidget(label_8, 0, 0, 1, 1);
-
-        lineEdit_8 = new QLineEdit(tab_4);
-        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
-
-        gridLayout_8->addWidget(lineEdit_8, 0, 1, 1, 1);
-
-        textBrowser_6 = new QTextBrowser(tab_4);
-        textBrowser_6->setObjectName(QStringLiteral("textBrowser_6"));
-
-        gridLayout_8->addWidget(textBrowser_6, 0, 2, 5, 1);
-
-        label_9 = new QLabel(tab_4);
-        label_9->setObjectName(QStringLiteral("label_9"));
-
-        gridLayout_8->addWidget(label_9, 1, 0, 1, 1);
-
-        lineEdit_9 = new QLineEdit(tab_4);
-        lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
-
-        gridLayout_8->addWidget(lineEdit_9, 1, 1, 1, 1);
-
-        label_10 = new QLabel(tab_4);
-        label_10->setObjectName(QStringLiteral("label_10"));
-
-        gridLayout_8->addWidget(label_10, 2, 0, 1, 1);
-
-        lineEdit_10 = new QLineEdit(tab_4);
-        lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
-
-        gridLayout_8->addWidget(lineEdit_10, 2, 1, 1, 1);
-
-        label_11 = new QLabel(tab_4);
-        label_11->setObjectName(QStringLiteral("label_11"));
-
-        gridLayout_8->addWidget(label_11, 3, 0, 1, 1);
+        gridLayout_8->addWidget(pushButton_8, 5, 0, 1, 2);
 
         lineEdit_11 = new QLineEdit(tab_4);
         lineEdit_11->setObjectName(QStringLiteral("lineEdit_11"));
 
         gridLayout_8->addWidget(lineEdit_11, 3, 1, 1, 1);
 
-        pushButton_8 = new QPushButton(tab_4);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        pushButton_8->setAutoDefault(true);
+        lineEdit_10 = new QLineEdit(tab_4);
+        lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
 
-        gridLayout_8->addWidget(pushButton_8, 4, 0, 1, 2);
+        gridLayout_8->addWidget(lineEdit_10, 2, 1, 1, 1);
+
+        label_8 = new QLabel(tab_4);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        gridLayout_8->addWidget(label_8, 0, 0, 1, 1);
+
+        label_10 = new QLabel(tab_4);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        gridLayout_8->addWidget(label_10, 2, 0, 1, 1);
+
+        label_11 = new QLabel(tab_4);
+        label_11->setObjectName(QStringLiteral("label_11"));
+
+        gridLayout_8->addWidget(label_11, 3, 0, 1, 1);
+
+        textBrowser_6 = new QTextBrowser(tab_4);
+        textBrowser_6->setObjectName(QStringLiteral("textBrowser_6"));
+
+        gridLayout_8->addWidget(textBrowser_6, 0, 2, 6, 1);
+
+        lineEdit_8 = new QLineEdit(tab_4);
+        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
+
+        gridLayout_8->addWidget(lineEdit_8, 0, 1, 1, 1);
+
+        lineEdit_9 = new QLineEdit(tab_4);
+        lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
+
+        gridLayout_8->addWidget(lineEdit_9, 1, 1, 1, 1);
+
+        label_9 = new QLabel(tab_4);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        gridLayout_8->addWidget(label_9, 1, 0, 1, 1);
+
+        comboBox_2 = new QComboBox(tab_4);
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->addItem(QString());
+        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+
+        gridLayout_8->addWidget(comboBox_2, 4, 1, 1, 1);
+
+        label_14 = new QLabel(tab_4);
+        label_14->setObjectName(QStringLiteral("label_14"));
+
+        gridLayout_8->addWidget(label_14, 4, 0, 1, 1);
 
         tabWidget->addTab(tab_4, QString());
         tab_5 = new QWidget();
@@ -409,7 +450,7 @@ public:
 
         retranslateUi(MenuAsignatura);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MenuAsignatura);
@@ -420,10 +461,20 @@ public:
         MenuAsignatura->setWindowTitle(QApplication::translate("MenuAsignatura", "Menu Asignaturas", nullptr));
         pushButton->setText(QApplication::translate("MenuAsignatura", "Regresar", nullptr));
         pushButton_11->setText(QApplication::translate("MenuAsignatura", "Guardar", nullptr));
-        label->setText(QApplication::translate("MenuAsignatura", "Nombre:", nullptr));
-        label_2->setText(QApplication::translate("MenuAsignatura", "Programa:", nullptr));
-        label_3->setText(QApplication::translate("MenuAsignatura", "Creditos:", nullptr));
         pushButton_2->setText(QApplication::translate("MenuAsignatura", "Crear", nullptr));
+        label_3->setText(QApplication::translate("MenuAsignatura", "Creditos:", nullptr));
+        label->setText(QApplication::translate("MenuAsignatura", "Nombre:", nullptr));
+        label_13->setText(QApplication::translate("MenuAsignatura", "Grado:", nullptr));
+        label_2->setText(QApplication::translate("MenuAsignatura", "Programa:", nullptr));
+        comboBox->setItemText(0, QApplication::translate("MenuAsignatura", "Primero", nullptr));
+        comboBox->setItemText(1, QApplication::translate("MenuAsignatura", "Segundo", nullptr));
+        comboBox->setItemText(2, QApplication::translate("MenuAsignatura", "Tercero", nullptr));
+        comboBox->setItemText(3, QApplication::translate("MenuAsignatura", "Cuarto", nullptr));
+        comboBox->setItemText(4, QApplication::translate("MenuAsignatura", "Quinto", nullptr));
+        comboBox->setItemText(5, QApplication::translate("MenuAsignatura", "Sexto", nullptr));
+        comboBox->setItemText(6, QApplication::translate("MenuAsignatura", "Septimo", nullptr));
+        comboBox->setItemText(7, QApplication::translate("MenuAsignatura", "Octavo", nullptr));
+
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuAsignatura", "Crear", nullptr));
         pushButton_3->setText(QApplication::translate("MenuAsignatura", "Mostrar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MenuAsignatura", "Mostrar", nullptr));
@@ -433,11 +484,21 @@ public:
         label_4->setText(QApplication::translate("MenuAsignatura", "C\303\263digo", nullptr));
         pushButton_4->setText(QApplication::translate("MenuAsignatura", "Buscar", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MenuAsignatura", "Buscar", nullptr));
+        pushButton_8->setText(QApplication::translate("MenuAsignatura", "Modificar", nullptr));
         label_8->setText(QApplication::translate("MenuAsignatura", "C\303\263digo:", nullptr));
-        label_9->setText(QApplication::translate("MenuAsignatura", "Nombre:", nullptr));
         label_10->setText(QApplication::translate("MenuAsignatura", "Programa:", nullptr));
         label_11->setText(QApplication::translate("MenuAsignatura", "Creditos:", nullptr));
-        pushButton_8->setText(QApplication::translate("MenuAsignatura", "Modificar", nullptr));
+        label_9->setText(QApplication::translate("MenuAsignatura", "Nombre:", nullptr));
+        comboBox_2->setItemText(0, QApplication::translate("MenuAsignatura", "Primero", nullptr));
+        comboBox_2->setItemText(1, QApplication::translate("MenuAsignatura", "Segundo", nullptr));
+        comboBox_2->setItemText(2, QApplication::translate("MenuAsignatura", "Tercero", nullptr));
+        comboBox_2->setItemText(3, QApplication::translate("MenuAsignatura", "Cuarto", nullptr));
+        comboBox_2->setItemText(4, QApplication::translate("MenuAsignatura", "Quinto", nullptr));
+        comboBox_2->setItemText(5, QApplication::translate("MenuAsignatura", "Sexto", nullptr));
+        comboBox_2->setItemText(6, QApplication::translate("MenuAsignatura", "Septimo", nullptr));
+        comboBox_2->setItemText(7, QApplication::translate("MenuAsignatura", "Octavo", nullptr));
+
+        label_14->setText(QApplication::translate("MenuAsignatura", "Grado:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MenuAsignatura", "Modificar", nullptr));
         label_5->setText(QApplication::translate("MenuAsignatura", "C\303\263digo", nullptr));
         pushButton_5->setText(QApplication::translate("MenuAsignatura", "Eliminar", nullptr));

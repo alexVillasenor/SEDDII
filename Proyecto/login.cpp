@@ -19,6 +19,15 @@ LogIn::~LogIn()
 
 void LogIn::on_pushButton_clicked()
 {
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
     QString Qcode = ui->lineEdit->text();
     string myCode(Qcode.toStdString());
     QString Qpw = ui->lineEdit_2->text();
@@ -122,11 +131,16 @@ void LogIn::on_pushButton_clicked()
                     QMessageBox::information(this, tr("::Asistente Academico::"), tr("::Sistema en desarrollo::"));
                 }
                 else if(u.getCodePerfil()=="4"){
-                    ProfesorMenu *menuProf = new ProfesorMenu();
-                    hide();
-                    menuProf->setCode(Qcode);
-                    menuProf->show();
-                    this->close();
+                    if(flagProf){
+                        ProfesorMenu *menuProf = new ProfesorMenu();
+                        hide();
+                        menuProf->setCode(Qcode);
+                        menuProf->show();
+                        this->close();
+                    }
+                    else{
+                        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+                    }
                 }
 
             }

@@ -256,13 +256,11 @@ void MenuAsignatura::timerSave()
 void MenuAsignatura::on_pushButton_clicked()
 {
     autoSave();
-    listaIndices.deleteAll();
-    listainvertida.deleteAll();
     MenuSU *SU = new MenuSU();
     this->hide();
     SU->show();
     this->close();
-    delete this;
+
 }
 
 /*Crear*/
@@ -273,14 +271,15 @@ void MenuAsignatura::on_pushButton_2_clicked()
     QString programa = ui->lineEdit_2->text();
     QString cred = ui->lineEdit_3->text();
     int creditos = cred.toInt();
+    QString grado = ui->comboBox->currentText();
 
-
-
+    qDebug()<<grado;
     Asignatura a;
     a.setCodigo(codigo);
     a.setCreditos(creditos);
     a.setNombre(nombre);
     a.setPrograma(programa);
+    a.setGrado(grado);
 
     qDebug()<<"asigatura:"<<a.toQString();
 
@@ -576,6 +575,7 @@ void MenuAsignatura::on_pushButton_8_clicked()
     QString nombre =ui->lineEdit_9->text();
     QString programa =ui->lineEdit_10->text();
     QString creditos =ui->lineEdit_11->text();
+    QString grado = ui->comboBox_2->currentText();
 
 
 
@@ -611,6 +611,7 @@ void MenuAsignatura::on_pushButton_8_clicked()
                     if(!ui->lineEdit_11->text().isEmpty()){
                         a.setCreditos(creditos.toInt());
                     }
+                    a.setGrado(grado);
                     ui->textBrowser_6->append(a.toQString());
                     ui->textBrowser_6->append("::Asignatura Modificada::");
 

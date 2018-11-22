@@ -30,7 +30,6 @@ void MenuSU::on_pushButton_clicked()
     hide();
     menuUser->show();
     this->close();
-    delete this;
 }
 
 /*Perfiles*/
@@ -40,19 +39,31 @@ void MenuSU::on_pushButton_2_clicked()
     hide();
     menuPerfil->show();
     this->close();
-    delete this;
 }
 
 /*Menu Profesor*/
 void MenuSU::on_pushButton_3_clicked()
 {
-    MenuProfesor *menuProfesor = new MenuProfesor();
-    hide();
-    menuProfesor->setPerfil("1");
-    menuProfesor->setPermisos();
-    menuProfesor->show();
-    this->close();
-    delete this;
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
+    if(flagProf){
+        MenuProfesor *menuProfesor = new MenuProfesor();
+        hide();
+        menuProfesor->setPerfil("1");
+        menuProfesor->setPermisos();
+        menuProfesor->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+    }
 }
 
 /*Salir*/
@@ -62,7 +73,6 @@ void MenuSU::on_pushButton_4_clicked()
     this->hide();
     logIn->show();
     this->close();
-    delete this;
 }
 
 /*Periodo*/
@@ -72,7 +82,6 @@ void MenuSU::on_pushButton_5_clicked()
     this->hide();
     menuPeriodo->show();
     this->close();
-    delete this;
 }
 
 /*Grupo*/
@@ -82,7 +91,6 @@ void MenuSU::on_pushButton_6_clicked()
     this->hide();
     menuGrupo->show();
     this->close();
-    delete this;
 }
 
 /*Asignatura*/
@@ -92,7 +100,6 @@ void MenuSU::on_pushButton_7_clicked()
     this->hide();
     menuGrupo->show();
     this->close();
-    delete this;
 }
 
 /*Mapa*/
@@ -102,20 +109,57 @@ void MenuSU::on_pushButton_8_clicked()
     this->hide();
     menuMapa->show();
     this->close();
-    delete this;
 }
 
 /*Disponibilidad*/
 void MenuSU::on_pushButton_9_clicked()
 {
-    MenuDisponibilidad *menuDis = new MenuDisponibilidad();
-    this->hide();
-    menuDis->setType(1);
-    menuDis->setCode(code);
-    menuDis->setProfesores();
-    menuDis->show();
-    this->close();
-    delete this;
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
+    if(flagProf){
+        MenuDisponibilidad *menuDis = new MenuDisponibilidad();
+        this->hide();
+        menuDis->setType(1);
+        menuDis->setCode(code);
+        menuDis->setProfesores();
+        menuDis->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+    }
+}
+
+/*Oferta*/
+void MenuSU::on_pushButton_10_clicked()
+{
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
+    if(flagProf){
+        MenuOferta *menuOferta = new MenuOferta();
+        this->hide();
+        menuOferta->setType(1);
+        menuOferta->setCode(code);
+        menuOferta->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+    }
 }
 
 QString MenuSU::getCode() const
@@ -126,4 +170,15 @@ QString MenuSU::getCode() const
 void MenuSU::setCode(const QString &value)
 {
     code = value;
+}
+
+/*Huffman*/
+void MenuSU::on_pushButton_11_clicked()
+{
+    MenuHuffman *menuHuffman = new MenuHuffman();
+    this->hide();
+    menuHuffman->setCode(code);
+    menuHuffman->show();
+    this->close();
+
 }
