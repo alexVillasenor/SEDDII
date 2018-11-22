@@ -403,7 +403,7 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
 {
     ui->textBrowser->clear();
     ifstream file("Dispersa.txt");
-    int pos(0),cont;
+    int pos(0),cont,p2;
     Disponibilidad d;
     if(!file.is_open()){
         ui->textBrowser->setText("::Error al abrir el archivo::");
@@ -417,6 +417,10 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
             }
             else{
                 for(int i(0);i<cont;i++){
+                    p2=pos+sizeof(cont)+(i*sizeof(d));
+                    file.seekg(p2,ios::beg);
+                    long int s;
+                    s=file.tellg();
                     file.read((char*)&d,sizeof(d));
                     if(type==1)
                         ui->textBrowser->append(d.toQstring());

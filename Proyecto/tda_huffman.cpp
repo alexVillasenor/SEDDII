@@ -174,8 +174,8 @@ void TDA_Huffman::insertData(NodoHuffman *p)
     }
 
     if(aux==nullptr){
-        getLastPos()->setNext(p);
         p->setPrev(getLastPos());
+        getLastPos()->setNext(p);
     }
 }
 
@@ -345,6 +345,7 @@ void TDA_Huffman::makeDataDir()
 {
     string r;
     r.clear();
+    dicc.deleteAll();
     findNodo(getFirstPos(),r);
 }
 

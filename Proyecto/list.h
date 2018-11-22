@@ -7,59 +7,59 @@
 #include "node.h" /// Es un nodo doblemente ligado
 
 class ListException : public std::exception {
-    private:
-        std::string msg;
-    public:
-        explicit ListException(const char* message) : msg(message) {}
-        explicit ListException(const std::string& message) : msg(message) {}
-        virtual ~ListException() throw () {}
-        virtual const char* what() const throw () {
-            return msg.c_str();
-            }
-
-    };
+private:
+    std::string msg;
+public:
+    explicit ListException(const char* message) : msg(message) {}
+    explicit ListException(const std::string& message) : msg(message) {}
+    virtual ~ListException() throw () {}
+    virtual const char* what() const throw () {
+        return msg.c_str();
+    }
+};
 
 template <class T>
 class List {
-    private:
-        Node<T>* anchor;
+private:
+    Node<T>* anchor;
 
-        void copyAll(const List<T>&);
-        bool isValidPos(Node<T>*);
-        void swapData(Node<T>*, Node<T>*);
-        void quickSort(Node<T> *leftEdge, Node<T>* rightEdge);
+    void copyAll(const List<T>&);
+    bool isValidPos(Node<T>*);
+    void swapData(Node<T>*, Node<T>*);
+    void quickSort(Node<T> *leftEdge, Node<T>* rightEdge);
 
-    public:
-        List();
-        List(const List<T>&);
-        ~List();
+public:
+    List();
+    List(const List<T>&);
+    ~List();
 
-        int getSize();
-        bool isEmpty();
+    int getSize();
+    bool isEmpty();
 
-        void insertData(Node<T>*, const T&);
+    void insertData(Node<T>*, const T&);
 
-        void deleteData(Node<T>*);
+    void deleteData(Node<T>*);
 
-        Node<T>* getFirstPos();
-        Node<T>* getLastPos();
-        Node<T>* getPrevPos(Node<T>*);
-        Node<T>* getNextPos(Node<T>*);
+    Node<T>* getFirstPos();
+    Node<T>* getLastPos();
+    Node<T>* getPrevPos(Node<T>*);
+    Node<T>* getNextPos(Node<T>*);
 
-        Node<T>* findData(const T&);
+    Node<T>* findData(const T&);
+    Node<T>* findData2(const T&);
 
-        void shellSort();
-        void quickSort();
+    void shellSort();
+    void quickSort();
 
-        T retriveData(Node<T>*);
+    T retriveData(Node<T>*);
 
-        std::string toString();
+    std::string toString();
 
-        void deleteAll();
+    void deleteAll();
 
-        List<T>& operator = (const List<T>&);
+    List<T>& operator = (const List<T>&);
 
-    };
+};
 
 template <class T>
 bool List<T>::isValidPos(Node<T>* p) {
@@ -68,11 +68,11 @@ bool List<T>::isValidPos(Node<T>* p) {
     while(aux != nullptr){
         if(aux == p){
             return true;
-            }
-        aux=aux->getNext();
         }
-    return false;
+        aux=aux->getNext();
     }
+    return false;
+}
 
 template <class T>
 void List<T>::swapData(Node<T>* a, Node<T>* b) {
@@ -80,7 +80,7 @@ void List<T>::swapData(Node<T>* a, Node<T>* b) {
 
     a->setData(b->getData());
     b->setData(aux);
-    }
+}
 
 template <class T>
 int List<T>::getSize() {
@@ -89,9 +89,9 @@ int List<T>::getSize() {
     while (aux!=nullptr) {
         cont++;
         aux=aux->getNext();
-        }
-    return cont;
     }
+    return cont;
+}
 
 template <class T>
 void List<T>::copyAll(const List<T>& l) {
@@ -113,8 +113,8 @@ void List<T>::copyAll(const List<T>& l) {
         }
         lastInserted = newNode;
         aux=aux->getNext();
-        }
     }
+}
 
 template <class T>
 List<T>::List() :anchor(nullptr) {}
@@ -122,51 +122,51 @@ List<T>::List() :anchor(nullptr) {}
 template <class T>
 List<T>::~List(){
     deleteAll();
-    }
+}
 
 template <class T>
 List<T>::List(const List<T>& l):anchor(nullptr) {
     copyAll(l);
-    }
+}
 
 template <class T>
 bool List<T>::isEmpty() {
     return anchor == nullptr;
-    }
+}
 
 template <class T>
 void List<T>::insertData(Node<T>* p, const T& e) {
     if(p != nullptr and !isValidPos(p)) {
         throw ListException("Posicion invalida, tratando de insertar");
-        }
+    }
     Node<T>* aux(new Node<T>(e));
 
     if(aux == nullptr) {
         throw ListException("Memoria no disponible para crear nuevo nodo, tratando de insertar");
-        }
+    }
     if(p==nullptr){/// insertar al principio
         ///aux->setPrev(nullptr);///redundante (no es necesaria)
         aux->setNext(anchor);
         if(anchor!=nullptr){
             anchor->getNext()->setPrev(aux);
-            }
-        anchor=aux;
         }
+        anchor=aux;
+    }
     else{            ///Insertar en otra parte
         aux->setPrev(p);
         aux->setNext(p->getNext());
         if(p->getNext()!=nullptr){
             p->getNext()->setPrev(aux);
-            }
-        p->setNext(aux);
         }
+        p->setNext(aux);
     }
+}
 
 template <class T>
 void List<T>::deleteData(Node<T>* p) {
     if(!isValidPos(p)) {
         throw ListException("Posicion invlaida, tratando de eliminar");
-        }
+    }
     if(p->getPrev()!=nullptr){///si existe, el anterior apunta al siguiente
         p->getPrev()->setNext(p->getNext());
     }
@@ -177,26 +177,26 @@ void List<T>::deleteData(Node<T>* p) {
         anchor=anchor->getNext();
     }
     delete p;///liberar espacio de memoria
-    }
+}
 
 template <class T>
 Node<T>* List<T>::getFirstPos() {
     return anchor;
-    }
+}
 
 template <class T>
 Node<T>* List<T>::getLastPos() {
     if(isEmpty()) {
         return nullptr;
-        }
+    }
 
     Node<T>* aux(anchor);
 
     while(aux->getNext() != nullptr) {
         aux=aux->getNext();
-        }
-    return aux;
     }
+    return aux;
+}
 
 template <class T>
 Node<T>* List<T>::getPrevPos(Node<T>* p) {
@@ -204,7 +204,7 @@ Node<T>* List<T>::getPrevPos(Node<T>* p) {
         return nullptr;
     }
     return p->getPrev();
-    }
+}
 
 template <class T>
 Node<T>* List<T>::getNextPos(Node<T>* p) {
@@ -212,7 +212,7 @@ Node<T>* List<T>::getNextPos(Node<T>* p) {
         return nullptr;
     }
     return p->getNext();
-    }
+}
 
 template <class T>
 Node<T>* List<T>::findData(const T& e) {
@@ -220,9 +220,19 @@ Node<T>* List<T>::findData(const T& e) {
 
     while(aux!=nullptr and aux->getData()!=e){
         aux=aux->getNext();
-        }
-    return aux;
     }
+    return aux;
+}
+
+template <class T>
+Node<T>* List<T>::findData2(const T& e) {
+    Node<T>* aux(anchor);
+
+    while(aux!=nullptr and aux->getData()%e){
+        aux=aux->getNext();
+    }
+    return aux;
+}
 
 template <class T>
 void List<T>::shellSort() {
@@ -269,13 +279,13 @@ void List<T>::shellSort() {
 template<class T>
 void List<T>::quickSort() {
     quickSort(getFirstPos(),getLastPos());
-    }
+}
 
 template<class T>
 void List<T>::quickSort(Node<T>* leftEdge,Node<T>* rightEdge) {
     if(leftEdge>=rightEdge) { ///Criterio de paro
         return;
-        }
+    }
 
     Node<T>* i=leftEdge;
     Node<T>* j=rightEdge;
@@ -284,22 +294,22 @@ void List<T>::quickSort(Node<T>* leftEdge,Node<T>* rightEdge) {
     while(i<j) {
         while(i<j and i->getData()<=rightEdge->getData()) {
             i=i->getNext();
-            }
+        }
         while(i<j and j->getData()>=rightEdge->getData()) {
             j=j->getPrev();
-            }
+        }
         if(i!=j) {
             swapData(i,j);
-            }
         }
+    }
 
     if(i!=rightEdge) { /// reubicacion del pivote
         swapData(i,rightEdge);
-        }
+    }
     ///Divide y venceras
     quickSort(leftEdge,i->getPrev());
     quickSort(i->getNext(),rightEdge);
-    }
+}
 
 template <class T>
 T List<T>::retriveData(Node<T>* p) {
@@ -307,7 +317,7 @@ T List<T>::retriveData(Node<T>* p) {
         throw ListException("Posicion invalida, haciendo retrieve");
     }
     return p->getData();
-    }
+}
 
 template <class T>
 std::string List<T>::toString() {
@@ -317,9 +327,9 @@ std::string List<T>::toString() {
     while(aux != nullptr){
         result+= aux->getData().toString() + "\n";
         aux=aux->getNext();
-        }
-    return result;
     }
+    return result;
+}
 
 template <class T>
 void List<T>::deleteAll() {
@@ -329,8 +339,8 @@ void List<T>::deleteAll() {
         aux=anchor;
         anchor=anchor->getNext();
         delete aux;
-        }
     }
+}
 
 template <class T>
 List<T>& List<T>::operator=(const List<T>& l) {
@@ -339,6 +349,6 @@ List<T>& List<T>::operator=(const List<T>& l) {
     copyAll(l);
 
     return *this;
-    }
+}
 
 #endif // LIST_H_INCLUDED

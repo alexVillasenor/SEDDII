@@ -93,9 +93,9 @@ QString getLastCode(string name){
             QString aux(QString::number(n));
             return aux;
         }
-        }
-
     }
+
+}
 
 
 MenuUser::MenuUser(QWidget *parent) :
@@ -174,6 +174,7 @@ MenuUser::~MenuUser()
 /*Agregar Usuario*/
 void MenuUser::on_pushButton_3_clicked()
 {
+
     QString tipo = ui->comboBox->currentText();
     QString nombre = ui->lineEdit->text();
     QString contrasenia = ui->lineEdit_2->text();
@@ -190,7 +191,23 @@ void MenuUser::on_pushButton_3_clicked()
         myUser.setCodePerfil("3");
     }
     else if(tipo.toStdString()=="Profesor"){
-        myUser.setCodePerfil("4");
+        bool flagProf;
+        ifstream f("Diccionario de datos.txt");
+        if(!f.is_open()){
+            flagProf = true;
+        }
+        else{
+            flagProf = false;
+            f.close();
+        }
+        if(flagProf){
+            myUser.setCodePerfil("4");
+        }
+        else{
+            QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+            return;
+        }
+
     }
     if(tipo.toStdString()==""){
         myUser.setCodePerfil("0");

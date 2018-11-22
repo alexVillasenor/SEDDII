@@ -21,11 +21,14 @@ public:
     explicit MenuHuffman(QWidget *parent = 0);
     ~MenuHuffman();
 
-    QString getCadena() const;
-    void setCadena(const QString &value);
+    std::string decToBin(int &n);
+    int binToDec(const std::string binary);
 
     QString getCode() const;
     void setCode(const QString &value);
+
+    std::string getCadena() const;
+    void setCadena(const std::string &value);
 
 private slots:
     void on_pushButton_clicked();
@@ -36,7 +39,7 @@ private slots:
 
 private:
     Ui::MenuHuffman *ui;
-    QString cadena;
+    std::string cadena;
     QString code;
 };
 

@@ -44,12 +44,26 @@ void MenuSU::on_pushButton_2_clicked()
 /*Menu Profesor*/
 void MenuSU::on_pushButton_3_clicked()
 {
-    MenuProfesor *menuProfesor = new MenuProfesor();
-    hide();
-    menuProfesor->setPerfil("1");
-    menuProfesor->setPermisos();
-    menuProfesor->show();
-    this->close();
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
+    if(flagProf){
+        MenuProfesor *menuProfesor = new MenuProfesor();
+        hide();
+        menuProfesor->setPerfil("1");
+        menuProfesor->setPermisos();
+        menuProfesor->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+    }
 }
 
 /*Salir*/
@@ -100,25 +114,52 @@ void MenuSU::on_pushButton_8_clicked()
 /*Disponibilidad*/
 void MenuSU::on_pushButton_9_clicked()
 {
-    MenuDisponibilidad *menuDis = new MenuDisponibilidad();
-    this->hide();
-    menuDis->setType(1);
-    menuDis->setCode(code);
-    menuDis->setProfesores();
-    menuDis->show();
-    this->close();
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
+    if(flagProf){
+        MenuDisponibilidad *menuDis = new MenuDisponibilidad();
+        this->hide();
+        menuDis->setType(1);
+        menuDis->setCode(code);
+        menuDis->setProfesores();
+        menuDis->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+    }
 }
 
 /*Oferta*/
 void MenuSU::on_pushButton_10_clicked()
 {
-    MenuOferta *menuOferta = new MenuOferta();
-    this->hide();
-    menuOferta->setType(1);
-    menuOferta->setCode(code);
-    menuOferta->show();
-    this->close();
-
+    bool flagProf;
+    ifstream f("Diccionario de datos.txt");
+    if(!f.is_open()){
+        flagProf = true;
+    }
+    else{
+        flagProf = false;
+        f.close();
+    }
+    if(flagProf){
+        MenuOferta *menuOferta = new MenuOferta();
+        this->hide();
+        menuOferta->setType(1);
+        menuOferta->setCode(code);
+        menuOferta->show();
+        this->close();
+    }
+    else{
+        QMessageBox::information(this, tr("::Error::"), tr("::Profesores Encriptados::"));
+    }
 }
 
 QString MenuSU::getCode() const

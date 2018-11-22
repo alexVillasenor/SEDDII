@@ -102,7 +102,9 @@ HEADERS += \
     tda_huffman.h \
     nodohuffman.h \
     dicdatoshuffman.h \
-    asignacionprof.h
+    asignacionprof.h \
+    list.h \
+    node.h
 
 FORMS += \
         login.ui \

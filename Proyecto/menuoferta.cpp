@@ -411,13 +411,13 @@ void MenuOferta::on_pushButton_2_clicked()
                     ofstream file ("Oferta.txt",ios::app);
                     file.write((char*)&o,sizeof(o));
                     file.close();
-                    QMessageBox::information(this, tr("::Exito::"), tr("::Oferta Creada::"));
                     flag = true;
                 }
                 auxAsig=auxAsig->getNext();
             }
 
             if(flag){
+                QMessageBox::information(this, tr("::Exito::"), tr("::Oferta Creada::"));
                 AsignacionProf *asigProf = new AsignacionProf;
                 this->hide();
                 asigProf->show();

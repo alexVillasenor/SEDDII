@@ -41,6 +41,11 @@ bool DicDatosHuffman::operator !=(const DicDatosHuffman &e)
     return caracter!=e.caracter;
 }
 
+bool DicDatosHuffman::operator %(const DicDatosHuffman &e)
+{
+    return codigo!=e.codigo;
+}
+
 DicDatosHuffman::DicDatosHuffman()
 {
 

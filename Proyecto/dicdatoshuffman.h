@@ -16,6 +16,7 @@ public:
     std::string toString();
 
     bool operator != (const DicDatosHuffman &e);
+    bool operator % (const DicDatosHuffman &e);
 
 
 };
