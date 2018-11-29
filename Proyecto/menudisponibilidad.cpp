@@ -278,7 +278,7 @@ void MenuDisponibilidad::expand(int c,int f,int t)
     genera("temp.txt");
     fstream temp("temp.txt");
     ifstream file("Dispersa.txt");
-    int pos(0),cont;
+    int pos(0),cont,p2;
     Disponibilidad d;
     if(!file.is_open()){
         QMessageBox::information(this, tr("::Error::"), tr("::No se pudo abrir el archivo::"));
@@ -292,6 +292,10 @@ void MenuDisponibilidad::expand(int c,int f,int t)
             }
             else{
                 for(int i(0);i<cont;i++){
+                    p2=pos+sizeof(cont)+(i*sizeof(d));
+                    file.seekg(p2,ios::beg);
+                    long int s;
+                    s=file.tellg();
                     file.read((char*)&d,sizeof(d));
 
                     string clave=d.getClaveProf().toStdString()+d.getClaveAsig().toStdString();
