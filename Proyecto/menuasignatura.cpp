@@ -56,11 +56,10 @@ int getLastCodeAsignatura(string name){
         }
         else{
             Asignatura a;
-            file.seekg(0,ios::end);
-            long int pos=file.tellg();
-            pos-=sizeof(a);
-            file.seekg(pos);
-            file.read((char*)&a,sizeof(a));
+            while(!file.eof()){
+                file.read((char*)&a,sizeof(a));
+                if(file.eof())break;
+            }
             file.close();
             int c(a.getCodigo()+1);
             return c;
