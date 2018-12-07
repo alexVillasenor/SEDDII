@@ -71,7 +71,7 @@ void MenuDisponibilidad::setProfesores()
             getline(file,auxStr,'\n');
             qString = QString::fromStdString(auxStr);
             p.setTelefono(qString);
-            if(type==1)
+            if(type==1 or type==2)
                 ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
             else if(type==4 && p.getCode()==code){
                 ui->comboBox_Profesor->addItem(p.getCode()+" - "+p.getNombre());
@@ -133,6 +133,17 @@ void MenuDisponibilidad::setCarreras()
         ui->comboBox_Carrera->addItem(aux->getNombre());
         ui->comboBox->addItem(aux->getNombre());
         aux=aux->getNext();
+    }
+}
+
+void MenuDisponibilidad::setPermisos()
+{
+    if(type==3){
+        ui->tab->setDisabled(true);
+        ui->tab_6->setDisabled(true);
+        ui->tab_5->setDisabled(true);
+        ui->tab_4->setDisabled(true);
+
     }
 }
 
@@ -251,8 +262,8 @@ void MenuDisponibilidad::genera(string s)
 
 long MenuDisponibilidad::dispersion(string clave)
 {
-    int i(0);
-    int direccionBase(0);
+    unsigned i(0);
+    long int direccionBase(0);
     if(FILAS==100){
         while(i<clave.length()){
             direccionBase+=((100*clave[i])+(clave[i+1]%84645));
@@ -265,7 +276,7 @@ long MenuDisponibilidad::dispersion(string clave)
             i++;
         }
     }
-    direccionBase=abs(direccionBase%FILAS);
+    direccionBase=abs(direccionBase)%FILAS;
     return direccionBase;
 }
 
@@ -297,20 +308,20 @@ void MenuDisponibilidad::expand(int c,int f,int t)
                     long int s;
                     s=file.tellg();
                     file.read((char*)&d,sizeof(d));
-
+                    ///Agregar
                     string clave=d.getClaveProf().toStdString()+d.getClaveAsig().toStdString();
                     long int dBase=dispersion(clave);
-                    long int aux=dBase,aux2;
+                    long int aux=dBase;
                     int cont2;
                     dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(cont2));
                     temp.seekg(dBase,ios::beg);
-                    temp.read((char*)&cont2,sizeof(cont2));
+                    temp.read((char*)&cont2,sizeof(int));
                     if(cont2 == COLUMNAS){
                         QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
                     }
                     else{
                         long int pos = dBase+(cont2*sizeof(d))+sizeof(cont2);
-                        aux2=pos;
+                        aux=pos;
                         temp.seekp(pos,ios::beg);
                         temp.write((char*)&d,sizeof(d));
                         cont2++;
@@ -340,6 +351,21 @@ void MenuDisponibilidad::on_pushButton_clicked()
         this->close();
 
     }
+    else if(type ==2){
+        this->hide();
+        MenuCA *CA = new MenuCA();
+        CA->setCode(code);
+        CA->show();
+        this->close();
+    }
+
+    else if(type == 3){
+        this->hide();
+        MenuAsistente *AS = new MenuAsistente();
+        AS->setCode(code);
+        AS->show();
+        this->close();
+    }
     else if(type==4){
         ProfesorMenu *menuProf = new ProfesorMenu();
         this->hide();
@@ -358,7 +384,7 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
     QDate today=QDate::currentDate();
     QTime now=QTime::currentTime();
     Disponibilidad d;
-    int cont;
+    int cont(0);
 
     auxStr=ui->comboBox_Profesor->currentText().toStdString().substr(0,3);
     llave=auxStr.c_str();
@@ -372,7 +398,7 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
     d.setFecha(today);
     d.setHora(now);
     long int dBase=dispersion(clave);
-    long int aux=dBase,aux2;
+    long int aux=dBase;
     QString qStr=clave.c_str();
     qDebug()<<"Clave: "<<qStr;
     qDebug()<<"Direccion Base: "<<dBase;
@@ -380,13 +406,13 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
         fstream file("Dispersa.txt");
         dBase=dBase*((sizeof(d)*COLUMNAS)+sizeof(cont));
         file.seekg(dBase,ios::beg);
-        file.read((char*)&cont,sizeof(cont));
+        file.read((char*)&cont,sizeof(int));
         if(cont == COLUMNAS){
             QMessageBox::information(this, tr("::Error::"), tr("::No hay espacio para esta llave::"));
         }
         else{
-            long int pos = dBase+(cont*sizeof(d))+sizeof(cont);
-            aux2=pos;
+            long int pos = dBase +(cont*sizeof(d))+sizeof(cont);
+            aux=pos;
             file.seekp(pos,ios::beg);
             file.write((char*)&d,sizeof(d));
             cont++;
@@ -406,8 +432,9 @@ void MenuDisponibilidad::on_pushButton_2_clicked()
 void MenuDisponibilidad::on_pushButton_3_clicked()
 {
     ui->textBrowser->clear();
+    bool flag(true);
     ifstream file("Dispersa.txt");
-    int pos(0),cont,p2;
+    int pos(0),cont,p2,c(0);
     Disponibilidad d;
     if(!file.is_open()){
         ui->textBrowser->setText("::Error al abrir el archivo::");
@@ -416,6 +443,7 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
         while(!file.eof()){
             file.seekg(pos,ios::beg);
             file.read((char*)&cont,sizeof(cont));
+            c++;
             if(cont==0){
                 pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
             }
@@ -426,13 +454,20 @@ void MenuDisponibilidad::on_pushButton_3_clicked()
                     long int s;
                     s=file.tellg();
                     file.read((char*)&d,sizeof(d));
-                    if(type==1)
+                    if(type==1 or type==2 or type==3){
                         ui->textBrowser->append(d.toQstring());
-                    else if(type==4 && d.getClaveProf()==code)
+                        flag=false;
+                    }
+                    else if(type==4 && d.getClaveProf()==code){
                         ui->textBrowser->append(d.toQstring());
+                        flag=false;
+                    }
                 }
                 pos=pos+(COLUMNAS*sizeof(d))+sizeof(cont);
             }
+        }
+        if(flag){
+            ui->textBrowser->setText("::Archivo vacio::");
         }
         file.close();
     }
@@ -460,7 +495,7 @@ bool MenuDisponibilidad::buscar(QString clave){
                 file.read((char*)&d,sizeof(d));
                 QString llave=d.getClaveProf();
                 llave+=d.getClaveAsig();
-                if(type==1 && llave==clave){
+                if((type==1 && llave==clave)or (type==2 and llave==clave)  or (type==3 and llave==clave)){
                     file.close();
                     return true;
                 }
@@ -495,6 +530,7 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
         else{
             Disponibilidad d;
             int cont;
+            bool flag(true);
             long int pos=dBase*((COLUMNAS*sizeof(d))+sizeof(cont));
             file.seekg(pos,ios::beg);
             file.read((char*)&cont,sizeof(cont));
@@ -506,12 +542,17 @@ void MenuDisponibilidad::on_pushButton_4_clicked()
                     file.read((char*)&d,sizeof(d));
                     QString llave=d.getClaveProf();
                     llave+=d.getClaveAsig();
-                    if(type==1 && llave==clave)
+                    if((type==1 or type==2 or type==3) and llave==clave){
                         ui->textBrowser_2->setText(d.toQstring());
-                    else if(type==4 && d.getClaveProf()==code && llave==clave)
+                        flag=false;
+                    }
+                    else if(type==4 && d.getClaveProf()==code && llave==clave){
                         ui->textBrowser_2->setText(d.toQstring());
-                    else
-                        ui->textBrowser_2->setText("::Clave Erronea1::");
+                        flag=false;
+                    }
+                }
+                if(flag){
+                    ui->textBrowser_2->setText("::Clave Erronea::");
                 }
             }
             file.close();
@@ -546,7 +587,7 @@ bool MenuDisponibilidad::eliminar(QString clave){
                 file.read((char*)&d,sizeof(d));
                 QString llave=d.getClaveProf();
                 llave+=d.getClaveAsig();
-                if(type==1 && llave==clave){
+                if((type==1 && llave==clave) or (type==2 and llave==clave)){
                     flag=true;
                 }
                 else if(type==4 && d.getClaveProf()==code && llave==clave){
@@ -601,7 +642,7 @@ void MenuDisponibilidad::on_pushButton_5_clicked()
                     file.read((char*)&d,sizeof(d));
                     QString llave=d.getClaveProf();
                     llave+=d.getClaveAsig();
-                    if(type==1 && llave==clave){
+                    if((type==1 && llave==clave)or (type==2 and llave==clave)){
                         file.close();
                         eliminar(llave);
                         ui->textBrowser_3->append(d.toQstring());
@@ -659,7 +700,7 @@ void MenuDisponibilidad::on_pushButton_6_clicked()
                     file.read((char*)&d,sizeof(d));
                     QString llave=d.getClaveProf();
                     llave+=d.getClaveAsig();
-                    if(type==1 && llave==clave){
+                    if((type==1 && llave==clave)or (type==2 and llave==clave)){
                         ui->textBrowser_4->append(d.toQstring());
                         d.setFecha(newDate);
                         d.setHora(newTime);

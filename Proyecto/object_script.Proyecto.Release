@@ -36,6 +36,7 @@ INPUT(
 ./release\nodohuffman.o
 ./release\dicdatoshuffman.o
 ./release\asignacionprof.o
+./release\menuasistente.o
 ./release\moc_login.o
 ./release\moc_menuprofesor.o
 ./release\moc_menuuser.o
@@ -53,4 +54,5 @@ INPUT(
 ./release\moc_menuoferta.o
 ./release\moc_menuhuffman.o
 ./release\moc_asignacionprof.o
+./release\moc_menuasistente.o
 );

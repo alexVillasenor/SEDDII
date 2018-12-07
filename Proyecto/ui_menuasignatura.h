@@ -173,11 +173,6 @@ public:
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
         comboBox->setObjectName(QStringLiteral("comboBox"));
 
         gridLayout_2->addWidget(comboBox, 3, 2, 1, 1);
@@ -307,11 +302,6 @@ public:
         gridLayout_8->addWidget(label_9, 1, 0, 1, 1);
 
         comboBox_2 = new QComboBox(tab_4);
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
-        comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
@@ -469,11 +459,6 @@ public:
         comboBox->setItemText(0, QApplication::translate("MenuAsignatura", "Primero", nullptr));
         comboBox->setItemText(1, QApplication::translate("MenuAsignatura", "Segundo", nullptr));
         comboBox->setItemText(2, QApplication::translate("MenuAsignatura", "Tercero", nullptr));
-        comboBox->setItemText(3, QApplication::translate("MenuAsignatura", "Cuarto", nullptr));
-        comboBox->setItemText(4, QApplication::translate("MenuAsignatura", "Quinto", nullptr));
-        comboBox->setItemText(5, QApplication::translate("MenuAsignatura", "Sexto", nullptr));
-        comboBox->setItemText(6, QApplication::translate("MenuAsignatura", "Septimo", nullptr));
-        comboBox->setItemText(7, QApplication::translate("MenuAsignatura", "Octavo", nullptr));
 
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuAsignatura", "Crear", nullptr));
         pushButton_3->setText(QApplication::translate("MenuAsignatura", "Mostrar", nullptr));
@@ -492,11 +477,6 @@ public:
         comboBox_2->setItemText(0, QApplication::translate("MenuAsignatura", "Primero", nullptr));
         comboBox_2->setItemText(1, QApplication::translate("MenuAsignatura", "Segundo", nullptr));
         comboBox_2->setItemText(2, QApplication::translate("MenuAsignatura", "Tercero", nullptr));
-        comboBox_2->setItemText(3, QApplication::translate("MenuAsignatura", "Cuarto", nullptr));
-        comboBox_2->setItemText(4, QApplication::translate("MenuAsignatura", "Quinto", nullptr));
-        comboBox_2->setItemText(5, QApplication::translate("MenuAsignatura", "Sexto", nullptr));
-        comboBox_2->setItemText(6, QApplication::translate("MenuAsignatura", "Septimo", nullptr));
-        comboBox_2->setItemText(7, QApplication::translate("MenuAsignatura", "Octavo", nullptr));
 
         label_14->setText(QApplication::translate("MenuAsignatura", "Grado:", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MenuAsignatura", "Modificar", nullptr));

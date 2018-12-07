@@ -140,7 +140,7 @@ public:
         pushButton_6->setText(QApplication::translate("MenuSU", "Grupo", nullptr));
         pushButton_4->setText(QApplication::translate("MenuSU", "Salir", nullptr));
         pushButton_9->setText(QApplication::translate("MenuSU", "Disponibilidad", nullptr));
-        label_2->setText(QApplication::translate("MenuSU", "Seleccion a que menu desea ir", nullptr));
+        label_2->setText(QApplication::translate("MenuSU", "Selecciona que menu desea ir", nullptr));
         pushButton->setText(QApplication::translate("MenuSU", "Usuario", nullptr));
         pushButton_7->setText(QApplication::translate("MenuSU", "Asignatura", nullptr));
         pushButton_5->setText(QApplication::translate("MenuSU", "Periodo", nullptr));

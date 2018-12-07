@@ -35,6 +35,10 @@ public:
     void loadIndex();
     void printIndiceSec();
     void saveListaInvertida();
+    void setPermisos();
+
+    std::string getPerfil() const;
+    void setPerfil(const std::string &value);
 
 private slots:
     void timerSave();
@@ -68,7 +72,7 @@ private:
     Stack<Asignatura> stack;
     Stack<long int> stackDireccion;
     ListaInvertida listainvertida;
-
+    std::string perfil;
     Ui::MenuAsignatura *ui;
 };
 

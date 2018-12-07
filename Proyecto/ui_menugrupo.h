@@ -140,11 +140,6 @@ public:
         comboBox_3->addItem(QString());
         comboBox_3->addItem(QString());
         comboBox_3->addItem(QString());
-        comboBox_3->addItem(QString());
-        comboBox_3->addItem(QString());
-        comboBox_3->addItem(QString());
-        comboBox_3->addItem(QString());
-        comboBox_3->addItem(QString());
         comboBox_3->setObjectName(QStringLiteral("comboBox_3"));
 
         gridLayout_2->addWidget(comboBox_3, 2, 1, 1, 1);
@@ -322,7 +317,7 @@ public:
 
         retranslateUi(MenuGrupo);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MenuGrupo);
@@ -339,11 +334,6 @@ public:
         comboBox_3->setItemText(0, QApplication::translate("MenuGrupo", "Primero", nullptr));
         comboBox_3->setItemText(1, QApplication::translate("MenuGrupo", "Segundo", nullptr));
         comboBox_3->setItemText(2, QApplication::translate("MenuGrupo", "Tercero", nullptr));
-        comboBox_3->setItemText(3, QApplication::translate("MenuGrupo", "Cuarto", nullptr));
-        comboBox_3->setItemText(4, QApplication::translate("MenuGrupo", "Quinto", nullptr));
-        comboBox_3->setItemText(5, QApplication::translate("MenuGrupo", "Sexto", nullptr));
-        comboBox_3->setItemText(6, QApplication::translate("MenuGrupo", "Septimo", nullptr));
-        comboBox_3->setItemText(7, QApplication::translate("MenuGrupo", "Octavo", nullptr));
 
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MenuGrupo", "Crear", nullptr));
         pushButton_3->setText(QApplication::translate("MenuGrupo", "Mostrar", nullptr));

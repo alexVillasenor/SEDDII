@@ -17,6 +17,7 @@
 #include "menugrupo.h"
 #include "menuasignatura.h"
 #include "menudisponibilidad.h"
+#include "menuasistente.h"
 #include "menuoferta.h"
 #include "menuhuffman.h"
 #include "profesormenu.h"

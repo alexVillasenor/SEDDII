@@ -61,5 +61,8 @@ QString Disponibilidad::toQstring()
 
 Disponibilidad::Disponibilidad()
 {
-
+    strcpy(claveAsig,"");
+    strcpy(claveProf,"");
+    this->fecha= QDate::currentDate();
+    this->hora = QTime::currentTime();
 }

@@ -1,0 +1,3 @@
+Computacion|0
+Informatica|1
+TIC|4
