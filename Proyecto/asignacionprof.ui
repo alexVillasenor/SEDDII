@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Asignacion de profesores</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/lentejas-con-chorizo-830.jpg</normaloff>../icons/lentejas-con-chorizo-830.jpg</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <widget class="QComboBox" name="comboBox"/>

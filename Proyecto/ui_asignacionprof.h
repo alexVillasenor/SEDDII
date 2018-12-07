@@ -10,6 +10,7 @@
 #define UI_ASIGNACIONPROF_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
@@ -36,6 +37,9 @@ public:
         if (AsignacionProf->objectName().isEmpty())
             AsignacionProf->setObjectName(QStringLiteral("AsignacionProf"));
         AsignacionProf->resize(400, 300);
+        QIcon icon;
+        icon.addFile(QStringLiteral("../icons/lentejas-con-chorizo-830.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        AsignacionProf->setWindowIcon(icon);
         gridLayout = new QGridLayout(AsignacionProf);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         comboBox = new QComboBox(AsignacionProf);

@@ -10,6 +10,7 @@
 #define UI_MENUOFERTA_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
@@ -71,6 +72,9 @@ public:
         if (MenuOferta->objectName().isEmpty())
             MenuOferta->setObjectName(QStringLiteral("MenuOferta"));
         MenuOferta->resize(573, 400);
+        QIcon icon;
+        icon.addFile(QStringLiteral("../icons/lentejas-con-chorizo-830.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        MenuOferta->setWindowIcon(icon);
         gridLayout = new QGridLayout(MenuOferta);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         horizontalSpacer = new QSpacerItem(466, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);

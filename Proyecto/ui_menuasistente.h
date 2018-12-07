@@ -32,7 +32,7 @@ public:
             MenuAsistente->setObjectName(QStringLiteral("MenuAsistente"));
         MenuAsistente->resize(323, 228);
         QIcon icon;
-        icon.addFile(QStringLiteral("../icons/1f720a0f-1f03-4299-9a11-2e83b4a61bcb.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("../icons/MAP-Mi-Asistente-Personal-Icono-2.png"), QSize(), QIcon::Normal, QIcon::Off);
         MenuAsistente->setWindowIcon(icon);
         gridLayout = new QGridLayout(MenuAsistente);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));

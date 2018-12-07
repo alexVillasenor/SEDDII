@@ -10,6 +10,7 @@
 #define UI_MENUHUFFMAN_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QPushButton>
@@ -32,6 +33,9 @@ public:
         if (MenuHuffman->objectName().isEmpty())
             MenuHuffman->setObjectName(QStringLiteral("MenuHuffman"));
         MenuHuffman->resize(512, 386);
+        QIcon icon;
+        icon.addFile(QStringLiteral("../icons/1f720a0f-1f03-4299-9a11-2e83b4a61bcb.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        MenuHuffman->setWindowIcon(icon);
         gridLayout = new QGridLayout(MenuHuffman);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         pushButton = new QPushButton(MenuHuffman);

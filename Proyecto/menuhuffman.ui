@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Menu Huffman</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/1f720a0f-1f03-4299-9a11-2e83b4a61bcb.jpg</normaloff>../icons/1f720a0f-1f03-4299-9a11-2e83b4a61bcb.jpg</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <widget class="QPushButton" name="pushButton">
