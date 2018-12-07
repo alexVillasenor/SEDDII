@@ -36,6 +36,7 @@ INPUT(
 ./debug\nodohuffman.o
 ./debug\dicdatoshuffman.o
 ./debug\asignacionprof.o
+./debug\menuasistente.o
 ./debug\moc_login.o
 ./debug\moc_menuprofesor.o
 ./debug\moc_menuuser.o
@@ -53,4 +54,5 @@ INPUT(
 ./debug\moc_menuoferta.o
 ./debug\moc_menuhuffman.o
 ./debug\moc_asignacionprof.o
+./debug\moc_menuasistente.o
 );

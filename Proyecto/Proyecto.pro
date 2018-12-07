@@ -60,7 +60,8 @@ SOURCES += \
     tda_huffman.cpp \
     nodohuffman.cpp \
     dicdatoshuffman.cpp \
-    asignacionprof.cpp
+    asignacionprof.cpp \
+    menuasistente.cpp
 
 HEADERS += \
         login.h \
@@ -104,7 +105,8 @@ HEADERS += \
     dicdatoshuffman.h \
     asignacionprof.h \
     list.h \
-    node.h
+    node.h \
+    menuasistente.h
 
 FORMS += \
         login.ui \
@@ -123,4 +125,5 @@ FORMS += \
     profesormenu.ui \
     menuoferta.ui \
     menuhuffman.ui \
-    asignacionprof.ui
+    asignacionprof.ui \
+    menuasistente.ui

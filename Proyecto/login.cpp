@@ -124,11 +124,16 @@ void LogIn::on_pushButton_clicked()
                 else if(u.getCodePerfil()=="2"){
                     MenuCA *menuCA = new MenuCA();
                     hide();
+                    menuCA->setCode(Qcode);
                     menuCA->show();
                     this->close();
                 }
                 else if(u.getCodePerfil()=="3"){
-                    QMessageBox::information(this, tr("::Asistente Academico::"), tr("::Sistema en desarrollo::"));
+                    MenuAsistente *menuAS = new MenuAsistente();
+                    hide();
+                    menuAS->setCode(Qcode);
+                    menuAS->show();
+                    this->close();
                 }
                 else if(u.getCodePerfil()=="4"){
                     if(flagProf){

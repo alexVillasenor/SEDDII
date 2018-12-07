@@ -47,6 +47,15 @@ void MenuOferta::cargarPeriodos()
     }
 }
 
+void MenuOferta::setPermisos()
+{
+    if(type==4 or type == 3){
+        ui->tab->setDisabled(true);
+        ui->tab_4->setDisabled(true);
+        ui->tab_5->setDisabled(true);
+    }
+}
+
 void MenuOferta::cargarGrupos()
 {
     QString periodo=ui->comboBox_Periodo->currentText().toStdString().substr(6,5).c_str();
@@ -205,11 +214,36 @@ void MenuOferta::setAsignatura(){
 /*Regresar*/
 void MenuOferta::on_pushButton_clicked()
 {
-    MenuSU *SU = new MenuSU();
-    this->hide();
-    SU->setCode(code);
-    SU->show();
-    this->close();
+    if(type==1){
+        MenuSU *SU = new MenuSU();
+        this->hide();
+        SU->setCode(code);
+        SU->show();
+        this->close();
+
+    }
+    else if(type ==2){
+        this->hide();
+        MenuCA *CA = new MenuCA();
+        CA->setCode(code);
+        CA->show();
+        this->close();
+    }
+    else if(type == 3){
+        this->hide();
+        MenuAsistente *AS = new MenuAsistente();
+        AS->setCode(code);
+        AS->show();
+        this->close();
+    }
+    else if(type==4){
+        ProfesorMenu *menuProf = new ProfesorMenu();
+        this->hide();
+        menuProf->setCode(code);
+        menuProf->show();
+        this->close();
+
+    }
 
 }
 
@@ -255,6 +289,31 @@ bool MenuOferta::buscar(const QString &arg1)
             file.read((char*)&p,sizeof(p));
             if(file.eof()){break;}
             if(arg1==p.getLlave()){
+                flag=false;
+                return true;
+            }
+        }
+        file.close();
+        if(flag){
+            return false;
+        }
+    }
+    return false;
+}
+
+bool MenuOferta::buscarGrupo(const QString &arg1, const QString &arg2)
+{
+    bool flag(true);
+    Oferta p;
+    ifstream file("Oferta.txt");
+    if(!file.is_open()){
+        return false;
+    }
+    else{
+        while (!file.eof()) {
+            file.read((char*)&p,sizeof(p));
+            if(file.eof()){break;}
+            if(arg1==p.getCodGrupo()){
                 flag=false;
                 return true;
             }
@@ -360,7 +419,6 @@ void MenuOferta::loadIndex()
     }
 }
 
-
 /*Agregar*/
 void MenuOferta::on_pushButton_2_clicked()
 {
@@ -371,8 +429,7 @@ void MenuOferta::on_pushButton_2_clicked()
     bool flag(false);
     QString periodo=ui->comboBox_Periodo->currentText().toStdString().substr(6,5).c_str();
     bool fla(true);
-    Programa* auxPrograma = listainvertida.findPrograma(carrera);
-
+    Programa* auxPrograma = listainvertida.findPrograma(carrera);    
     if(auxPrograma!=nullptr){
         IndiceSecundario* auxIndSec = auxPrograma->getFirst();
 
@@ -420,6 +477,7 @@ void MenuOferta::on_pushButton_2_clicked()
                 QMessageBox::information(this, tr("::Exito::"), tr("::Oferta Creada::"));
                 AsignacionProf *asigProf = new AsignacionProf;
                 this->hide();
+                asigProf->setType(type);
                 asigProf->show();
                 this->close();
             }
@@ -441,7 +499,7 @@ void MenuOferta::on_pushButton_3_clicked()
     ui->textBrowser->clear();
     ifstream file("Oferta.txt");
     if(!file.is_open()){
-        QMessageBox::information(this, tr("::Error::"), tr("::No se pudo abrir archivo grupos:"));
+        QMessageBox::information(this, tr("::Error::"), tr("::No se pudo abrir archivo::"));
     }
 
     else{
@@ -451,11 +509,18 @@ void MenuOferta::on_pushButton_3_clicked()
             if(file.eof()){
                 break;
             }
-
-            ui->textBrowser->append(p.toQstring());
-            ui->textBrowser->append("____________________________");
-            flag=false;
-
+            QString pcode;
+            pcode=p.getCodProfesor().toStdString().substr(0,3).c_str();
+            if(type==4 and pcode==code){
+                ui->textBrowser->append(p.toQstring());
+                ui->textBrowser->append("____________________________");
+                flag=false;
+            }
+            else if(type==1 or type==2 or type ==3){
+                ui->textBrowser->append(p.toQstring());
+                ui->textBrowser->append("____________________________");
+                flag=false;
+            }
         }
         file.close();
         if(flag){
@@ -490,13 +555,19 @@ void MenuOferta::on_pushButton_4_clicked()
 
                 if(file.eof()){
                     break;
-                }
-
-                if(ui->lineEdit->text()==p.getLlave()){
-                    ui->textBrowser_2->setText(p.toQstring());
+                }                
+                QString pcode;
+                pcode=p.getCodProfesor().toStdString().substr(0,3).c_str();
+                if(type==4 and pcode==code and ui->lineEdit->text()==p.getLlave()){
+                    ui->textBrowser_2->append(p.toQstring());
+                    ui->textBrowser_2->append("____________________________");
                     flag=false;
                 }
-
+                else if((type==1 or type==2 or type==3) and ui->lineEdit->text()==p.getLlave()){
+                    ui->textBrowser_2->append(p.toQstring());
+                    ui->textBrowser_2->append("____________________________");
+                    flag=false;
+                }
             }
             file.close();
             if(flag){
@@ -561,6 +632,7 @@ void MenuOferta::on_pushButton_6_clicked()
     Oferta p;
 
     fstream file("Oferta.txt");
+    ofstream t("temp.txt");
     if(!file.is_open()){
         ui->textBrowser_4->setText("::Error al abrir el archivo::");
     }
@@ -575,17 +647,19 @@ void MenuOferta::on_pushButton_6_clicked()
 
             if(p.getLlave()==code and !ui->comboBox_Profesor_2->currentText().isEmpty()){
                 p.setCodProfesor(cProf);
-                ui->textBrowser_4->append("::Profesor Modificado::");
-                long int direccion(file.tellp());
-                direccion-=sizeof(p);
-                file.seekp(direccion,ios::beg);
-                file.write((char*)&p,sizeof(p));
                 flag=false;
+                t.write((char*)&p,sizeof(p));
                 ui->textBrowser_4->append(p.toQstring());
-                break;
+                ui->textBrowser_4->append("::Profesor Modificado::");
+            }
+            else{
+                t.write((char*)&p,sizeof(p));
             }
         }
         file.close();
+        t.close();
+        remove("Oferta.txt");
+        rename("temp.txt","Oferta.txt");
         if(flag){
             ui->textBrowser_4->setText("::No hay profesores disponibles::");
         }

@@ -133,6 +133,7 @@ void AsignacionProf::on_pushButton_clicked()
     Oferta p;
 
     fstream file("Oferta.txt");
+    ofstream t("temp.txt");
     if(!file.is_open()){
         ui->textBrowser->setText("::Error al abrir el archivo::");
     }
@@ -145,18 +146,20 @@ void AsignacionProf::on_pushButton_clicked()
             }
 
             if(p.getLlave()==code and !ui->comboBox_2->currentText().isEmpty()){
-                p.setCodProfesor(cProf);
-                ui->textBrowser->append("::Profesor Asignado::");
-                long int direccion(file.tellp());
-                direccion-=sizeof(p);
-                file.seekp(direccion,ios::beg);
-                file.write((char*)&p,sizeof(p));
                 flag=false;
+                p.setCodProfesor(cProf);
+                t.write((char*)&p,sizeof(p));
                 ui->textBrowser->append(p.toQstring());
-                break;
+                ui->textBrowser->append("::Profesor Asignado::");
+            }
+            else{
+                t.write((char*)&p,sizeof(p));
             }
         }
+        t.close();
         file.close();
+        remove("oferta.txt");
+        rename("temp.txt","Oferta.txt");
         if(flag){
             ui->textBrowser->setText("::Profesor erroneo::");
         }
@@ -169,7 +172,9 @@ void AsignacionProf::on_pushButton_clicked()
 void AsignacionProf::on_pushButton_2_clicked()
 {
     MenuOferta *mOf = new MenuOferta;
-    this->hide();;
+    this->hide();
+    mOf->setType(type);
+    mOf->setPermisos();
     mOf->show();
     this->close();
 }
@@ -209,4 +214,14 @@ void AsignacionProf::on_comboBox_activated(const QString &arg1)
             ui->textBrowser->setText("::No hay oferta registrada::");
         }
     }
+}
+
+int AsignacionProf::getType() const
+{
+    return type;
+}
+
+void AsignacionProf::setType(int value)
+{
+    type = value;
 }

@@ -23,11 +23,13 @@ public:
     explicit MenuOferta(QWidget *parent = 0);
     ~MenuOferta();
     void cargarPeriodos();
+    void setPermisos();
     void cargarGrupos();
     void cargarCarreras();
     void setProfesores();
     void setAsignatura();
     bool buscar(const QString &arg1);
+    bool buscarGrupo(const QString &arg1, const QString &arg2);
     void loadIndex();
 
 

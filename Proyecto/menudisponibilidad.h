@@ -26,6 +26,7 @@ public:
     ~MenuDisponibilidad();
     void setProfesores();
     void setCarreras();
+    void setPermisos();
     void setMaterias(int j);
     void loadIndex();
     void genera(std::string s);

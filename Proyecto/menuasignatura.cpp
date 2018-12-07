@@ -95,7 +95,27 @@ void MenuAsignatura::saveListaInvertida()
         auxindSec=auxindSec->getNext();
     }
     indSec.close();
+}
+
+void MenuAsignatura::setPermisos()
+{
+    if(perfil=="1"){
+
     }
+    else if(perfil=="2"){
+        ui->pushButton_11->hide();
+        ui->tab->setDisabled(true);
+        ui->tab_4->setDisabled(true);
+        ui->tab_5->setDisabled(true);
+        ui->tab_6->setDisabled(true);
+        ui->tab_7->setDisabled(true);
+    }
+    else if(perfil=="3"){
+
+    }
+    else if(perfil=="4"){
+    }
+}
 
 void MenuAsignatura::autoSave(){
     ofstream file("Indices.txt",ios::out);
@@ -254,10 +274,16 @@ void MenuAsignatura::timerSave()
 /*Regresar*/
 void MenuAsignatura::on_pushButton_clicked()
 {
-    autoSave();
-    MenuSU *SU = new MenuSU();
+    autoSave(); 
     this->hide();
-    SU->show();
+    if(perfil=="2"){
+        MenuCA *CA = new MenuCA();
+        CA->show();
+    }
+    else if(perfil=="1"){
+        MenuSU *SU = new MenuSU();
+        SU->show();
+    }
     this->close();
 
 }
@@ -737,4 +763,14 @@ void MenuAsignatura::on_pushButton_10_clicked()
 void MenuAsignatura::on_pushButton_11_clicked()
 {
     autoSave();
+}
+
+string MenuAsignatura::getPerfil() const
+{
+    return perfil;
+}
+
+void MenuAsignatura::setPerfil(const string &value)
+{
+    perfil = value;
 }

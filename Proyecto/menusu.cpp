@@ -98,6 +98,8 @@ void MenuSU::on_pushButton_7_clicked()
 {
     MenuAsignatura *menuGrupo = new MenuAsignatura();
     this->hide();
+    menuGrupo->setPerfil("1");
+    menuGrupo->setPermisos();
     menuGrupo->show();
     this->close();
 }

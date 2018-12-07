@@ -24,12 +24,13 @@ public:
     QGridLayout *gridLayout;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
 
     void setupUi(QWidget *ProfesorMenu)
     {
         if (ProfesorMenu->objectName().isEmpty())
             ProfesorMenu->setObjectName(QStringLiteral("ProfesorMenu"));
-        ProfesorMenu->resize(209, 120);
+        ProfesorMenu->resize(263, 178);
         QIcon icon;
         icon.addFile(QStringLiteral("../icons/42912.png"), QSize(), QIcon::Normal, QIcon::Off);
         ProfesorMenu->setWindowIcon(icon);
@@ -45,8 +46,16 @@ public:
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setAutoDefault(true);
 
-        gridLayout->addWidget(pushButton_2, 1, 0, 1, 1);
+        gridLayout->addWidget(pushButton_2, 2, 0, 1, 1);
 
+        pushButton_3 = new QPushButton(ProfesorMenu);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        pushButton_3->setAutoDefault(true);
+
+        gridLayout->addWidget(pushButton_3, 1, 0, 1, 1);
+
+        QWidget::setTabOrder(pushButton, pushButton_3);
+        QWidget::setTabOrder(pushButton_3, pushButton_2);
 
         retranslateUi(ProfesorMenu);
 
@@ -58,6 +67,7 @@ public:
         ProfesorMenu->setWindowTitle(QApplication::translate("ProfesorMenu", "Profesor", nullptr));
         pushButton->setText(QApplication::translate("ProfesorMenu", "Disponibilidad", nullptr));
         pushButton_2->setText(QApplication::translate("ProfesorMenu", "Salir", nullptr));
+        pushButton_3->setText(QApplication::translate("ProfesorMenu", "Oferta", nullptr));
     } // retranslateUi
 
 };

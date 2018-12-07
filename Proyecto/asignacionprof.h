@@ -19,6 +19,9 @@ public:
     void setComboOferta();
     void setComboProfesores();
 
+    int getType() const;
+    void setType(int value);
+
 private slots:
     void on_pushButton_clicked();
 
@@ -28,6 +31,7 @@ private slots:
 
 private:
     Ui::AsignacionProf *ui;
+    int type;
 };
 
 #endif // ASIGNACIONPROF_H
